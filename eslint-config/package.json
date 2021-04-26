@@ -1,0 +1,47 @@
+{
+  "name": "@daotl/eslint-config",
+  "version": "0.0.1",
+  "description": "ESLint configs for DAOT projects",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "prettier",
+    "typescript",
+    "browser",
+    "frontend"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "prettier": "@daotl/prettier-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-style-configs.git"
+  },
+  "author": "Nex Zhu <nexzhu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daotl/web-style-configs/issues"
+  },
+  "homepage": "https://github.com/daotl/web-style-configs#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": ">= 4"
+  },
+  "peerDependencies": {
+    "@daotl/prettier-config": "^0.0.1",
+    "@typescript-eslint/eslint-plugin": ">= 4",
+    "eslint": "^7.25.0",
+    "eslint-plugin-prettier": "^3.4.0"
+  },
+  "devDependencies": {
+    "@daotl/prettier-config": "file:../prettier-config",
+    "eslint": "*",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "*"
+  }
+}

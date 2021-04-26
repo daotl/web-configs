@@ -1,0 +1,21 @@
+{
+  "name": "@daotl/prettier-config",
+  "version": "0.0.1",
+  "description": "Prettier config for DAOT projects",
+  "keywords": ["prettier"],
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-style-configs.git"
+  },
+  "author": "Nex Zhu <nexzhu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daotl/web-style-configs/issues"
+  },
+  "homepage": "https://github.com/daotl/web-style-configs#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
