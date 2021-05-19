@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint configs for DAOT projects",
   "keywords": [
     "eslint",
