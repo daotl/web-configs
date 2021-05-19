@@ -40,8 +40,6 @@
     "eslint-plugin-prettier": "^3.4.0"
   },
   "devDependencies": {
-    "@daotl/prettier-config": "file:../prettier-config",
-    "eslint": "^7.26.0",
-    "eslint-plugin-prettier": "^3.4.0"
+    "@daotl/prettier-config": "file:../prettier-config"
   }
 }
