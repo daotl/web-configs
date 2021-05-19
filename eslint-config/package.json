@@ -35,13 +35,13 @@
   "peerDependencies": {
     "@daotl/prettier-config": "^0.0.1",
     "@typescript-eslint/eslint-plugin": ">= 4",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0"
   },
   "devDependencies": {
     "@daotl/prettier-config": "file:../prettier-config",
-    "eslint": "*",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "*"
+    "eslint": "^7.26.0",
+    "eslint-plugin-prettier": "^3.4.0"
   }
 }
