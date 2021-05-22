@@ -1,8 +1,3 @@
 module.exports = {
-  extends: './index',
-  env: {
-    browser: true,
-    worker: true,
-    serviceworker: true,
-  },
+  extends: ['./browser-base', 'plugin:prettier/recommended']
 }

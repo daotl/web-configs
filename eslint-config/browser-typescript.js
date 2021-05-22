@@ -1,8 +1,3 @@
 module.exports = {
-  extends: './typescript',
-  env: {
-    browser: true,
-    worker: true,
-    serviceworker: true,
-  },
+  extends: ['./browser-base', './typescript-base', 'plugin:prettier/recommended']
 }
