@@ -1,0 +1,38 @@
+{
+  "name": "@daotl/eslint-config-vue",
+  "version": "0.0.1",
+  "description": "ESLint configs for DAOT Vue projects",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "prettier",
+    "vue",
+    "typescript",
+    "browser",
+    "frontend"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "prettier": "@daotl/prettier-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-style-configs.git"
+  },
+  "author": "Nex Zhu <nexzhu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daotl/web-style-configs/issues"
+  },
+  "homepage": "https://github.com/daotl/web-style-configs#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@daotl/eslint-config": "^0.0.3",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "eslint-plugin-vue": "^7.9.0"
+  }
+}

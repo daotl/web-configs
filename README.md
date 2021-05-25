@@ -44,6 +44,14 @@ Add the `extends` filed in your ESLint config file:
 
 Omit `/xxx` for general JavaScript projects or replace `xxx` with one of `browser`, `typescript` or `bowser-typescript`, see [Provided ESLint configs](#provided-eslint-configs).
 
+For Vue project, use:
+
+```json
+{
+  "extends": "@daotl/eslint-config-vue[/typescript]"
+}
+```
+
 ## References
 
 - [Prettier - Sharing configurations](https://prettier.io/docs/en/configuration.html#sharing-configurations)
