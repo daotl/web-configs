@@ -5,9 +5,6 @@ module.exports = {
     '@vue/typescript/recommended',
   ],
   parserOptions: {
-    ecmaFeatures: {
-      tsx: true,
-    },
     parser: '@typescript-eslint/parser',
   },
 }
