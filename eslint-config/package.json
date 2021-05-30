@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "ESLint configs for DAOT projects",
   "keywords": [
     "eslint",
@@ -30,16 +30,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@typescript-eslint/parser": ">= 4"
-  },
-  "peerDependencies": {
-    "@daotl/prettier-config": "^0.0.1",
+    "@daotl/prettier-config": "^0.1.0",
     "@typescript-eslint/eslint-plugin": ">= 4",
+    "@typescript-eslint/parser": ">= 4",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0"
-  },
-  "devDependencies": {
-    "@daotl/prettier-config": "file:../prettier-config"
   }
 }

@@ -1,8 +1,10 @@
 {
   "name": "@daotl/prettier-config",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Prettier config for DAOT projects",
-  "keywords": ["prettier"],
+  "keywords": [
+    "prettier"
+  ],
   "main": "index.js",
   "scripts": {},
   "repository": {
@@ -17,5 +19,8 @@
   "homepage": "https://github.com/daotl/web-style-configs#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "prettier": "^2.3.0"
   }
 }
