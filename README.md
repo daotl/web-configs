@@ -25,7 +25,7 @@ Or you can extend the provided Prettier config in `.prettierrc.js`:
 
 ```javascript
 module.exports = {
-  ...require("@daotl/web-style-configs/prettier"),
+  ...require("@daotl/prettier-configs"),
   // your custom options
 }
 ```
