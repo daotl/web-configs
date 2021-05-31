@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint configs for DAOT Vue projects",
   "keywords": [
     "eslint",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@daotl/eslint-config": "^0.1.0",
+    "@daotl/eslint-config": "^0.1.1",
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint-plugin-vue": "^7.10.0"
   }
