@@ -6,6 +6,20 @@
 - `@daotl/eslint-config/browser` for JavaScript projects targeting browsers
 - `@daotl/eslint-config/typescript` for general TypeScript projects
 - `@daotl/eslint-config/browser-typescript` for JavaScript projects targeting browsers
+- `@daotl/eslint-config-vue` for Vue with JavaScript
+- `@daotl/eslint-config-vue/typescript` for Vue with TypeScript
+
+## Installation
+
+ESLint config (including Prettier config):
+```shell
+npm install -D @daotl/eslint-config
+```
+
+Prettier config only:
+```shell
+npm install -D @daotl/prettier-config
+```
 
 ## Usage
 
@@ -17,7 +31,7 @@ Reference `@daotl/web-style-config/prettier` in your `package.json`:
 {
   "name": "my-cool-library",
   "version": "9000.0.1",
-  "prettier": "@daotl/web-style-config/prettier"
+  "prettier": "@daotl/prettier-config"
 }
 ```
 
