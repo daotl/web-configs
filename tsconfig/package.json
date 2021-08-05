@@ -1,0 +1,27 @@
+{
+  "name": "@daotl/tsconfig",
+  "version": "0.0.2",
+  "description": "tsconfig.json for DAOT projects",
+  "keywords": [
+    "tsconfig",
+    "typescript",
+    "node",
+    "browser",
+    "frontend",
+    "vue"
+  ],
+  "main": "node.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-style-configs.git"
+  },
+  "author": "Nex Zhu <nexzhu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daotl/web-style-configs/issues"
+  },
+  "homepage": "https://github.com/daotl/web-style-configs#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

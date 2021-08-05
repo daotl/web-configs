@@ -1,4 +1,4 @@
-# ESLint configs for DAOT projects
+# tsconfig.json and ESLint/Prettier configs for DAOT projects
 
 ## Provided ESLint configs
 
@@ -11,17 +11,37 @@
 
 ## Installation
 
+tsconfig.json:
+```shell
+npm install -D @daotl/tsconfig
+```
+
 ESLint config (including Prettier config):
 ```shell
 npm install -D @daotl/eslint-config
 ```
 
-Prettier config only:
+Prettier config without ESLint:
 ```shell
 npm install -D @daotl/prettier-config
 ```
 
 ## Usage
+
+### Using tsconfig.json
+
+Extend the provided config in `tsconfig.json`:
+
+```json
+{
+  "extends": "@daotl/tsconfig/xxx.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
+```
+
+Replace `xxx` with one of `node`, `browser` or `vue`.
 
 ### Using Prettier config
  

@@ -1,0 +1,14 @@
+// Reference: https://github.com/tsconfig/bases/blob/da0c7b1ec238f306e9cfed57d466bec76fecf65b/bases/nuxt.json
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Browser",
+  "extends": "./base.json",
+
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": [
+      "DOM",
+      "DOM.Iterable"
+    ]
+  }
+}

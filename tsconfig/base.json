@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
+
+  "compilerOptions": {
+    // Custom
+    "baseUrl": ".",
+    "module": "ESNext",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ESNext",
+    "lib": [
+      "ESNext",
+      "ESNext.AsyncIterable"
+    ],
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "incremental": true,
+
+    // Reference: https://github.com/tsconfig/bases/blob/da0c7b1ec238f306e9cfed57d466bec76fecf65b/bases/node16.json
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Reference: https://github.com/sindresorhus/tsconfig/blob/640e4bfe1172e27d59bf4d73a2c5df517cc01e1d/tsconfig.json
+    // Disabled because of https://github.com/Microsoft/TypeScript/issues/29172
+    // "outDir": "dist",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    // To provide backwards compatibility, Node.js allows you to import most CommonJS packages with a default import. This flag tells TypeScript that it's okay to use import on CommonJS modules.
+    "declaration": true,
+    "pretty": true,
+    "newLine": "lf",
+    "stripInternal": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noEmitOnError": true,
+    "useDefineForClassFields": true
+  }
+}
