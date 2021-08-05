@@ -1,6 +1,6 @@
 {
   "name": "@daotl/tsconfig",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "tsconfig.json for DAOT projects",
   "keywords": [
     "tsconfig",
