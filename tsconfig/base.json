@@ -4,11 +4,13 @@
 
   "compilerOptions": {
     // Custom
-    "baseUrl": ".",
+
     "module": "ESNext",
-    "paths": {
-      "~/*": ["src/*"]
-    },
+    // These have to be specified in project tsconfig.json
+    // "baseUrl": ".",
+    // "paths": {
+    //  "~/*": ["src/*"]
+    // },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ESNext",
