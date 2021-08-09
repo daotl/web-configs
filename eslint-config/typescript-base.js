@@ -1,3 +1,5 @@
+const base = require('./base')
+
 module.exports = {
   extends: [
     './base',
@@ -17,22 +19,9 @@ module.exports = {
       // },
     ],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        // vars: 'all', // default
-        args: 'none', // default: after-used
-      },
-    ],
+    '@typescript-eslint/no-unused-vars': base.rules['no-unused-vars'],
     quotes: 'off',
-    '@typescript-eslint/quotes': [
-      'error',
-      'single',
-      {
-        avoidEscape: true,
-        allowTemplateLiterals: false,
-      },
-    ],
+    '@typescript-eslint/quotes': base.rules.quotes,
 
     // Disable these rules for all files
     '@typescript-eslint/explicit-member-accessibility': 'off',
