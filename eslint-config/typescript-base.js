@@ -18,6 +18,7 @@ module.exports = {
       //   ignoreRestArgs: false, // default
       // },
     ],
+    '@typescript-eslint/no-inferrable-types': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': base.rules['no-unused-vars'],
     quotes: 'off',
@@ -36,7 +37,7 @@ module.exports = {
           'error',
           { accessibility: 'no-public' },
         ],
-        '@typescript-eslint/explicit-function-return-type': ['error'],
+        '@typescript-eslint/explicit-function-return-type': 'error',
       },
     },
   ],
