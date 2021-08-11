@@ -6,6 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
+  plugins: ['eslint-plugin-tsdoc'],
   rules: {
     '@typescript-eslint/array-type': [
       'error',
@@ -27,6 +28,8 @@ module.exports = {
     // Disable these rules for all files
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    
+    'tsdoc/syntax': 'warn',
   },
   overrides: [
     {
