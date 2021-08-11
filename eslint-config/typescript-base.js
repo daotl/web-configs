@@ -18,7 +18,7 @@ module.exports = {
       //   ignoreRestArgs: false, // default
       // },
     ],
-    '@typescript-eslint/no-inferrable-types': 'warn',
+    '@typescript-eslint/no-inferrable-types': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': base.rules['no-unused-vars'],
     quotes: 'off',
