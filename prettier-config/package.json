@@ -1,6 +1,6 @@
 {
   "name": "@daotl/prettier-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Prettier config for DAOT projects",
   "keywords": [
     "prettier"
@@ -21,6 +21,6 @@
     "access": "public"
   },
   "dependencies": {
-    "prettier": "^2.3.0"
+    "prettier": "^2.4.1"
   }
 }
