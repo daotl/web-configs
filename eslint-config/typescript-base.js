@@ -28,7 +28,7 @@ module.exports = {
     // Disable these rules for all files
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    
+
     'tsdoc/syntax': 'warn',
   },
   overrides: [
