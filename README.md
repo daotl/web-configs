@@ -90,3 +90,7 @@ For Vue project, use:
 
 - [Prettier - Sharing configurations](https://prettier.io/docs/en/configuration.html#sharing-configurations)
 - [ESLint - Shareable Configs](https://eslint.org/docs/developer-guide/shareable-configs)
+
+## License
+
+[MIT](LICENSE) © DAOT Labs.
