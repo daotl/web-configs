@@ -5,8 +5,14 @@ module.exports = {
     './base',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:import/typescript',
   ],
   plugins: ['eslint-plugin-tsdoc'],
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
   rules: {
     '@typescript-eslint/array-type': [
       'error',
