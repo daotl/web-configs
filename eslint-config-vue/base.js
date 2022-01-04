@@ -1,5 +1,8 @@
 module.exports = {
   extends: ['@daotl/eslint-config/browser-base', 'plugin:vue/vue3-recommended'],
+  settings: {
+    'import/extensions': ['.js', '.jsx', 'vue'],
+  },
   env: {
     node: true,
   },
