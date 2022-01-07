@@ -10,4 +10,14 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
+  overrides: [
+    {
+      files: ['**/*.vue'],
+      rules: {
+        // Disable for Vue <script setup>
+        'no-undef': 'off',
+        '@typescript-eslint/unbound-method': 'off',
+      },
+    },
+  ],
 }

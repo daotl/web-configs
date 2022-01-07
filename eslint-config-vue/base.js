@@ -15,4 +15,7 @@ module.exports = {
     },
     extraFileExtensions: ['.vue'],
   },
+  rules: {
+    'vue/multi-word-component-names': 'off',
+  },
 }
