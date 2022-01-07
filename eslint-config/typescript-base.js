@@ -14,6 +14,8 @@ module.exports = {
     },
   },
   rules: {
+    // TypeScript already checks this: https://stackoverflow.com/a/67018836
+    'no-undef': 'off',
     '@typescript-eslint/array-type': [
       'error',
       // { default: 'array', readonly: 'array' }, // default
