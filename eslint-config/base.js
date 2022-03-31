@@ -18,7 +18,6 @@ module.exports = {
     },
   },
   rules: {
-    'no-duplicate-imports': 'error',
     'no-unused-vars': [
       'error',
       {
