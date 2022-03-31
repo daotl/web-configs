@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config-vue",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "ESLint configs for DAOT Vue projects",
   "keywords": [
     "eslint",
@@ -31,12 +31,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@daotl/eslint-config": "^0.2.4",
-    "@daotl/prettier-config": "^0.1.2",
+    "@daotl/eslint-config": "^0.2.6",
+    "@daotl/prettier-config": "^0.1.3",
     "@vue/eslint-config-typescript": "^10.0.0",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.2.0"
+    "eslint-plugin-vue": "^8.5.0"
   }
 }
