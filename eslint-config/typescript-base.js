@@ -1,7 +1,7 @@
-const tsOverride = require('./tsOverride')
+const tsOverrides = require('./tsOverrides')
 const finalOverrides = require('./finalOverrides')
 
 module.exports = {
   extends: ['./base'],
-  overrides: [tsOverride, ...finalOverrides],
+  overrides: [tsOverrides.general, tsOverrides.typeChecking, ...finalOverrides],
 }

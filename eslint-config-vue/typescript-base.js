@@ -1,4 +1,4 @@
-const tsOverride = require('@daotl/eslint-config/tsOverride')
+const tsOverrides = require('@daotl/eslint-config/tsOverrides')
 
 const base = require('./base')
 const vueOverrides = require('./vueOverrides')
@@ -14,8 +14,12 @@ module.exports = {
   },
   overrides: [
     {
-      ...tsOverride,
-      files: [...tsOverride.files, '*.vue', '*.mdx'],
+      ...tsOverrides.general,
+      files: [...tsOverrides.general.files, '*.vue'],
+    },
+    {
+      ...tsOverrides.typeChecking,
+      files: [...tsOverrides.typeChecking.files, '*.vue'],
     },
     ...vueOverrides,
   ],

@@ -1,9 +1,9 @@
-module.exports = {
-  files: ['*.ts', '*.tsx'],
+// Theses also works for .vue, .mdx, etc.
+exports.general = {
+  files: ['*.ts', '*.tsx', '*.mdx'],
   extends: [
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   plugins: ['eslint-plugin-tsdoc'],
   parser: '@typescript-eslint/parser',
@@ -147,11 +147,6 @@ module.exports = {
     // '@typescript-eslint/no-throw-literal': 'error',
     // 'no-implied-eval': 'off',
     // '@typescript-eslint/no-implied-eval': 'error',
-    'dot-notation': 'off',
-    '@typescript-eslint/dot-notation': [
-      'error',
-      { allowIndexSignaturePropertyAccess: true },
-    ],
 
     // off
     // '@typescript-eslint/naming-convention': 'off',
@@ -195,5 +190,18 @@ module.exports = {
     '@typescript-eslint/no-inferrable-types': 'off',
 
     'tsdoc/syntax': 'warn',
+  },
+}
+
+// There works for .vue but not .mdx
+exports.typeChecking = {
+  files: ['*.ts', '*.tsx'],
+  extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
+  rules: {
+    'dot-notation': 'off',
+    '@typescript-eslint/dot-notation': [
+      'error',
+      { allowIndexSignaturePropertyAccess: true },
+    ],
   },
 }
