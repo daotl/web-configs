@@ -143,8 +143,11 @@ module.exports = {
     // '@typescript-eslint/no-throw-literal': 'error',
     // 'no-implied-eval': 'off',
     // '@typescript-eslint/no-implied-eval': 'error',
-    // 'dot-notation': 'off',
-    // '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
+    'dot-notation': 'off',
+    '@typescript-eslint/dot-notation': [
+      'error',
+      { allowIndexSignaturePropertyAccess: true },
+    ],
 
     // off
     // '@typescript-eslint/naming-convention': 'off',
