@@ -30,6 +30,15 @@ module.exports = {
       },
     ],
     'no-void': ['error', { allowAsStatement: true }],
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: [
+          // For Vite virtual module
+          '^virtual:',
+        ],
+      },
+    ],
     'import/order': 'off',
     // Preferred over 'import/order`
     // See: https://github.com/lydell/eslint-plugin-simple-import-sort#how-is-this-rule-different-from-importorder
