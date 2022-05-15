@@ -6,6 +6,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   plugins: ['eslint-plugin-tsdoc'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    extraFileExtensions: ['.mdx'],
+  },
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'] },
