@@ -1,23 +1,22 @@
+const tsOverride = require('@daotl/eslint-config/tsOverride')
+
+const base = require('./base')
+const vueOverrides = require('./vueOverrides')
+
 module.exports = {
   extends: [
     '@daotl/eslint-config/typescript-base',
-    './base',
     '@vue/typescript/recommended',
+    './base',
   ],
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', 'vue'],
-  },
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
+    'import/extensions': [...base.settings['import/extensions'], '.ts', '.tsx'],
   },
   overrides: [
     {
-      files: ['**/*.vue'],
-      rules: {
-        // Disable for Vue <script setup>
-        'no-undef': 'off',
-        '@typescript-eslint/unbound-method': 'off',
-      },
+      ...tsOverride,
+      files: [...tsOverride.files, '*.vue', '*.mdx'],
     },
+    ...vueOverrides,
   ],
 }

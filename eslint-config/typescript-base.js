@@ -1,55 +1,7 @@
-const base = require('./base')
+const tsOverride = require('./tsOverride')
+const finalOverrides = require('./finalOverrides')
 
 module.exports = {
-  extends: [
-    './base',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:import/typescript',
-  ],
-  plugins: ['eslint-plugin-tsdoc'],
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
-  },
-  rules: {
-    // TypeScript already checks this: https://stackoverflow.com/a/67018836
-    'no-undef': 'off',
-    '@typescript-eslint/array-type': [
-      'error',
-      // { default: 'array', readonly: 'array' }, // default
-    ],
-    '@typescript-eslint/no-explicit-any': [
-      'error',
-      // {
-      //   fixToUnknown: true, // default
-      //   ignoreRestArgs: false, // default
-      // },
-    ],
-    '@typescript-eslint/no-inferrable-types': 'off',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': base.rules['no-unused-vars'],
-    quotes: 'off',
-    '@typescript-eslint/quotes': base.rules.quotes,
-
-    // Disable these rules for all files
-    '@typescript-eslint/explicit-member-accessibility': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-
-    'tsdoc/syntax': 'warn',
-  },
-  overrides: [
-    {
-      // Enable these rule specifically for TypeScript files
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-member-accessibility': [
-          'error',
-          { accessibility: 'no-public' },
-        ],
-        '@typescript-eslint/explicit-function-return-type': 'error',
-      },
-    },
-  ],
+  extends: ['./base'],
+  overrides: [tsOverride, ...finalOverrides],
 }

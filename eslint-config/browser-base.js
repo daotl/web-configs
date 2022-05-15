@@ -1,5 +1,5 @@
 module.exports = {
-  extends: './base',
+  extends: ['./base'],
   env: {
     browser: true,
     worker: true,

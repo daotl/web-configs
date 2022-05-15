@@ -45,7 +45,7 @@ Replace `xxx` with one of `node`, `browser` or `vue`.
 
 ### Using Prettier config
  
-Reference `@daotl/web-style-config/prettier` in your `package.json`:
+Reference `@daotl/web-config/prettier` in your `package.json`:
 
 ```json
 {

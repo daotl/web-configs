@@ -1,7 +1,3 @@
 module.exports = {
-  extends: [
-    './browser-base',
-    './typescript-base',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['./browser-typescript-base', 'plugin:prettier/recommended'],
 }

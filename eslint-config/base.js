@@ -1,15 +1,14 @@
+const finalOverrides = require('./finalOverrides')
+
 module.exports = {
   root: true,
-  extends: ['eslint:recommended', 'plugin:import/recommended'],
-  plugins: ['simple-import-sort', 'import'],
+  extends: ['@antfu/basic'],
+  plugins: ['simple-import-sort'],
   settings: {
     'import/resolver': {
       webpack: {},
     },
     'import/internal-regex': '^~/',
-  },
-  env: {
-    es2021: true,
   },
   parserOptions: {
     sourceType: 'module',
@@ -17,7 +16,11 @@ module.exports = {
       impliedStrict: true,
     },
   },
+  overrides: finalOverrides,
+
   rules: {
+    'antfu/if-newline': 'off',
+    curly: ['error', 'all'],
     'no-unused-vars': [
       'error',
       {
@@ -26,15 +29,8 @@ module.exports = {
         args: 'none', // default: after-used
       },
     ],
-    'prefer-const': 'error',
-    quotes: [
-      'error',
-      'single',
-      {
-        avoidEscape: true,
-        allowTemplateLiterals: false,
-      },
-    ],
+    'no-void': ['error', { allowAsStatement: true }],
+    'import/order': 'off',
     // Preferred over 'import/order`
     // See: https://github.com/lydell/eslint-plugin-simple-import-sort#how-is-this-rule-different-from-importorder
     'simple-import-sort/imports': 'error',

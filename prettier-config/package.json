@@ -9,14 +9,14 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daotl/web-style-configs.git"
+    "url": "git+https://github.com/daotl/web-configs.git"
   },
-  "author": "Nex Zhu <nexzhu@gmail.com>",
+  "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/daotl/web-style-configs/issues"
+    "url": "https://github.com/daotl/web-configs/issues"
   },
-  "homepage": "https://github.com/daotl/web-style-configs#readme",
+  "homepage": "https://github.com/daotl/web-configs#readme",
   "publishConfig": {
     "access": "public"
   },
