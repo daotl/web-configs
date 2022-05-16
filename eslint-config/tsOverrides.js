@@ -171,6 +171,7 @@ exports.general = {
       'error',
       {
         allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+        allowedNames: [],
       },
     ],
 

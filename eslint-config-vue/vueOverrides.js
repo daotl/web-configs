@@ -1,5 +1,11 @@
 const antfu = require('@antfu/eslint-config-vue')
 
+const tsOverrides = require('@daotl/eslint-config/tsOverrides')
+
+const tsExplicitFunctionReturnType =
+  tsOverrides.general.rules['@typescript-eslint/explicit-function-return-type']
+const tsExplicitFunctionReturnTypeConf = tsExplicitFunctionReturnType[1] || {}
+
 module.exports = [
   {
     files: ['*.vue'],
@@ -18,6 +24,19 @@ module.exports = [
   {
     files: ['*.vue', '*.jsx', '*.tsx'],
     rules: antfu.rules,
+  },
+  {
+    files: ['*.stories.js', '*.stories.ts'],
+    '@typescript-eslint/explicit-function-return-type': [
+      tsExplicitFunctionReturnType[0],
+      {
+        ...tsExplicitFunctionReturnTypeConf,
+        allowedNames: [
+          ...(tsExplicitFunctionReturnTypeConf.allowedNames || []),
+          'setup',
+        ],
+      },
+    ],
   },
   {
     files: ['*.mdx'],
