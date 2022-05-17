@@ -48,6 +48,16 @@ module.exports = (typescript) => [
     extends: ['plugin:mdx/recommended'],
   },
 
+  // Custom TS rules need to override once more at the end
+  ...(typescript
+    ? // Set only "files" and "rules" fields
+      tsOverrides.map((o) => ({
+        files: o.files,
+        excludedFiles: o.excludedFiles,
+        rules: o.rules,
+      }))
+    : []),
+
   // Storybook specific rules
   {
     files: [
@@ -69,16 +79,6 @@ module.exports = (typescript) => [
       ],
     },
   },
-
-  // Custom TS rules need to override once more at the end
-  ...(typescript
-    ? // Set only "files" and "rules" fields
-      tsOverrides.map((o) => ({
-        files: o.files,
-        excludedFiles: o.excludedFiles,
-        rules: o.rules,
-      }))
-    : []),
 
   // These suffix also matches more broad '*.js' and '*.ts', so need to be overridden last
   ...finalOverrides,
