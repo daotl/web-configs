@@ -1,6 +1,12 @@
-// Theses also works for .vue, .mdx, etc.
-exports.general = {
-  files: ['*.ts', '*.tsx', '*.mdx'],
+/**
+ * Theses also works for .vue, .mdx, etc.
+ * @constructor
+ * @param {string[]} extraExtensions - ['.mdx', '.vue']
+ */
+exports.general = (extraExtensions = []) => ({
+  files: ['*.ts', '*.tsx', '*.d.ts'].concat(
+    extraExtensions.map((ext) => `*${ext}`),
+  ),
   extends: [
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
@@ -8,11 +14,15 @@ exports.general = {
   plugins: ['eslint-plugin-tsdoc'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    extraFileExtensions: ['.mdx'],
+    extraFileExtensions: extraExtensions,
   },
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'] },
+      node: {
+        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'].concat(
+          extraExtensions,
+        ),
+      },
       typescript: {
         // https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
       },
@@ -192,11 +202,17 @@ exports.general = {
 
     'tsdoc/syntax': 'warn',
   },
-}
+})
 
-// There works for .vue but not .mdx
-exports.typeChecking = {
-  files: ['*.ts', '*.tsx'],
+/**
+ * Theese works for .vue but not .mdx
+ * @constructor
+ * @param {string[]} extraExtensions - ['.mdx', '.vue']
+ */
+exports.typeChecking = (extraExtensions = []) => ({
+  files: ['*.ts', '*.tsx', '.d.ts'].concat(
+    extraExtensions.map((ext) => `*${ext}`),
+  ),
   extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
   rules: {
     'dot-notation': 'off',
@@ -205,4 +221,4 @@ exports.typeChecking = {
       { allowIndexSignaturePropertyAccess: true },
     ],
   },
-}
+})

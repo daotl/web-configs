@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "0.3.6",
+  "version": "0.3.15",
   "packageManager": "pnpm@7.0.0",
   "description": "ESLint configs for DAOT projects",
   "prettier": "@daotl/prettier-config",
