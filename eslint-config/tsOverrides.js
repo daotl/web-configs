@@ -2,32 +2,42 @@
  * Theses also works for .vue, .mdx, etc.
  * @constructor
  * @param {string[]} extraExtensions - ['.mdx', '.vue']
+ * @param {string[]} only includes { files: [], rules: {} }, for resetting rules
  */
-exports.general = (extraExtensions = []) => ({
+exports.general = (extraExtensions = [], rulesOnly = false) => ({
   files: ['*.ts', '*.tsx', '*.d.ts'].concat(
     extraExtensions.map((ext) => `*${ext}`),
   ),
-  extends: [
-    'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
-  ],
-  plugins: ['eslint-plugin-tsdoc'],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    extraFileExtensions: extraExtensions,
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'].concat(
-          extraExtensions,
-        ),
-      },
-      typescript: {
-        // https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
-      },
-    },
-  },
+  ...(rulesOnly
+    ? {}
+    : {
+        extends: [
+          'plugin:import/typescript',
+          'plugin:@typescript-eslint/recommended',
+        ],
+        plugins: ['eslint-plugin-tsdoc'],
+        parser: '@typescript-eslint/parser',
+        parserOptions: {
+          extraFileExtensions: extraExtensions,
+        },
+        settings: {
+          'import/resolver': {
+            node: {
+              extensions: [
+                '.js',
+                '.jsx',
+                '.mjs',
+                '.ts',
+                '.tsx',
+                '.d.ts',
+              ].concat(extraExtensions),
+            },
+            typescript: {
+              // https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
+            },
+          },
+        },
+      }),
   rules: {
     /* Below from @antfu/eslint-config-ts/index.js */
     // https://github.com/antfu/eslint-config/blob/d463449db4e1e77bc4acad5064554198309a2125/packages/typescript/index.js
@@ -208,12 +218,19 @@ exports.general = (extraExtensions = []) => ({
  * Theese works for .vue but not .mdx
  * @constructor
  * @param {string[]} extraExtensions - ['.mdx', '.vue']
+ * @param {string[]} only includes { files: [], rules: {} }, for resetting rules
  */
-exports.typeChecking = (extraExtensions = []) => ({
+exports.typeChecking = (extraExtensions = [], rulesOnly = false) => ({
   files: ['*.ts', '*.tsx', '.d.ts'].concat(
     extraExtensions.map((ext) => `*${ext}`),
   ),
-  extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
+  ...(rulesOnly
+    ? {}
+    : {
+        extends: [
+          'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        ],
+      }),
   rules: {
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': [
