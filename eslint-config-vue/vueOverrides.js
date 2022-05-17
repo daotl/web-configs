@@ -14,11 +14,6 @@ module.exports = (typescript) => [
   ...(typescript ? tsOverrides : []),
 
   {
-    files: ['*.mdx'],
-    extends: ['plugin:mdx/recommended'],
-  },
-
-  {
     files: [
       '*.vue',
       '*.js',
@@ -45,6 +40,12 @@ module.exports = (typescript) => [
       // Disabled for <script setup lang="ts">
       '@typescript-eslint/unbound-method': 'off',
     },
+  },
+
+  // MDX cannot use "vue-eslint-parser", so override here
+  {
+    files: ['*.mdx'],
+    extends: ['plugin:mdx/recommended'],
   },
 
   // Storybook specific rules
