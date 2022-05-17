@@ -18,7 +18,9 @@ module.exports = (typescript) =>
       files: ['*.vue', '*.js', '*.jsx', '*.mdx'].concat(
         typescript ? ['*.ts', '*.tsx', '*.d.ts'] : [],
       ),
-      extends: ['plugin:vue/vue3-recommended'],
+      extends: ['plugin:vue/vue3-recommended'].concat(
+        typescript ? ['@vue/typescript/recommended'] : [],
+      ),
       parser: 'vue-eslint-parser',
       parserOptions: {
         ...(typescript ? { parser: '@typescript-eslint/parser' } : {}),
