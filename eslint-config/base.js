@@ -1,5 +1,3 @@
-const finalOverrides = require('./finalOverrides')
-
 module.exports = {
   root: true,
   extends: ['@antfu/basic'],
@@ -16,11 +14,8 @@ module.exports = {
       impliedStrict: true,
     },
   },
-  overrides: finalOverrides,
-
   rules: {
     'antfu/if-newline': 'off',
-    curly: ['error', 'all'],
     'no-unused-vars': [
       'error',
       {

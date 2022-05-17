@@ -1,6 +1,5 @@
 const antfu = require('@antfu/eslint-config-vue')
 const genTsOverrides = require('@daotl/eslint-config/tsOverrides')
-const finalOverrides = require('@daotl/eslint-config/finalOverrides')
 
 const tsOverrides = genTsOverrides(['.vue', '.mdx'])
 
@@ -79,7 +78,4 @@ module.exports = (typescript) => [
       ],
     },
   },
-
-  // These suffix also matches more broad '*.js' and '*.ts', so need to be overridden last
-  ...finalOverrides,
 ]

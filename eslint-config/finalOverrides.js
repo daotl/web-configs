@@ -1,6 +1,15 @@
-// These suffix also matches more broad '*.js' and '*.ts', so need to be overridden last
-// From: https://github.com/antfu/eslint-config/blob/d463449db4e1e77bc4acad5064554198309a2125/packages/basic/index.js
 module.exports = [
+  // Override Prettier rules
+  // See: https://nicedoc.io/prettier/eslint-config-prettier#special-rules
+  {
+    files: ['*'],
+    rules: {
+      curly: ['error', 'all'],
+    },
+  },
+
+  // These suffix also matches more broad '*.js' and '*.ts', so need to be overridden last
+  // From: https://github.com/antfu/eslint-config/blob/d463449db4e1e77bc4acad5064554198309a2125/packages/basic/index.js
   {
     files: ['*.d.ts'],
     rules: {
