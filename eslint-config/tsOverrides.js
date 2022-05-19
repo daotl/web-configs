@@ -176,9 +176,19 @@ module.exports = (extraExtensions = []) => [
       // '@typescript-eslint/no-namespace': 'off',
 
       /* Above from @antfu/eslint-config-ts/index.js */
+
+      '@typescript-eslint/consistent-type-assertions': [
+        'error',
+        {
+          assertionStyle: 'as',
+          objectLiteralTypeAssertions: 'allow-as-parameter',
+        },
+      ],
       '@typescript-eslint/explicit-member-accessibility': [
         'error',
-        { accessibility: 'no-public' },
+        {
+          accessibility: 'no-public',
+        },
       ],
       '@typescript-eslint/explicit-function-return-type': [
         'error',

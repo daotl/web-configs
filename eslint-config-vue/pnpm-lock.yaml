@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config-vue': ^0.23.1
-  '@daotl/eslint-config': ^0.3.23
+  '@daotl/eslint-config': ^0.3.25
   '@daotl/prettier-config': ^0.1.3
   '@vue/eslint-config-typescript': ^10.0.0
   eslint: ^8.15.0
@@ -17,7 +17,7 @@ specifiers:
 
 dependencies:
   '@antfu/eslint-config-vue': 0.23.1_hcfsmds2fshutdssjqluwm76uu
-  '@daotl/eslint-config': 0.3.23_hyv6belxf3rh7cc72kovhqmnru
+  '@daotl/eslint-config': 0.3.25_hyv6belxf3rh7cc72kovhqmnru
   '@daotl/prettier-config': 0.1.3
   '@vue/eslint-config-typescript': 10.0.0_p4if3q7l2moozcc73o6tbvomjq
   eslint: 8.15.0
@@ -350,8 +350,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@daotl/eslint-config/0.3.23_hyv6belxf3rh7cc72kovhqmnru:
-    resolution: {integrity: sha512-OfKw5ZXPhMIwtXPHSaBw4v8V18yEJamgcUCiI41p6p665Mq1JAAwuBjBlKNJowLAaUHi+97zXM5E1J1ILjqVrw==}
+  /@daotl/eslint-config/0.3.25_hyv6belxf3rh7cc72kovhqmnru:
+    resolution: {integrity: sha512-yxe2Jo3p583AeywjHxCAfGBTz7cqvD+iJ6e9Klm2A4onNG05u6fRncdbd9SHC5/EHCr+X0gc9Rjrf8pfcd6lrg==}
     peerDependencies:
       eslint: '>=8.8.0'
       prettier: '>=2.0.0'
