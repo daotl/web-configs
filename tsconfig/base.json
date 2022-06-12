@@ -19,7 +19,7 @@
     "stripInternal": true,
     "allowJs": true,
     "incremental": true,
-    
+
     /* Strict Type-Checking Options */
     "strict": true,                              /* Enable all strict type-checking options. */
     "noImplicitAny": true,                       /* Raise error on expressions and declarations with an implied 'any' type. */
@@ -39,7 +39,7 @@
     "noUncheckedIndexedAccess": true,            /* Include 'undefined' in index signature results */
     "noImplicitOverride": true,                  /* Ensure overriding members in derived classes are marked with an 'override' modifier. */
     "noPropertyAccessFromIndexSignature": true,  /* Require undeclared properties from index signatures to use element accesses. */
-    
+
     /* Module Resolution Options */
     "moduleResolution": "node",                  /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     // Following path related configs are disabled because of https://github.com/Microsoft/TypeScript/issues/29172
