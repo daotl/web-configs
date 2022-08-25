@@ -7,9 +7,16 @@ module.exports = [
       curly: ['error', 'all'],
     },
   },
+  // Conflict with eslint-plugin-yml - yml/quotes
+  {
+    files: ['*.yml', '*.yaml'],
+    rules: {
+      'prettier/prettier': 'off',
+    },
+  },
 
   // These suffix also matches more broad '*.js' and '*.ts', so need to be overridden last
-  // From: https://github.com/antfu/eslint-config/blob/d463449db4e1e77bc4acad5064554198309a2125/packages/basic/index.js
+  // From: https://github.com/antfu/eslint-config/blob/b34da44baf49180b94b2518e2a07db66410bcbce/packages/basic/index.js
   {
     files: ['*.d.ts'],
     rules: {
