@@ -1,7 +1,7 @@
 {
   "name": "@daotl/eslint-config-vue",
-  "version": "0.3.25",
-  "packageManager": "pnpm@7.0.0",
+  "version": "0.3.26",
+  "packageManager": "pnpm@7.9.0",
   "description": "ESLint configs for DAOT Vue projects",
   "prettier": "@daotl/prettier-config",
   "keywords": [
@@ -33,20 +33,20 @@
     "access": "public"
   },
   "dependencies": {
-    "@antfu/eslint-config-vue": "^0.23.1",
-    "@daotl/eslint-config": "^0.3.25",
+    "@antfu/eslint-config-vue": "^0.26.1",
+    "@daotl/eslint-config": "^0.3.26",
     "@daotl/prettier-config": "^0.1.3",
-    "@vue/eslint-config-typescript": "^10.0.0",
-    "eslint": "^8.15.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-mdx": "^1.17.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.7.1"
+    "eslint-plugin-mdx": "^2.0.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.4.0"
   },
   "devDependencies": {
-    "pnpm": "^7.1.0",
-    "prettier": "^2.6.2",
-    "typescript": "^4.6.4",
-    "webpack": "^5.72.1"
+    "pnpm": "^7.9.5",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0"
   }
 }
