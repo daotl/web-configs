@@ -231,7 +231,7 @@ module.exports = (extraExtensions = []) => [
         { allowIndexSignaturePropertyAccess: true },
       ],
       // TS strict rules
-      '@typescript-eslint/prefer-return-this-type': 'off',
+      '@typescript-eslint/prefer-return-this-type': 'error',
     },
   },
 ]
