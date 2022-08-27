@@ -213,9 +213,6 @@ module.exports = (extraExtensions = []) => [
       ],
       '@typescript-eslint/no-inferrable-types': 'off',
 
-      // TS strict rules
-      '@typescript-eslint/prefer-return-this-type': 'error',
-
       'tsdoc/syntax': 'warn',
     },
   },
@@ -233,6 +230,8 @@ module.exports = (extraExtensions = []) => [
         'error',
         { allowIndexSignaturePropertyAccess: true },
       ],
+      // TS strict rules
+      '@typescript-eslint/prefer-return-this-type': 'off',
     },
   },
 ]
