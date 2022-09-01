@@ -47,7 +47,9 @@ module.exports = (extraExtensions = []) => [
         'error',
         { prefer: 'type-imports', disallowTypeAnnotations: false },
       ],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+      // Sometimes using `type x = {}` is necessary
+      // Issue with interface: https://stackoverflow.com/questions/63617344/how-to-satisfy-the-constraint-of-recordstring-unknown-with-interface
+      // '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
       '@typescript-eslint/prefer-ts-expect-error': 'error',
 

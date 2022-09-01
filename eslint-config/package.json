@@ -1,9 +1,19 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "0.3.29",
+  "version": "0.3.30",
   "packageManager": "pnpm@7.9.0",
   "description": "ESLint configs for DAOT projects",
   "prettier": "@daotl/prettier-config",
+  "author": "Nex Zhu <hitnexup@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/daotl/web-configs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-configs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daotl/web-configs/issues"
+  },
   "keywords": [
     "eslint",
     "eslintconfig",
@@ -12,22 +22,12 @@
     "browser",
     "frontend"
   ],
-  "license": "MIT",
-  "author": "Nex Zhu <hitnexup@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/daotl/web-configs.git"
-  },
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --config=index.js",
     "lint:fix": "eslint --fix . --config=index.js",
     "test": "eslint . --config=typescript.js"
   },
-  "bugs": {
-    "url": "https://github.com/daotl/web-configs/issues"
-  },
-  "homepage": "https://github.com/daotl/web-configs#readme",
   "publishConfig": {
     "access": "public"
   },
