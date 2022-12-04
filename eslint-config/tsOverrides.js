@@ -1,3 +1,5 @@
+const base = require('./base')
+
 /**
  * @param {string[]} extraExtensions - ['.mdx', '.vue']
  */
@@ -96,10 +98,7 @@ module.exports = (extraExtensions = []) => [
         },
       ],
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { argsIgnorePattern: '^_' },
-      ],
+      '@typescript-eslint/no-unused-vars': base.rules['no-unused-vars'],
       'no-redeclare': 'off',
       '@typescript-eslint/no-redeclare': 'error',
       'no-use-before-define': 'off',

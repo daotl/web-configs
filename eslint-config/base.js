@@ -21,7 +21,12 @@ module.exports = {
       {
         // vars: 'all', // default
         varsIgnorePattern: '^_',
-        args: 'none', // default: after-used
+        args: 'all', // default: after-used
+        ignoreRestSiblings: true,
+        argsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        caughtErrors: 'all',
+        caughtErrorsIgnorePattern: '^_',
       },
     ],
     'no-void': ['error', { allowAsStatement: true }],
