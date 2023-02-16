@@ -3,7 +3,6 @@
   "version": "0.3.35",
   "packageManager": "pnpm@7.18.0",
   "description": "ESLint configs for DAOT projects",
-  "prettier": "@daotl/prettier-config",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/daotl/web-configs#readme",
@@ -17,7 +16,7 @@
   "keywords": [
     "eslint",
     "eslintconfig",
-    "prettier",
+    "dprint",
     "typescript",
     "browser",
     "frontend"
@@ -32,27 +31,25 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": ">=8.8.0",
-    "prettier": ">=2.0.0"
+    "dprint": ">=0.34.5",
+    "eslint": ">=8.34.0"
   },
   "dependencies": {
     "@antfu/eslint-config-basic": "^0.35.2",
     "@antfu/eslint-config-ts": "^0.35.2",
-    "@daotl/prettier-config": "workspace:*",
+    "@phaphoso/eslint-plugin-dprint": "^0.5.2",
     "@typescript-eslint/eslint-plugin": ">=5.52.0",
     "@typescript-eslint/parser": ">=5.52.0",
-    "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tsdoc": "^0.2.17"
   },
   "devDependencies": {
+    "dprint": "^0.34.5",
     "eslint": "^8.34.0",
     "pnpm": "^7.27.0",
-    "prettier": "^2.8.4",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0"
   }

@@ -1,0 +1,27 @@
+{
+  "name": "@daotl/dprint-config",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.9.0",
+  "description": "dprint config for DAOT projects",
+  "keywords": [
+    "prettier"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-configs.git"
+  },
+  "author": "Nex Zhu <hitnexup@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daotl/web-configs/issues"
+  },
+  "homepage": "https://github.com/daotl/web-configs#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "dprint": "^0.34.5"
+  }
+}

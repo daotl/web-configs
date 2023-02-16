@@ -1,17 +1,9 @@
 module.exports = [
-  // Override Prettier rules
-  // See: https://nicedoc.io/prettier/eslint-config-prettier#special-rules
+  // dprint: https://github.com/rmobis/eslint-plugin-dprint#-usage
   {
     files: ['*'],
     rules: {
-      curly: ['error', 'all'],
-    },
-  },
-  // Conflict with eslint-plugin-yml - yml/quotes
-  {
-    files: ['*.yml', '*.yaml'],
-    rules: {
-      'prettier/prettier': 'off',
+      "@phaphoso/dprint/dprint": 'error'
     },
   },
 

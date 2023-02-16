@@ -5,42 +5,44 @@ importers:
   .:
     specifiers: {}
 
+  packages/dprint-config:
+    specifiers:
+      dprint: ^0.34.5
+    devDependencies:
+      dprint: 0.34.5
+
   packages/eslint-config:
     specifiers:
       '@antfu/eslint-config-basic': ^0.35.2
       '@antfu/eslint-config-ts': ^0.35.2
-      '@daotl/prettier-config': workspace:*
+      '@phaphoso/eslint-plugin-dprint': ^0.5.2
       '@typescript-eslint/eslint-plugin': '>=5.52.0'
       '@typescript-eslint/parser': '>=5.52.0'
+      dprint: ^0.34.5
       eslint: ^8.34.0
-      eslint-config-prettier: ^8.6.0
       eslint-import-resolver-typescript: ^3.5.3
       eslint-import-resolver-webpack: ^0.13.2
       eslint-plugin-import: ^2.27.5
-      eslint-plugin-prettier: ^4.2.1
       eslint-plugin-simple-import-sort: ^10.0.0
       eslint-plugin-tsdoc: ^0.2.17
       pnpm: ^7.27.0
-      prettier: ^2.8.4
       typescript: ^4.9.5
       webpack: ^5.75.0
     dependencies:
       '@antfu/eslint-config-basic': 0.35.2_z3dgeciekhlrzyztsz7ooebu64
       '@antfu/eslint-config-ts': 0.35.2_s5mwn7m7xhkd7gc3v7ckusxacq
-      '@daotl/prettier-config': link:../prettier-config
+      '@phaphoso/eslint-plugin-dprint': 0.5.2_eslint@8.34.0
       '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
       '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
-      eslint-config-prettier: 8.6.0_eslint@8.34.0
       eslint-import-resolver-typescript: 3.5.3_mvgyw3chnqkp6sgfmmtihyjpnm
       eslint-import-resolver-webpack: 0.13.2_w42pkqsix7fbbniun6k4diz5ie
       eslint-plugin-import: 2.27.5_arwc4p7g7l3lpdvzmudz2ge5va
-      eslint-plugin-prettier: 4.2.1_u5wnrdwibbfomslmnramz52buy
       eslint-plugin-simple-import-sort: 10.0.0_eslint@8.34.0
       eslint-plugin-tsdoc: 0.2.17
     devDependencies:
+      dprint: 0.34.5
       eslint: 8.34.0
       pnpm: 7.27.0
-      prettier: 2.8.4
       typescript: 4.9.5
       webpack: 5.75.0
 
@@ -356,6 +358,19 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+
+  /@phaphoso/eslint-plugin-dprint/0.5.2_eslint@8.34.0:
+    resolution: {integrity: sha512-I86DIjCIAIKzdEf0vu0Ctqbp0cm2u1toc94ngm09PuGty58P8w+5WPpR8hm+lQm7+yxLadk/nFhiGEY2eavfYg==}
+    engines: {node: ^10.12.0 || >=12.0.0}
+    peerDependencies:
+      eslint: '>=5.16.0'
+    dependencies:
+      debug: 4.3.4
+      diff: 4.0.2
+      eslint: 8.34.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@pkgr/utils/2.3.1:
     resolution: {integrity: sha512-wfzX8kc1PMyUILA+1Z/EqoE4UCXGy0iRGMhPwdfae1+f0OXlLqCk+By+aMzgJBzR9AzS4CDizioG6Ss1gvAFJw==}
@@ -715,6 +730,15 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  /agent-base/6.0.2:
+    resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
+    engines: {node: '>= 6.0.0'}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /ajv-keywords/3.5.2_ajv@6.12.6:
     resolution: {integrity: sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==}
     peerDependencies:
@@ -828,6 +852,10 @@ packages:
       electron-to-chromium: 1.4.296
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
+
+  /buffer-crc32/0.2.13:
+    resolution: {integrity: sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=}
+    dev: true
 
   /buffer-from/1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
@@ -1020,6 +1048,11 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /diff/4.0.2:
+    resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
+    engines: {node: '>=0.3.1'}
+    dev: false
+
   /diff/5.1.0:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
     engines: {node: '>=0.3.1'}
@@ -1071,6 +1104,17 @@ packages:
       domelementtype: 2.3.0
       domhandler: 5.0.3
     dev: false
+
+  /dprint/0.34.5:
+    resolution: {integrity: sha512-uxpTCCijw0SW9evJqAzivij1CD7mSiCJp47eCOi2N0EQUj+CzjT2gWxlilSvt4WnXzmUXF6SdK7pK7mEIPPbWQ==}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      https-proxy-agent: 5.0.1
+      yauzl: 2.10.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /electron-to-chromium/1.4.296:
     resolution: {integrity: sha512-i/6Q+Y9bluDa2a0NbMvdtG5TuS/1Fr3TKK8L+7UUL9QjRS5iFJzCC3r70xjyOnLiYG8qGV4/mMpe6HuAbdJW4w==}
@@ -1882,6 +1926,12 @@ packages:
     dependencies:
       reusify: 1.0.4
 
+  /fd-slicer/1.1.0:
+    resolution: {integrity: sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=}
+    dependencies:
+      pend: 1.2.0
+    dev: true
+
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -2108,6 +2158,16 @@ packages:
       domutils: 3.0.1
       entities: 4.4.0
     dev: false
+
+  /https-proxy-agent/5.0.1:
+    resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
+    engines: {node: '>= 6'}
+    dependencies:
+      agent-base: 6.0.2
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /ignore/5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
@@ -3074,6 +3134,10 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /pend/1.2.0:
+    resolution: {integrity: sha1-elfrVQpng/kRUzH89GY9XI4AelA=}
+    dev: true
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -3806,6 +3870,13 @@ packages:
     resolution: {integrity: sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==}
     engines: {node: '>= 14'}
     dev: false
+
+  /yauzl/2.10.0:
+    resolution: {integrity: sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=}
+    dependencies:
+      buffer-crc32: 0.2.13
+      fd-slicer: 1.1.0
+    dev: true
 
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
