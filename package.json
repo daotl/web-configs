@@ -6,10 +6,11 @@
   "author": "Nex <hitnexup@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint": "rome format . && rome check .",
+    "lint:fix": "rome format --write . && rome check --apply-suggested .",
+    "postinstall": "ln -s packages/rome-config/dist/rome.json rome.json"
   },
   "devDependencies": {
-    "eslint": "^8.34.0"
+    "rome": "^11.0.0"
   }
 }

@@ -1,4 +1,11 @@
-# tsconfig.json and ESLint/dprint configs for DAOT projects
+# Config for web development tools for DAOT projects
+
+This monorepo includes packages for:
+- `tsconfig.json` for TypeScript
+- `rome.json` for Roam
+-  ESLint configs
+- `dprint.json` for dprint
+- Prettier config
 
 ## Provided ESLint configs
 

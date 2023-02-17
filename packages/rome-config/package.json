@@ -1,0 +1,30 @@
+{
+  "name": "@daotl/rome-config",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.27.0",
+  "description": "Rome config for DAOT projects",
+  "author": "Nex Zhu <hitnexup@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/daotl/web-configs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daotl/web-configs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daotl/web-configs/issues"
+  },
+  "keywords": [
+    "rome"
+  ],
+  "main": "dist/rome.json",
+  "scripts": {
+    "prepublish": "node index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jsonc-parser": "^3.2.0",
+    "rome": "^11.0.0"
+  }
+}
