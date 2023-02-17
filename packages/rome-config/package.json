@@ -18,7 +18,8 @@
   ],
   "main": "dist/rome.json",
   "scripts": {
-    "prepublish": "node index.js"
+    "prepublish": "node index.js",
+    "postinstall": "node bin/copy.js"
   },
   "publishConfig": {
     "access": "public"
