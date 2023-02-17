@@ -1,0 +1,2 @@
+packages/tsconfig/*.json
+!packages/tsconfig/package.json

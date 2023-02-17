@@ -14,7 +14,7 @@
     "url": "https://github.com/daotl/web-configs/issues"
   },
   "keywords": [
-    "prettier"
+    "dprint"
   ],
   "main": "dist/dprint.json",
   "scripts": {

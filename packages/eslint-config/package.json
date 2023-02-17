@@ -48,7 +48,6 @@
   "devDependencies": {
     "dprint": "^0.34.5",
     "eslint": "^8.34.0",
-    "pnpm": "^7.27.0",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0"
   }

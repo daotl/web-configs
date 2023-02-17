@@ -3,18 +3,24 @@ lockfileVersion: 5.4
 importers:
 
   .:
-    specifiers: {}
+    specifiers:
+      eslint: ^8.34.0
+    devDependencies:
+      eslint: 8.34.0
 
   packages/dprint-config:
     specifiers:
       dprint: ^0.34.5
+      jsonc-parser: ^3.2.0
     devDependencies:
       dprint: 0.34.5
+      jsonc-parser: 3.2.0
 
   packages/eslint-config:
     specifiers:
       '@antfu/eslint-config-basic': ^0.35.2
       '@antfu/eslint-config-ts': ^0.35.2
+      '@daotl/dprint-config': workspace:*
       '@phaphoso/eslint-plugin-dprint': ^0.5.2
       '@typescript-eslint/eslint-plugin': '>=5.52.0'
       '@typescript-eslint/parser': '>=5.52.0'
@@ -25,12 +31,12 @@ importers:
       eslint-plugin-import: ^2.27.5
       eslint-plugin-simple-import-sort: ^10.0.0
       eslint-plugin-tsdoc: ^0.2.17
-      pnpm: ^7.27.0
       typescript: ^4.9.5
       webpack: ^5.75.0
     dependencies:
       '@antfu/eslint-config-basic': 0.35.2_z3dgeciekhlrzyztsz7ooebu64
       '@antfu/eslint-config-ts': 0.35.2_s5mwn7m7xhkd7gc3v7ckusxacq
+      '@daotl/dprint-config': link:../dprint-config
       '@phaphoso/eslint-plugin-dprint': 0.5.2_eslint@8.34.0
       '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
       '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
@@ -42,7 +48,6 @@ importers:
     devDependencies:
       dprint: 0.34.5
       eslint: 8.34.0
-      pnpm: 7.27.0
       typescript: 4.9.5
       webpack: 5.75.0
 
@@ -50,30 +55,20 @@ importers:
     specifiers:
       '@antfu/eslint-config-vue': ^0.35.2
       '@daotl/eslint-config': workspace:*
-      '@daotl/prettier-config': workspace:*
       '@vue/eslint-config-typescript': ^11.0.2
       eslint: ^8.34.0
-      eslint-config-prettier: ^8.6.0
       eslint-plugin-mdx: ^2.0.5
-      eslint-plugin-prettier: ^4.2.1
       eslint-plugin-vue: ^9.9.0
-      pnpm: ^7.27.0
-      prettier: ^2.8.4
       typescript: ^4.9.5
       webpack: ^5.75.0
     dependencies:
       '@antfu/eslint-config-vue': 0.35.2_7kw3g6rralp5ps6mg3uyzz6azm
       '@daotl/eslint-config': link:../eslint-config
-      '@daotl/prettier-config': link:../prettier-config
       '@vue/eslint-config-typescript': 11.0.2_h2vevngznqqjsppuxlkfy3oipa
       eslint: 8.34.0
-      eslint-config-prettier: 8.6.0_eslint@8.34.0
       eslint-plugin-mdx: 2.0.5_eslint@8.34.0
-      eslint-plugin-prettier: 4.2.1_u5wnrdwibbfomslmnramz52buy
       eslint-plugin-vue: 9.9.0_eslint@8.34.0
     devDependencies:
-      pnpm: 7.27.0
-      prettier: 2.8.4
       typescript: 4.9.5
       webpack: 5.75.0
 
@@ -1225,15 +1220,6 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  /eslint-config-prettier/8.6.0_eslint@8.34.0:
-    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
-    hasBin: true
-    peerDependencies:
-      eslint: '>=7.0.0'
-    dependencies:
-      eslint: 8.34.0
-    dev: false
-
   /eslint-import-resolver-node/0.3.7:
     resolution: {integrity: sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==}
     dependencies:
@@ -1623,23 +1609,6 @@ packages:
     engines: {node: '>=5.0.0'}
     dev: false
 
-  /eslint-plugin-prettier/4.2.1_u5wnrdwibbfomslmnramz52buy:
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      eslint: '>=7.28.0'
-      eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
-    peerDependenciesMeta:
-      eslint-config-prettier:
-        optional: true
-    dependencies:
-      eslint: 8.34.0
-      eslint-config-prettier: 8.6.0_eslint@8.34.0
-      prettier: 2.8.4
-      prettier-linter-helpers: 1.0.0
-    dev: false
-
   /eslint-plugin-promise/6.1.1_eslint@8.34.0:
     resolution: {integrity: sha512-tjqWDwVZQo7UIPMeDReOpUgHCmCiH+ePnVT+5zVapL0uuHnegBUs2smM13CzOs2Xb5+MHMRFTs9v24yjba4Oig==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1899,10 +1868,6 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
-
-  /fast-diff/1.2.0:
-    resolution: {integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==}
-    dev: false
 
   /fast-glob/3.2.12:
     resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
@@ -2464,6 +2429,10 @@ packages:
       espree: 9.4.1
       semver: 7.3.8
     dev: false
+
+  /jsonc-parser/3.2.0:
+    resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+    dev: true
 
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
@@ -3151,12 +3120,6 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /pnpm/7.27.0:
-    resolution: {integrity: sha512-nvxGrxgu3oYyw7zg7DdotEnqp9r/c0/iLZHr6QewJPEkVFGSPdsxrm0HFKBkOqwCInoutFzz/mtGx+pbYV8UCw==}
-    engines: {node: '>=14.6'}
-    hasBin: true
-    dev: true
-
   /postcss-selector-parser/6.0.11:
     resolution: {integrity: sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==}
     engines: {node: '>=4'}
@@ -3169,17 +3132,11 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  /prettier-linter-helpers/1.0.0:
-    resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      fast-diff: 1.2.0
-    dev: false
-
   /prettier/2.8.4:
     resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    dev: false
 
   /punycode/2.3.0:
     resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}

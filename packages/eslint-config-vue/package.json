@@ -1,7 +1,7 @@
 {
   "name": "@daotl/eslint-config-vue",
   "version": "0.3.35",
-  "packageManager": "pnpm@7.18.0",
+  "packageManager": "pnpm@7.27.0",
   "description": "ESLint configs for DAOT Vue projects",
   "prettier": "@daotl/prettier-config",
   "author": "Nex Zhu <hitnexup@gmail.com>",
@@ -25,8 +25,6 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
     "test": "eslint . --config typescript.js"
   },
   "publishConfig": {
@@ -44,8 +42,6 @@
     "eslint-plugin-vue": "^9.9.0"
   },
   "devDependencies": {
-    "pnpm": "^7.27.0",
-    "prettier": "^2.8.4",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0"
   }
