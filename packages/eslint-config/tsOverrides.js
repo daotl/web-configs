@@ -7,7 +7,7 @@ module.exports = (extraExtensions = []) => [
   // Theses also works for .vue, .mdx, etc.
   {
     files: ['*.ts', '*.tsx', '*.d.ts'].concat(
-      extraExtensions.map((ext) => `*${ext}`),
+      extraExtensions.map(ext => `*${ext}`),
     ),
     extends: [
       'plugin:import/typescript',
@@ -21,9 +21,10 @@ module.exports = (extraExtensions = []) => [
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'].concat(
-            extraExtensions,
-          ),
+          extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.mts', '.d.ts']
+            .concat(
+              extraExtensions,
+            ),
         },
         typescript: {
           // https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
@@ -221,7 +222,7 @@ module.exports = (extraExtensions = []) => [
   // These works for .vue, but don't not .mdx or code in .md files
   {
     files: ['*.ts', '*.tsx', '.d.ts'].concat(
-      extraExtensions.map((ext) => `*${ext}`),
+      extraExtensions.map(ext => `*${ext}`),
     ),
     excludedFiles: ['*.mdx', '**/*.md/*.{ts,tsx,d.ts}'],
     extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],

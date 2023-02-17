@@ -1,4 +1,4 @@
 module.exports = {
-  extends: ['./browser-typescript-base', 'plugin:@phaphoso/dprint/disable-conflict-rules'],
+  extends: ['./browser-typescript-base'],
   overrides: require('./finalOverrides'),
 }

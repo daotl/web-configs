@@ -1,4 +1,4 @@
 module.exports = {
-  extends: ['./base', 'plugin:@phaphoso/dprint/disable-conflict-rules'],
+  extends: ['./base'],
   overrides: require('./finalOverrides'),
 }

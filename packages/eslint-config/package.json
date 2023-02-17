@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "0.3.35",
+  "version": "1.0.0-alpha",
   "packageManager": "pnpm@7.27.0",
   "description": "ESLint configs for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
