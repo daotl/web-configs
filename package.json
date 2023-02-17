@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "rome format . && rome check .",
     "lint:fix": "rome format --write . && rome check --apply-suggested .",
-    "postinstall": "ln -s packages/rome-config/dist/rome.json rome.json"
+    "postinstall": "ln -s packages/rome-config/dist/rome.json rome.json || true"
   },
   "devDependencies": {
     "rome": "^11.0.0"
