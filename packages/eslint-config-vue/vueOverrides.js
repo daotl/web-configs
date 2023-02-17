@@ -7,7 +7,7 @@ const tsExplicitFunctionReturnType =
   tsOverrides[0].rules['@typescript-eslint/explicit-function-return-type']
 const tsExplicitFunctionReturnTypeConf = tsExplicitFunctionReturnType[1] || {}
 
-module.exports = (typescript) => [
+module.exports = typescript => [
   // TS config comes first, so Vue's parser settings and rules can override
   // But custom TS rules need to override once more at the end
   ...(typescript ? tsOverrides : []),
@@ -50,7 +50,7 @@ module.exports = (typescript) => [
   // Custom TS rules need to override once more at the end
   ...(typescript
     ? // Set only "files" and "rules" fields
-      tsOverrides.map((o) => ({
+      tsOverrides.map(o => ({
         files: o.files,
         excludedFiles: o.excludedFiles,
         rules: o.rules,

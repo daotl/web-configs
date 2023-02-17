@@ -1,9 +1,8 @@
 {
   "name": "@daotl/eslint-config-vue",
-  "version": "0.3.35",
+  "version": "1.0.0-alpha",
   "packageManager": "pnpm@7.27.0",
   "description": "ESLint configs for DAOT Vue projects",
-  "prettier": "@daotl/prettier-config",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/daotl/web-configs#readme",
@@ -17,7 +16,7 @@
   "keywords": [
     "eslint",
     "eslintconfig",
-    "prettier",
+    "dprint",
     "vue",
     "typescript",
     "browser",
@@ -33,12 +32,9 @@
   "dependencies": {
     "@antfu/eslint-config-vue": "^0.35.2",
     "@daotl/eslint-config": "workspace:*",
-    "@daotl/prettier-config": "workspace:*",
     "@vue/eslint-config-typescript": "^11.0.2",
     "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-mdx": "^2.0.5",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.9.0"
   },
   "devDependencies": {

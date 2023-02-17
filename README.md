@@ -1,4 +1,4 @@
-# tsconfig.json and ESLint/Prettier configs for DAOT projects
+# tsconfig.json and ESLint/dprint configs for DAOT projects
 
 ## Provided ESLint configs
 
@@ -16,12 +16,17 @@ tsconfig.json:
 npm install -D @daotl/tsconfig
 ```
 
-ESLint config (including Prettier config):
+ESLint config (including dprint config):
 ```shell
 npm install -D @daotl/eslint-config
 ```
 
-Prettier config without ESLint:
+dprint config (using without ESLint):
+```shell
+npm instasll -D @daotl/dprint-config
+```
+
+Prettier config (deprecated):
 ```shell
 npm install -D @daotl/prettier-config
 ```
@@ -43,30 +48,7 @@ Extend the provided config in `tsconfig.json`:
 
 Replace `xxx` with one of `node`, `browser` or `vue`.
 
-### Using Prettier config
- 
-Reference `@daotl/web-config/prettier` in your `package.json`:
-
-```json
-{
-  "name": "my-cool-library",
-  "version": "9000.0.1",
-  "prettier": "@daotl/prettier-config"
-}
-```
-
-Or you can extend the provided Prettier config in `.prettierrc.js`:
-
-```javascript
-module.exports = {
-  ...require("@daotl/prettier-configs"),
-  // your custom options
-}
-```
-
-### Using ESLint config 
-
-> **NOTES**: This requires [Using Prettier config](#using-prettier-config) first.
+### Using ESLint config
 
 Add the `extends` filed in your ESLint config file:
 
@@ -83,6 +65,48 @@ For Vue project, use:
 ```json
 {
   "extends": "@daotl/eslint-config-vue[/typescript]"
+}
+```
+
+
+### Using dprint config without ESLint
+
+Add the `extends` filed in your `dprint.json` config file:
+
+```json
+{
+  "extends": ["./node_modules/@daotl/dprint-config/dist/dprint.json"]
+}
+```
+
+Omit `/xxx` for general JavaScript projects or replace `xxx` with one of `browser`, `typescript` or `bowser-typescript`, see [Provided ESLint configs](#provided-eslint-configs).
+
+For Vue project, use:
+
+```json
+{
+  "extends": "@daotl/eslint-config-vue[/typescript]"
+}
+```
+
+### Using Prettier config (deprecated)
+
+Reference `@daotl/web-config/prettier` in your `package.json`:
+
+```json
+{
+  "name": "my-cool-library",
+  "version": "9000.0.1",
+  "prettier": "@daotl/prettier-config"
+}
+```
+
+Or you can extend the provided Prettier config in `.prettierrc.js`:
+
+```javascript
+module.exports = {
+  ...require("@daotl/prettier-configs"),
+  // your custom options
 }
 ```
 
