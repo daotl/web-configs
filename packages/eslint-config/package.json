@@ -1,7 +1,7 @@
 {
   "name": "@daotl/eslint-config",
   "version": "0.3.35",
-  "packageManager": "pnpm@7.18.0",
+  "packageManager": "pnpm@7.27.0",
   "description": "ESLint configs for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
@@ -23,8 +23,6 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --config=index.js",
-    "lint:fix": "eslint --fix . --config=index.js",
     "test": "eslint . --config=typescript.js"
   },
   "publishConfig": {
@@ -37,6 +35,7 @@
   "dependencies": {
     "@antfu/eslint-config-basic": "^0.35.2",
     "@antfu/eslint-config-ts": "^0.35.2",
+    "@daotl/dprint-config": "workspace:*",
     "@phaphoso/eslint-plugin-dprint": "^0.5.2",
     "@typescript-eslint/eslint-plugin": ">=5.52.0",
     "@typescript-eslint/parser": ">=5.52.0",
