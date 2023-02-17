@@ -4,7 +4,7 @@
   "typescript": {
     // This applies to both JavaScript & TypeScript
     "lineWidth": 80,
-    // "indentWidth": 2,
+    "indentWidth": 2,
     // "useTabs": false,
     // Uses automatic semi-colon insertion. Only adds a semi-colon at the start of some expression statements when necessary.
     "semiColons": "asi",
@@ -13,7 +13,7 @@
     // "newLineKind": "lf",
     // "useBraces": "whenNotSingleLine",
     // "bracePosition": "sameLineUnlessHanging",
-    "singleBodyPosition": "nextLine",
+    // "singleBodyPosition": "nextLine",
     // "nextControlFlowPosition": "sameLine",
     // "trailingCommas": "onlyMultiLine",
     // "operatorPosition": "nextLine",
@@ -79,7 +79,10 @@
     "**/Dockerfile",
     "**/*.Dockerfile"
   ],
-  "excludes": ["**/node_modules", "**/*-lock.json"],
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
   "plugins": [
     // You may specify any urls or file paths here that you wish.
     "https://plugins.dprint.dev/typescript-0.83.0.wasm",
