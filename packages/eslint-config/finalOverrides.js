@@ -3,8 +3,17 @@ const config = require('@daotl/dprint-config')
 module.exports = [
   // dprint: https://github.com/rmobis/eslint-plugin-dprint#-usage
   {
-    files: ['*.js', '*.cjs', '*.mjs', '*.jsx', 'ts', '*.cts', '*.mts', '*.tsx'],
-    extends: ['plugin:@phaphoso/dprint/recommended'],
+    files: [
+      '*.js',
+      '*.cjs',
+      '*.mjs',
+      '*.jsx',
+      '*.ts',
+      '*.cts',
+      '*.mts',
+      '*.tsx',
+    ],
+    extends: ['plugin:@phaphoso/dprint/disable-conflict-rules'],
     rules: {
       '@phaphoso/dprint/dprint': [
         'error',

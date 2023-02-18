@@ -1,4 +1,4 @@
 module.exports = {
-  extends: ['./typescript-base', 'plugin:@phaphoso/dprint/recommended'],
+  extends: ['./typescript-base'],
   overrides: require('@daotl/eslint-config/finalOverrides'),
 }
