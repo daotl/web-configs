@@ -3,10 +3,6 @@ const genTsOverrides = require('@daotl/eslint-config/tsOverrides')
 
 const tsOverrides = genTsOverrides(['.vue', '.mdx'])
 
-const tsExplicitFunctionReturnType =
-  tsOverrides[0].rules['@typescript-eslint/explicit-function-return-type']
-const tsExplicitFunctionReturnTypeConf = tsExplicitFunctionReturnType[1] || {}
-
 module.exports = (typescript) => [
   // TS config comes first, so Vue's parser settings and rules can override
   // But custom TS rules need to override once more at the end
@@ -65,17 +61,5 @@ module.exports = (typescript) => [
       '*.stories.mdx',
       ...(typescript ? ['*.stories.ts', '*.stories.tsx'] : []),
     ],
-    rules: {
-      '@typescript-eslint/explicit-function-return-type': [
-        tsExplicitFunctionReturnType[0],
-        {
-          ...tsExplicitFunctionReturnTypeConf,
-          allowedNames: [
-            ...(tsExplicitFunctionReturnTypeConf.allowedNames || []),
-            'setup',
-          ],
-        },
-      ],
-    },
   },
 ]
