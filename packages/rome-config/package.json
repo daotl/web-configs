@@ -1,6 +1,6 @@
 {
   "name": "@daotl/rome-config",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "packageManager": "pnpm@7.27.0",
   "description": "Rome config for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
