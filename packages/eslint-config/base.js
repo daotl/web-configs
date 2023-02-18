@@ -39,13 +39,14 @@ module.exports = {
         ],
       },
     ],
-    // Import sorting with "simple-import-sort"
-    // Preferred over 'import/order`
+
+    // Import sorting with dprint
+    // Preferred over "simple-import-sort" over "import/order"
     // See: https://github.com/lydell/eslint-plugin-simple-import-sort#how-is-this-rule-different-from-importorder
     'sort-imports': 'off',
     'import/order': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    // 'simple-import-sort/imports': 'error',
+    // 'simple-import-sort/exports': 'error',
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',

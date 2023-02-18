@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "packageManager": "pnpm@7.27.0",
   "description": "ESLint configs for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
@@ -42,7 +42,6 @@
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tsdoc": "^0.2.17"
   },
   "devDependencies": {

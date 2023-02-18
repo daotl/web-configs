@@ -1,6 +1,6 @@
 {
   "name": "@daotl/eslint-config-vue",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "packageManager": "pnpm@7.27.0",
   "description": "ESLint configs for DAOT Vue projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
