@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('node:fs')
 
 const cwd = process.cwd()

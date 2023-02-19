@@ -1,6 +1,6 @@
 {
   "name": "@daotl/rome-config",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-alpha.1",
   "packageManager": "pnpm@7.27.0",
   "description": "Rome config for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
@@ -17,9 +17,12 @@
     "rome"
   ],
   "main": "dist/rome.json",
+  "bin": {
+    "gen-rome-json": "./bin/gen.js"
+  },
   "scripts": {
-    "prepublish": "node index.js",
-    "postinstall": "node bin/copy.js"
+    "prepublish": "node gen.js",
+    "postinstall": "node bin/postinstall.js"
   },
   "publishConfig": {
     "access": "public"
@@ -27,5 +30,8 @@
   "devDependencies": {
     "jsonc-parser": "^3.2.0",
     "rome": "^11.0.0"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.0"
   }
 }
