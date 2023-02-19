@@ -1,6 +1,6 @@
 {
   "name": "@daotl/rome-config",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "packageManager": "pnpm@7.27.0",
   "description": "Rome config for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
@@ -32,6 +32,7 @@
     "rome": "^11.0.0"
   },
   "dependencies": {
-    "deepmerge": "^4.3.0"
+    "deepmerge": "^4.3.0",
+    "json-stable-stringify": "^1.0.2"
   }
 }

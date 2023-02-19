@@ -18,9 +18,14 @@ This monorepo includes packages for:
 
 ## Installation
 
-tsconfig.json:
+`tsconfig.json`:
 ```shell
 npm install -D @daotl/tsconfig
+```
+
+Rome config (`rome.json`):
+```
+npm install -D @daotl/rome-config
 ```
 
 ESLint config (including dprint config):
@@ -54,6 +59,24 @@ Extend the provided config in `tsconfig.json`:
 ```
 
 Replace `xxx` with one of `node`, `browser` or `vue`.
+
+### Using Rome config
+
+Run in the project root:
+
+```sh
+npx gen-rome-json
+```
+
+If you want to extend the default config (e.x., for adding `files.ignore` field), create a `rome.ext.json` in the project root like this before running the above step:
+
+```json
+{
+  "files": {
+    "ignore": ["dist"]
+  }
+}
+```
 
 ### Using ESLint config
 
