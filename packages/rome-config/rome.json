@@ -1,10 +1,11 @@
 {
   "$schema": "./node_modules/rome/configuration_schema.json",
   "files": {
-    "ignore": ["src/rome.json"]
+    "ignore": [
+      "src/rome.json"
+    ]
   },
   "linter": {
-    "enabled": true,
     "rules": {
       "recommended": true,
       "a11y": {
@@ -34,49 +35,6 @@
       },
       "suspicious": {
         "recommended": true
-      },
-      "nursery": {
-        "noDuplicateCase": "error",
-        "noDuplicateClassMembers": "error",
-        "noDuplicateJsxProps": "error",
-        "noDuplicateObjectKeys": "error",
-        "noExtraLabels": "error",
-        "noExtraNonNullAssertion": "error",
-        "noExtraSemicolons": "error",
-        "noGlobalObjectCalls": "error",
-        "noHeaderScope": "error",
-        "noInvalidConstructorSuper": "error",
-        "noNonNullAssertion": "error",
-        "noNoninteractiveElementToInteractiveRole": "error",
-        "noPrecisionLoss": "error",
-        "noRedundantAlt": "error",
-        "noRedundantUseStrict": "error",
-        "noSelfCompare": "error",
-        "noSetterReturn": "error",
-        "noStringCaseMismatch": "error",
-        "noUnreachableSuper": "error",
-        "noUnsafeFinally": "error",
-        "noUnusedLabels": "error",
-        "noUselessRename": "error",
-        "noUselessSwitchCase": "error",
-        "noVar": "error",
-        "noVoidTypeReturn": "error",
-        "noWith": "error",
-        "useAriaPropTypes": "error",
-        "useAriaPropsForRole": "error",
-        "useCamelCase": "error",
-        "useConst": "error",
-        "useDefaultParameterLast": "error",
-        "useExhaustiveDependencies": "error",
-        "useExponentiationOperator": "error",
-        "useIframeTitle": "error",
-        "useIsNan": "error",
-        "useMediaCaption": "error",
-        "useNumericLiterals": "error",
-        "useValidAriaProps": "error",
-        "useValidLang": "error",
-        "useYield": "error",
-        "useHookAtTopLevel": "error"
       }
     }
   },

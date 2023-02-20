@@ -23,12 +23,14 @@ const path = require('node:path')
 const cwd = process.cwd()
 let srcRequire = '../dist/rome.json'
 let srcCwd = path.resolve(__dirname, srcRequire)
+let argSrc
 if ((argSrc = process.argv[2]) && fs.existsSync(argSrc)) {
   srcCwd = argSrc
   srcRequire = path.resolve(cwd, srcCwd)
 }
 
 let target = `${cwd}/rome.json`
+let argTarget
 if ((argTarget = process.argv[3]) && fs.existsSync(argTarget)) {
   target = argTarget.endsWith('rome.json')
     ? argTarget

@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/rome/configuration_schema.json",
   "linter": {
-    "enabled": true,
     "rules": {
       "recommended": true,
       // Rules focused on preventing accessibility problems.
@@ -55,145 +54,143 @@
       // Rules that detect code that is likely to be incorrect or useless.
       "suspicious": {
         "recommended": true
-      },
-      // New rules that are still under development. Nursery rules require explicit opt-in via configuration because they may still have bugs or performance problems. Nursery rules get promoted to other groups once they become stable or may be removed. Rules that belong to this group are not subject to semantic version.
-      "nursery": {
-        // Disallow duplicate case labels.
-        // https://docs.rome.tools/lint/rules/noduplicatecase/
-        "noDuplicateCase": "error",
-        // Disallow duplicate class members.
-        // https://docs.rome.tools/lint/rules/noduplicateclassmembers/
-        "noDuplicateClassMembers": "error",
-        // Prevents JSX properties to be assigned multiple times.
-        // https://docs.rome.tools/lint/rules/noduplicatejsxprops/
-        "noDuplicateJsxProps": "error",
-        // Prevents object literals having more than one property declaration for the same name.
-        // https://docs.rome.tools/lint/rules/noduplicateobjectkeys/
-        "noDuplicateObjectKeys": "error",
-        // Disallow unnecessary labels.
-        // https://docs.rome.tools/lint/rules/noextralabels/
-        "noExtraLabels": "error",
-        // Prevents the wrong usage of the non-null assertion operator (!) in TypeScript files.
-        // https://docs.rome.tools/lint/rules/noextranonnullassertion/
-        "noExtraNonNullAssertion": "error",
-        // https://docs.rome.tools/lint/rules/noextrasemicolons/
-        "noExtraSemicolons": "error",
-        // Disallow calling global object properties as functions
-        // https://docs.rome.tools/lint/rules/noglobalobjectcalls/
-        "noGlobalObjectCalls": "error",
-        // Check that the scope attribute is only used on th elements.
-        // https://docs.rome.tools/lint/rules/noheaderscope/
-        "noHeaderScope": "error",
-        // Prevents the incorrect use of super() inside classes. It also checks whether a call super() is missing from classes that extends other constructors.
-        // https://docs.rome.tools/lint/rules/noinvalidconstructorsuper/
-        "noInvalidConstructorSuper": "error",
-        // Disallow non-null assertions using the ! postfix operator.
-        // https://docs.rome.tools/lint/rules/nononnullassertion/
-        "noNonNullAssertion": "error",
-        // Enforce that interactive ARIA roles are not assigned to non-interactive HTML elements.
-        // https://docs.rome.tools/lint/rules/nononinteractiveelementtointeractiverole/
-        "noNoninteractiveElementToInteractiveRole": "error",
-        // Disallow literal numbers that lose precision
-        // https://docs.rome.tools/lint/rules/noprecisionloss/
-        "noPrecisionLoss": "error",
-        // Enforce img alt prop does not contain the word “image”, “picture”, or “photo”.
-        // https://docs.rome.tools/lint/rules/noredundantalt/
-        "noRedundantAlt": "error",
-        // Prevents from having redundant “use strict”.
-        // https://docs.rome.tools/lint/rules/noredundantusestrict/
-        "noRedundantUseStrict": "error",
-        // a = a
-        // https://docs.rome.tools/lint/rules/noselfassignment/
-        // TODO: Not supported yet
-        // "noSelfAssignment": "error",
-        // Disallow comparisons where both sides are exactly the same.
-        // https://docs.rome.tools/lint/rules/noselfcompare/
-        "noSelfCompare": "error",
-        // Disallow returning a value from a setter
-        // https://docs.rome.tools/lint/rules/nosetterreturn/
-        "noSetterReturn": "error",
-        // Disallow comparison of expressions modifying the string case with non-compliant value.
-        // https://docs.rome.tools/lint/rules/nostringcasemismatch/
-        "noStringCaseMismatch": "error",
-        // Disallow lexical declarations in switch clauses.
-        // https://docs.rome.tools/lint/rules/noswitchdeclarations/
-        // TODO: Not supported yet
-        // "noSwitchDeclarations": "error",
-        // Ensures the super() constructor is called exactly once on every code path in a class constructor before this is accessed if the class has a superclass
-        // https://docs.rome.tools/lint/rules/nounreachablesuper/
-        "noUnreachableSuper": "error",
-        // Disallow control flow statements in finally blocks.
-        // https://docs.rome.tools/lint/rules/nounsafefinally/
-        "noUnsafeFinally": "error",
-        // Disallow the use of optional chaining in contexts where the undefined value is not allowed.
-        // https://docs.rome.tools/lint/rules/nounsafeoptionalchaining/
-        // TODO: Not supported yet
-        "noUnsafeOptionalChaining": "error",
-        // Disallow unused labels.
-        // https://docs.rome.tools/lint/rules/nounusedlabels/
-        "noUnusedLabels": "error",
-        // Disallow renaming import, export, and destructured assignments to the same name.
-        // https://docs.rome.tools/lint/rules/nouselessrename/
-        "noUselessRename": "error",
-        // Disallow useless case in switch statements.
-        // https://docs.rome.tools/lint/rules/nouselessswitchcase/
-        "noUselessSwitchCase": "error",
-        // Disallow the use of var
-        // https://docs.rome.tools/lint/rules/novar/
-        "noVar": "error",
-        // Disallow returning a value from a function with the return type ‘void’
-        // https://docs.rome.tools/lint/rules/novoidtypereturn/
-        "noVoidTypeReturn": "error",
-        // Disallow with statements in non-strict contexts.
-        // https://docs.rome.tools/lint/rules/nowith/
-        "noWith": "error",
-        // Enforce that ARIA state and property values are valid.
-        // https://docs.rome.tools/lint/rules/validariaattributes/
-        "useAriaPropTypes": "error",
-        // Enforce that elements with ARIA roles must have all required ARIA attributes for that role.
-        // https://docs.rome.tools/lint/rules/validariarole/
-        "useAriaPropsForRole": "error",
-        // Enforce camel case naming convention.
-        // https://docs.rome.tools/lint/rules/usecamelcase/
-        "useCamelCase": "error",
-        // Require const declarations for variables that are never reassigned after declared.
-        // https://docs.rome.tools/lint/rules/useconst/
-        "useConst": "error",
-        // Enforce default function parameters and optional parameters to be last.
-        // https://docs.rome.tools/lint/rules/usedefaultparameterlast/
-        "useDefaultParameterLast": "error",
-        // Enforce all dependencies are correctly specified.
-        // https://docs.rome.tools/lint/rules/usedependencies/
-        "useExhaustiveDependencies": "error",
-        // Disallow the use of Math.pow in favor of the ** operator.
-        // https://docs.rome.tools/lint/rules/useexponentiationoperator/
-        "useExponentiationOperator": "error",
-        // Enforces the usage of the attribute title for the element iframe
-        // https://docs.rome.tools/lint/rules/useiframetitle/
-        "useIframeTitle": "error",
-        // Require calls to isNaN() when checking for NaN.
-        // https://docs.rome.tools/lint/rules/useisnan/
-        "useIsNan": "error",
-        // Enforces that audio and video elements must have a track for captions.
-        // https://docs.rome.tools/lint/rules/usemediacaption/
-        "useMediaCaption": "error",
-        // Disallow parseInt() and Number.parseInt() in favor of binary, octal, and hexadecimal literals
-        // https://docs.rome.tools/lint/rules/usenumericliterals/
-        "useNumericLiterals": "error",
-        // Ensures that ARIA properties aria-* are all valid.
-        // https://docs.rome.tools/lint/rules/usevalidariaprops/
-        "useValidAriaProps": "error",
-        // Ensure that the attribute passed to the lang attribute is a correct ISO language and/or country.
-        // https://docs.rome.tools/lint/rules/usevalidlang/
-        "useValidLang": "error",
-        // Require generator functions to contain yield.
-        // https://docs.rome.tools/lint/rules/useyield/
-        "useYield": "error",
-        /* React */
-        // Enforce that all React hooks are being called from the Top Level component functions.
-        // https://docs.rome.tools/lint/rules/usehookattoplevel/
-        "useHookAtTopLevel": "error"
       }
+      // New rules that are still under development. Nursery rules require explicit opt-in via configuration because they may still have bugs or performance problems. Nursery rules get promoted to other groups once they become stable or may be removed. Rules that belong to this group are not subject to semantic version.
+      // TODO: Not supported yet
+      // "nursery": {
+      //   // Disallow duplicate case labels.
+      //   // https://docs.rome.tools/lint/rules/noduplicatecase/
+      //   // "noDuplicateCase": "error",
+      //   // Disallow duplicate class members.
+      //   // https://docs.rome.tools/lint/rules/noduplicateclassmembers/
+      //   "noDuplicateClassMembers": "error",
+      //   // Prevents JSX properties to be assigned multiple times.
+      //   // https://docs.rome.tools/lint/rules/noduplicatejsxprops/
+      //   "noDuplicateJsxProps": "error",
+      //   // Prevents object literals having more than one property declaration for the same name.
+      //   // https://docs.rome.tools/lint/rules/noduplicateobjectkeys/
+      //   "noDuplicateObjectKeys": "error",
+      //   // Disallow unnecessary labels.
+      //   // https://docs.rome.tools/lint/rules/noextralabels/
+      //   "noExtraLabels": "error",
+      //   // Prevents the wrong usage of the non-null assertion operator (!) in TypeScript files.
+      //   // https://docs.rome.tools/lint/rules/noextranonnullassertion/
+      //   "noExtraNonNullAssertion": "error",
+      //   // https://docs.rome.tools/lint/rules/noextrasemicolons/
+      //   "noExtraSemicolons": "error",
+      //   // Disallow calling global object properties as functions
+      //   // https://docs.rome.tools/lint/rules/noglobalobjectcalls/
+      //   "noGlobalObjectCalls": "error",
+      //   // Check that the scope attribute is only used on th elements.
+      //   // https://docs.rome.tools/lint/rules/noheaderscope/
+      //   "noHeaderScope": "error",
+      //   // Prevents the incorrect use of super() inside classes. It also checks whether a call super() is missing from classes that extends other constructors.
+      //   // https://docs.rome.tools/lint/rules/noinvalidconstructorsuper/
+      //   "noInvalidConstructorSuper": "error",
+      //   // Disallow non-null assertions using the ! postfix operator.
+      //   // https://docs.rome.tools/lint/rules/nononnullassertion/
+      //   "noNonNullAssertion": "error",
+      //   // Enforce that interactive ARIA roles are not assigned to non-interactive HTML elements.
+      //   // https://docs.rome.tools/lint/rules/nononinteractiveelementtointeractiverole/
+      //   "noNoninteractiveElementToInteractiveRole": "error",
+      //   // Disallow literal numbers that lose precision
+      //   // https://docs.rome.tools/lint/rules/noprecisionloss/
+      //   "noPrecisionLoss": "error",
+      //   // Enforce img alt prop does not contain the word “image”, “picture”, or “photo”.
+      //   // https://docs.rome.tools/lint/rules/noredundantalt/
+      //   "noRedundantAlt": "error",
+      //   // Prevents from having redundant “use strict”.
+      //   // https://docs.rome.tools/lint/rules/noredundantusestrict/
+      //   "noRedundantUseStrict": "error",
+      //   // a = a
+      //   // https://docs.rome.tools/lint/rules/noselfassignment/
+      //   // "noSelfAssignment": "error",
+      //   // Disallow comparisons where both sides are exactly the same.
+      //   // https://docs.rome.tools/lint/rules/noselfcompare/
+      //   "noSelfCompare": "error",
+      //   // Disallow returning a value from a setter
+      //   // https://docs.rome.tools/lint/rules/nosetterreturn/
+      //   "noSetterReturn": "error",
+      //   // Disallow comparison of expressions modifying the string case with non-compliant value.
+      //   // https://docs.rome.tools/lint/rules/nostringcasemismatch/
+      //   "noStringCaseMismatch": "error",
+      //   // Disallow lexical declarations in switch clauses.
+      //   // https://docs.rome.tools/lint/rules/noswitchdeclarations/
+      //   // "noSwitchDeclarations": "error",
+      //   // Ensures the super() constructor is called exactly once on every code path in a class constructor before this is accessed if the class has a superclass
+      //   // https://docs.rome.tools/lint/rules/nounreachablesuper/
+      //   "noUnreachableSuper": "error",
+      //   // Disallow control flow statements in finally blocks.
+      //   // https://docs.rome.tools/lint/rules/nounsafefinally/
+      //   "noUnsafeFinally": "error",
+      //   // Disallow the use of optional chaining in contexts where the undefined value is not allowed.
+      //   // https://docs.rome.tools/lint/rules/nounsafeoptionalchaining/
+      //   // "noUnsafeOptionalChaining": "error",
+      //   // Disallow unused labels.
+      //   // https://docs.rome.tools/lint/rules/nounusedlabels/
+      //   "noUnusedLabels": "error",
+      //   // Disallow renaming import, export, and destructured assignments to the same name.
+      //   // https://docs.rome.tools/lint/rules/nouselessrename/
+      //   "noUselessRename": "error",
+      //   // Disallow useless case in switch statements.
+      //   // https://docs.rome.tools/lint/rules/nouselessswitchcase/
+      //   "noUselessSwitchCase": "error",
+      //   // Disallow the use of var
+      //   // https://docs.rome.tools/lint/rules/novar/
+      //   "noVar": "error",
+      //   // Disallow returning a value from a function with the return type ‘void’
+      //   // https://docs.rome.tools/lint/rules/novoidtypereturn/
+      //   "noVoidTypeReturn": "error",
+      //   // Disallow with statements in non-strict contexts.
+      //   // https://docs.rome.tools/lint/rules/nowith/
+      //   "noWith": "error",
+      //   // Enforce that ARIA state and property values are valid.
+      //   // https://docs.rome.tools/lint/rules/validariaattributes/
+      //   "useAriaPropTypes": "error",
+      //   // Enforce that elements with ARIA roles must have all required ARIA attributes for that role.
+      //   // https://docs.rome.tools/lint/rules/validariarole/
+      //   "useAriaPropsForRole": "error",
+      //   // Enforce camel case naming convention.
+      //   // https://docs.rome.tools/lint/rules/usecamelcase/
+      //   "useCamelCase": "error",
+      //   // Require const declarations for variables that are never reassigned after declared.
+      //   // https://docs.rome.tools/lint/rules/useconst/
+      //   "useConst": "error",
+      //   // Enforce default function parameters and optional parameters to be last.
+      //   // https://docs.rome.tools/lint/rules/usedefaultparameterlast/
+      //   "useDefaultParameterLast": "error",
+      //   // Enforce all dependencies are correctly specified.
+      //   // https://docs.rome.tools/lint/rules/usedependencies/
+      //   "useExhaustiveDependencies": "error",
+      //   // Disallow the use of Math.pow in favor of the ** operator.
+      //   // https://docs.rome.tools/lint/rules/useexponentiationoperator/
+      //   "useExponentiationOperator": "error",
+      //   // Enforces the usage of the attribute title for the element iframe
+      //   // https://docs.rome.tools/lint/rules/useiframetitle/
+      //   "useIframeTitle": "error",
+      //   // Require calls to isNaN() when checking for NaN.
+      //   // https://docs.rome.tools/lint/rules/useisnan/
+      //   "useIsNan": "error",
+      //   // Enforces that audio and video elements must have a track for captions.
+      //   // https://docs.rome.tools/lint/rules/usemediacaption/
+      //   "useMediaCaption": "error",
+      //   // Disallow parseInt() and Number.parseInt() in favor of binary, octal, and hexadecimal literals
+      //   // https://docs.rome.tools/lint/rules/usenumericliterals/
+      //   "useNumericLiterals": "error",
+      //   // Ensures that ARIA properties aria-* are all valid.
+      //   // https://docs.rome.tools/lint/rules/usevalidariaprops/
+      //   "useValidAriaProps": "error",
+      //   // Ensure that the attribute passed to the lang attribute is a correct ISO language and/or country.
+      //   // https://docs.rome.tools/lint/rules/usevalidlang/
+      //   "useValidLang": "error",
+      //   // Require generator functions to contain yield.
+      //   // https://docs.rome.tools/lint/rules/useyield/
+      //   "useYield": "error",
+      //   /* React */
+      //   // Enforce that all React hooks are being called from the Top Level component functions.
+      //   // https://docs.rome.tools/lint/rules/usehookattoplevel/
+      //   "useHookAtTopLevel": "error"
+      // }
     }
   },
   "formatter": {
