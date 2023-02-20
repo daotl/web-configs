@@ -23,7 +23,9 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "eslint . --config=typescript.js"
+    "test": "eslint . --config=typescript.js",
+    "lint": "rome format . && rome check .",
+    "lint:fix": "rome format --write . && rome check --apply ."
   },
   "publishConfig": {
     "access": "public"

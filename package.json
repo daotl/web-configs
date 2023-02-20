@@ -6,11 +6,13 @@
   "author": "Nex <hitnexup@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "all": "pnpm m run",
     "lint": "rome format . && rome check .",
-    "lint:fix": "rome format --write . && rome check --apply-suggested .",
-    "postinstall": "ln -s packages/rome-config/dist/rome.json rome.json || true"
+    "lint:fix": "rome format --write . && rome check --apply .",
+    "gen-rome-json": "npx gen-rome-json packages/rome-config/dist/rome.json"
   },
   "devDependencies": {
+    "@daotl/rome-config": "workspace:*",
     "rome": "^11.0.0"
   }
 }

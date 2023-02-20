@@ -18,6 +18,8 @@
   ],
   "main": "dist/dprint.json",
   "scripts": {
+    "lint": "rome format . && rome check .",
+    "lint:fix": "rome format --write . && rome check --apply .",
     "prepublish": "node index.js"
   },
   "publishConfig": {
