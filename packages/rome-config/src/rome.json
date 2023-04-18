@@ -1,10 +1,17 @@
 {
   "$schema": "./node_modules/rome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
   "linter": {
     "rules": {
       "recommended": true,
       // Rules focused on preventing accessibility problems.
-      "a11y": { "recommended": true },
+      "a11y": {
+        "recommended": true
+      },
       // Rules that focus on inspecting complex code that could be simplified.
       "complexity": {
         "recommended": true,
@@ -23,9 +30,13 @@
         "noUnusedVariables": "error"
       },
       // Rules catching ways your code could be written to run faster, or generally be more efficient.
-      "performance": { "recommended": true },
+      "performance": {
+        "recommended": true
+      },
       // Rules that detect potential security flaws.
-      "security": { "recommended": true },
+      "security": {
+        "recommended": true
+      },
       // Rules enforcing a consistent way of writing your code.
       "style": {
         "recommended": true,
