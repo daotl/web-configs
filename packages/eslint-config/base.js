@@ -16,7 +16,8 @@ module.exports = {
   },
   rules: {
     'antfu/if-newline': 'off',
-    'no-unused-vars': [ // prefer unused-imports/no-unused-vars
+    'no-unused-vars': [
+      // prefer unused-imports/no-unused-vars
       'off',
       // {
       //   // vars: 'all', // default
@@ -29,7 +30,7 @@ module.exports = {
       //   caughtErrorsIgnorePattern: '^_',
       // },
     ],
-    'curly': ['error', 'all'],
+    curly: ['error', 'all'],
     'no-void': ['error', { allowAsStatement: true }],
     'import/no-unresolved': [
       'error',

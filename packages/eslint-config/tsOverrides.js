@@ -60,7 +60,6 @@ module.exports = (extraExtensions = []) => [
       // '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
       '@typescript-eslint/prefer-ts-expect-error': 'error',
-      '@typescript-eslint/no-unused-vars': 'off', // Prefer unused-imports/no-unused-vars
 
       // Override JS
       'no-useless-constructor': 'off',
