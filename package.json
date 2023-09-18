@@ -2,17 +2,17 @@
   "name": "@daotl/web-configs",
   "version": "0.0.0",
   "private": "true",
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@8.7.0",
   "author": "Nex <hitnexup@gmail.com>",
   "license": "MIT",
   "scripts": {
     "all": "pnpm m run",
-    "lint": "rome format . && rome check .",
-    "lint:fix": "rome format --write . && rome check --apply .",
-    "gen-rome-json": "npx gen-rome-json packages/rome-config/dist/rome.json"
+    "lint": "biome format . && biome check .",
+    "lint:fix": "biome format --write . && biome check --apply .",
+    "gen-biome-json": "npx gen-biome-json packages/biome-config/dist/biome.json"
   },
   "devDependencies": {
-    "@daotl/rome-config": "workspace:*",
-    "rome": "^12.1.3"
+    "@daotl/biome-config": "workspace:*",
+    "@biomejs/biome": "^1.2.2"
   }
 }

@@ -21,30 +21,30 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const cwd = process.cwd()
-let srcRequire = '../dist/rome.json'
+let srcRequire = '../dist/biome.json'
 let srcCwd = path.resolve(__dirname, srcRequire)
-let argSrc
-if ((argSrc = process.argv[2]) && fs.existsSync(argSrc)) {
+const argSrc = process.argv[2]
+if (argSrc && fs.existsSync(argSrc)) {
   srcCwd = argSrc
   srcRequire = path.resolve(cwd, srcCwd)
 }
 
-let target = `${cwd}/rome.json`
-let argTarget
-if ((argTarget = process.argv[3]) && fs.existsSync(argTarget)) {
-  target = argTarget.endsWith('rome.json')
+let target = `${cwd}/biome.json`
+const argTarget = process.argv[3]
+if (argTarget && fs.existsSync(argTarget)) {
+  target = argTarget.endsWith('biome.json')
     ? argTarget
     : argTarget.endsWith('/')
-    ? `${argTarget}rome.json`
-    : `${argTarget}/rome.json`
+    ? `${argTarget}biome.json`
+    : `${argTarget}/biome.json`
 }
 
-if (!fs.existsSync(`${cwd}/rome.ext.json`)) {
+if (!fs.existsSync(`${cwd}/biome.ext.json`)) {
   try {
     fs.copyFileSync(srcCwd, target)
-    console.log('"rome.json" generated to project root\n')
+    console.log('"biome.json" generated to project root\n')
   } catch (err) {
-    console.error(`Failed to generate "rome.json" to project root: ${err}\n`)
+    console.error(`Failed to generate "biome.json" to project root: ${err}\n`)
   }
   process.exit(0)
 }
@@ -53,7 +53,7 @@ const deepmerge = require('deepmerge')
 const stringify = require('json-stable-stringify')
 
 const _conf = require(srcRequire)
-const ext = require(`${cwd}/rome.ext.json`)
+const ext = require(`${cwd}/biome.ext.json`)
 const conf = deepmerge(_conf, ext)
 
 const keyOrder = (k) =>
@@ -67,7 +67,7 @@ try {
       cmp: (a, b) => keyOrder(a.key) - keyOrder(b.key),
     }),
   )
-  console.log('"rome.json" generated to project root\n')
+  console.log('"biome.json" generated to project root\n')
 } catch (err) {
-  console.error(`Failed to generate "rome.json" to project root: ${err}\n`)
+  console.error(`Failed to generate "biome.json" to project root: ${err}\n`)
 }

@@ -2,7 +2,7 @@
 
 This monorepo includes packages for:
 - `tsconfig.json` for TypeScript
-- `rome.json` for Roam
+- `biome.json` for Biome
 -  ESLint configs
 - `dprint.json` for dprint
 - Prettier config
@@ -23,9 +23,9 @@ This monorepo includes packages for:
 npm install -D @daotl/tsconfig
 ```
 
-Rome config (`rome.json`):
+Biome config (`biome.json`):
 ```
-npm install -D @daotl/rome-config
+npm install -D @daotl/biome-config
 ```
 
 ESLint config (including dprint config):
@@ -60,15 +60,15 @@ Extend the provided config in `tsconfig.json`:
 
 Replace `xxx` with one of `node`, `browser` or `vue`.
 
-### Using Rome config
+### Using Biome config
 
 Run in the project root:
 
 ```sh
-npx gen-rome-json
+npx gen-biome-json
 ```
 
-If you want to extend the default config (e.x., for adding `files.ignore` field), create a `rome.ext.json` in the project root like this before running the above step:
+If you want to extend the default config (e.x., for adding `files.ignore` field), create a `biome.ext.json` in the project root like this before running the above step:
 
 ```json
 {

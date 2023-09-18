@@ -18,8 +18,8 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "rome format . && rome check .",
-    "lint:fix": "rome format --write . && rome check --apply ."
+    "lint": "biome format . && biome check .",
+    "lint:fix": "biome format --write . && biome check --apply ."
   },
   "publishConfig": {
     "access": "public"

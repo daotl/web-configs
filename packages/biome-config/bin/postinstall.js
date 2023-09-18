@@ -7,7 +7,7 @@ if (!cwd.includes('node_modules')) {
 }
 
 const wd = `${cwd.split('node_modules')[0]}`
-exec('npx gen-rome-json', { cwd: wd }, (error, stdout, stderr) => {
+exec('npx gen-biome-json', { cwd: wd }, (error, stdout, stderr) => {
   if (error) {
     return console.error(error.message)
   }

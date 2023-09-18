@@ -1,15 +1,35 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
     devDependencies:
-      '@daotl/rome-config':
+      '@biomejs/biome':
+        specifier: ^1.2.2
+        version: 1.2.2
+      '@daotl/biome-config':
         specifier: workspace:*
-        version: link:packages/rome-config
-      rome:
-        specifier: ^12.1.3
-        version: 12.1.3
+        version: link:packages/biome-config
+
+  packages/biome-config:
+    dependencies:
+      deepmerge:
+        specifier: ^4.3.1
+        version: 4.3.1
+      json-stable-stringify:
+        specifier: ^1.0.2
+        version: 1.0.2
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.2.2
+        version: 1.2.2
+      jsonc-parser:
+        specifier: ^3.2.0
+        version: 3.2.0
 
   packages/dprint-config:
     devDependencies:
@@ -97,30 +117,43 @@ importers:
   packages/prettier-config:
     dependencies:
       prettier:
-        specifier: ^2.8.4
-        version: 2.8.4
-
-  packages/rome-config:
-    dependencies:
-      deepmerge:
-        specifier: ^4.3.1
-        version: 4.3.1
-      json-stable-stringify:
-        specifier: ^1.0.2
-        version: 1.0.2
-    devDependencies:
-      jsonc-parser:
-        specifier: ^3.2.0
-        version: 3.2.0
-      rome:
-        specifier: ^12.1.3
-        version: 12.1.3
+        specifier: ^3.0.3
+        version: 3.0.3
 
   packages/tsconfig: {}
 
 packages:
 
   /@antfu/eslint-config-basic@0.35.2(@typescript-eslint/eslint-plugin@5.52.0)(@typescript-eslint/parser@5.52.0)(eslint-import-resolver-typescript@3.5.3)(eslint-import-resolver-webpack@0.13.2)(eslint@8.34.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-2k7Ovkd8U/q0sgfjuT9KzAUV0q187yGxP7JzD2D4YifuJwL5Bh3JC49KpCv9PXMTeRUMJX2y/kOtGYPetocOug==}
+    peerDependencies:
+      eslint: '>=7.4.0'
+    dependencies:
+      eslint: 8.34.0
+      eslint-plugin-antfu: 0.35.2(eslint@8.34.0)(typescript@4.9.5)
+      eslint-plugin-eslint-comments: 3.2.0(eslint@8.34.0)
+      eslint-plugin-html: 7.1.0
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.52.0)(eslint-import-resolver-typescript@3.5.3)(eslint-import-resolver-webpack@0.13.2)(eslint@8.34.0)
+      eslint-plugin-jsonc: 2.6.0(eslint@8.34.0)
+      eslint-plugin-markdown: 3.0.0(eslint@8.34.0)
+      eslint-plugin-n: 15.6.1(eslint@8.34.0)
+      eslint-plugin-no-only-tests: 3.1.0
+      eslint-plugin-promise: 6.1.1(eslint@8.34.0)
+      eslint-plugin-unicorn: 45.0.2(eslint@8.34.0)
+      eslint-plugin-unused-imports: 2.0.0(@typescript-eslint/eslint-plugin@5.52.0)(eslint@8.34.0)
+      eslint-plugin-yml: 1.5.0(eslint@8.34.0)
+      jsonc-eslint-parser: 2.1.0
+      yaml-eslint-parser: 1.1.0
+    transitivePeerDependencies:
+      - '@typescript-eslint/eslint-plugin'
+      - '@typescript-eslint/parser'
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - supports-color
+      - typescript
+    dev: false
+
+  /@antfu/eslint-config-basic@0.35.2(@typescript-eslint/eslint-plugin@5.52.0)(@typescript-eslint/parser@5.52.0)(eslint@8.34.0)(typescript@4.9.5):
     resolution: {integrity: sha512-2k7Ovkd8U/q0sgfjuT9KzAUV0q187yGxP7JzD2D4YifuJwL5Bh3JC49KpCv9PXMTeRUMJX2y/kOtGYPetocOug==}
     peerDependencies:
       eslint: '>=7.4.0'
@@ -168,13 +201,32 @@ packages:
       - supports-color
     dev: false
 
+  /@antfu/eslint-config-ts@0.35.2(eslint@8.34.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-GiJtTCQ83L/vMkJlWWg2l0buH/LIOXl5szrsqtr8/Hl6ssjAMXnug8sDZMCqCIZtztzQCewBPx8ufp/MpzA2cQ==}
+    peerDependencies:
+      eslint: '>=7.4.0'
+      typescript: '>=3.9'
+    dependencies:
+      '@antfu/eslint-config-basic': 0.35.2(@typescript-eslint/eslint-plugin@5.52.0)(@typescript-eslint/parser@5.52.0)(eslint@8.34.0)(typescript@4.9.5)
+      '@typescript-eslint/eslint-plugin': 5.52.0(@typescript-eslint/parser@5.52.0)(eslint@8.34.0)(typescript@4.9.5)
+      '@typescript-eslint/parser': 5.52.0(eslint@8.34.0)(typescript@4.9.5)
+      eslint: 8.34.0
+      eslint-plugin-jest: 27.2.1(@typescript-eslint/eslint-plugin@5.52.0)(eslint@8.34.0)(typescript@4.9.5)
+      typescript: 4.9.5
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - jest
+      - supports-color
+    dev: false
+
   /@antfu/eslint-config-vue@0.35.2(@typescript-eslint/parser@5.52.0)(eslint@8.34.0)(typescript@4.9.5):
     resolution: {integrity: sha512-98k9D+n0bgr/9OqedAEOsflIWbXz4D92pejXqkUAtnRnB2Nq5dWrrFMJ59oJwTDKnEslpwANlgIXM11qdiTF0Q==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@antfu/eslint-config-basic': 0.35.2(@typescript-eslint/eslint-plugin@5.52.0)(@typescript-eslint/parser@5.52.0)(eslint-import-resolver-typescript@3.5.3)(eslint-import-resolver-webpack@0.13.2)(eslint@8.34.0)(typescript@4.9.5)
-      '@antfu/eslint-config-ts': 0.35.2(eslint-import-resolver-typescript@3.5.3)(eslint-import-resolver-webpack@0.13.2)(eslint@8.34.0)(typescript@4.9.5)
+      '@antfu/eslint-config-basic': 0.35.2(@typescript-eslint/eslint-plugin@5.52.0)(@typescript-eslint/parser@5.52.0)(eslint@8.34.0)(typescript@4.9.5)
+      '@antfu/eslint-config-ts': 0.35.2(eslint@8.34.0)(typescript@4.9.5)
       eslint: 8.34.0
       eslint-plugin-vue: 9.9.0(eslint@8.34.0)
       local-pkg: 0.4.3
@@ -208,6 +260,74 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
     dev: false
+
+  /@biomejs/biome@1.2.2:
+    resolution: {integrity: sha512-fXwXi56ZdaKO/N3rTmhWw41UxstoviODk+wia4WWNSlm23r8xJ/NxjaZ88scV2IsmsFHqc8rmwb2dkrStAdIEw==}
+    engines: {node: '>=14.*'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@biomejs/cli-darwin-arm64': 1.2.2
+      '@biomejs/cli-darwin-x64': 1.2.2
+      '@biomejs/cli-linux-arm64': 1.2.2
+      '@biomejs/cli-linux-x64': 1.2.2
+      '@biomejs/cli-win32-arm64': 1.2.2
+      '@biomejs/cli-win32-x64': 1.2.2
+    dev: true
+
+  /@biomejs/cli-darwin-arm64@1.2.2:
+    resolution: {integrity: sha512-Fx1IURKhoqH6wPawtKLT6wcfMSjRRcNK8+VWau0iDOjXvNtjJpSmICbU89B7Vt/gZRwPqkfDMBkFwm6V5vFTSQ==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-darwin-x64@1.2.2:
+    resolution: {integrity: sha512-JNaAFOI/ZisnmzvcFNd73geJxaFaN2L4YsWM6cgBeKyLY/ycl9C/PBTFfEmeB1c7f5XIIal8P2cj47kLJpN5Ig==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-linux-arm64@1.2.2:
+    resolution: {integrity: sha512-JHXRnfhOLx8UO/Fcyn2c5pFRri0XKqRZm2wf5oH5GSfLVpckDw2X15dYGbu3nmfM/3pcAaTV46pUpjrCnaAieg==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-linux-x64@1.2.2:
+    resolution: {integrity: sha512-5Zr+iM7lUKsw81p9PkXRESuH2/AhRZ6RCWkgE+FSLcxMhXy/4RDR+o2YQDsJM6cWKIzOJM05vDHTGrDq7vXE4A==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-win32-arm64@1.2.2:
+    resolution: {integrity: sha512-HvUcG2p++RvYP0zfOqh+DgiUUH+JI/uETr0kzWlOJ9F3lsG525pkywg4RSd4OvJd7Wpd3wt3UpN/A4IEJaVmbA==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-win32-x64@1.2.2:
+    resolution: {integrity: sha512-bfaFJwqJ9ApFga2o88OaROSd3pasYRzRGXHJWAE9VUUKdSNSTYxHOqVrNvV54yYPtL6Kt9xkuZa4HNu9it3TaA==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /@eslint-community/eslint-utils@4.1.2(eslint@8.34.0):
     resolution: {integrity: sha512-7qELuQWWjVDdVsFQ5+beUl+KPczrEDA7S3zM4QUd/bJl7oXgsmpXaEVqrRTnOBqenOV4rWf2kVZk2Ot085zPWA==}
@@ -338,54 +458,6 @@ packages:
       tiny-glob: 0.2.9
       tslib: 2.5.0
     dev: false
-
-  /@rometools/cli-darwin-arm64@12.1.3:
-    resolution: {integrity: sha512-AmFTUDYjBuEGQp/Wwps+2cqUr+qhR7gyXAUnkL5psCuNCz3807TrUq/ecOoct5MIavGJTH6R4aaSL6+f+VlBEg==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-darwin-x64@12.1.3:
-    resolution: {integrity: sha512-k8MbWna8q4LRlb005N2X+JS1UQ+s3ZLBBvwk4fP8TBxlAJXUz17jLLu/Fi+7DTTEmMhM84TWj4FDKW+rNar28g==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-linux-arm64@12.1.3:
-    resolution: {integrity: sha512-X/uLhJ2/FNA3nu5TiyeNPqiD3OZoFfNfRvw6a3ut0jEREPvEn72NI7WPijH/gxSz55znfQ7UQ6iM4DZumUknJg==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-linux-x64@12.1.3:
-    resolution: {integrity: sha512-csP17q1eWiUXx9z6Jr/JJPibkplyKIwiWPYNzvPCGE8pHlKhwZj3YHRuu7Dm/4EOqx0XFIuqqWZUYm9bkIC8xg==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-win32-arm64@12.1.3:
-    resolution: {integrity: sha512-RymHWeod57EBOJY4P636CgUwYA6BQdkQjh56XKk4pLEHO6X1bFyMet2XL7KlHw5qOTalzuzf5jJqUs+vf3jdXQ==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-win32-x64@12.1.3:
-    resolution: {integrity: sha512-yHSKYidqJMV9nADqg78GYA+cZ0hS1twANAjiFibQdXj9aGzD+s/IzIFEIi/U/OBLvWYg/SCw0QVozi2vTlKFDQ==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /@types/acorn@4.0.6:
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -3011,9 +3083,9 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  /prettier@2.8.4:
-    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
-    engines: {node: '>=10.13.0'}
+  /prettier@3.0.3:
+    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: false
 
@@ -3129,20 +3201,6 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
-
-  /rome@12.1.3:
-    resolution: {integrity: sha512-e+ff72hxDpe/t5/Us7YRBVw3PBET7SeczTQNn6tvrWdrCaAw3qOukQQ+tDCkyFtS4yGsnhjrJbm43ctNbz27Yg==}
-    engines: {node: '>=14.*'}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      '@rometools/cli-darwin-arm64': 12.1.3
-      '@rometools/cli-darwin-x64': 12.1.3
-      '@rometools/cli-linux-arm64': 12.1.3
-      '@rometools/cli-linux-x64': 12.1.3
-      '@rometools/cli-win32-arm64': 12.1.3
-      '@rometools/cli-win32-x64': 12.1.3
-    dev: true
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}

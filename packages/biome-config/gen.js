@@ -5,6 +5,6 @@ try {
   fs.mkdirSync('dist')
 } catch (_e) {}
 
-const conf = fs.readFileSync('src/rome.json', 'utf8').toString()
-const out = fs.openSync('dist/rome.json', 'w')
+const conf = fs.readFileSync('src/biome.json', 'utf8').toString()
+const out = fs.openSync('dist/biome.json', 'w')
 fs.writeFileSync(out, JSON.stringify(jsonc.parse(conf), undefined, 2))

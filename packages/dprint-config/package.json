@@ -18,8 +18,8 @@
   ],
   "main": "dist/dprint.json",
   "scripts": {
-    "lint": "rome format . && rome check .",
-    "lint:fix": "rome format --write . && rome check --apply .",
+    "lint": "biome format . && biome check .",
+    "lint:fix": "biome format --write . && biome check --apply .",
     "prepublish": "node index.js"
   },
   "publishConfig": {
