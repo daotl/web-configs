@@ -1,0 +1,6 @@
+{
+    "editor.defaultFormatter": "biomejs.biome",
+
+     // Enable the ESlint flat config support
+    "eslint.experimental.useFlatConfig": true,
+}
