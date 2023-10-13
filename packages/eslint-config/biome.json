@@ -1,5 +1,8 @@
 {
-  "$schema": "./node_modules/rome/configuration_schema.json",
+  "$schema": "./node_modules/biome/configuration_schema.json",
+  "files": {
+    "ignore": ["dist"]
+  },
   "linter": {
     "rules": {
       "recommended": true,
@@ -42,5 +45,10 @@
       "quoteStyle": "single",
       "semicolons": "asNeeded"
     }
+  },
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": true
   }
 }

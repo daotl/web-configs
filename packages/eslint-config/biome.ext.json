@@ -1,0 +1,5 @@
+{
+  "$schema": "./node_modules/biome/configuration_schema.json",
+  "files": { "ignore": ["dist"] },
+  "vcs": { "enabled": false }
+}

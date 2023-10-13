@@ -1,7 +1,8 @@
 {
   "name": "@daotl/eslint-config",
-  "version": "1.0.0",
-  "packageManager": "pnpm@8.7.0",
+  "type": "module",
+  "version": "2.0.0-alpha.10",
+  "packageManager": "pnpm@8.9.0",
   "description": "ESLint configs for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
@@ -16,40 +17,49 @@
   "keywords": [
     "eslint",
     "eslintconfig",
-    "dprint",
     "typescript",
     "browser",
     "frontend"
   ],
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "eslint . --config=typescript.js",
+    "build": "tsup src/index.ts --format esm,cjs --clean --dts",
+    "stub": "tsup src/index.ts --format esm",
+    "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
     "lint": "biome format . && biome check .",
-    "lint:fix": "biome format --write . && biome check --apply ."
+    "lint:fix": "biome format --write . && biome check --apply .",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint --fix ."
   },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "dprint": ">=0.41.0",
-    "eslint": ">=8.49.0"
+    "eslint": ">=8.51.0"
   },
   "dependencies": {
-    "@antfu/eslint-config-basic": "^0.42.0",
-    "@antfu/eslint-config-ts": "^0.42.0",
-    "@daotl/dprint-config": "workspace:*",
+    "@antfu/eslint-config": "^1.0.0-beta.26",
     "@phaphoso/eslint-plugin-dprint": "^0.5.2",
-    "@typescript-eslint/eslint-plugin": ">=6.7.0",
-    "@typescript-eslint/parser": ">=6.7.0",
-    "eslint-import-resolver-typescript": "^3.6.0",
-    "eslint-import-resolver-webpack": "^0.13.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
     "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-tsdoc": "^0.2.17"
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "globals": "^13.23.0",
+    "local-pkg": "^0.5.0"
   },
   "devDependencies": {
-    "dprint": "^0.41.0",
-    "eslint": "^8.49.0",
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "eslint": "^8.51.0",
+    "typescript": "^5.2.2"
   }
 }

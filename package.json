@@ -12,7 +12,8 @@
     "gen-biome-json": "npx gen-biome-json packages/biome-config/dist/biome.json"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.2.2",
     "@daotl/biome-config": "workspace:*",
-    "@biomejs/biome": "^1.2.2"
+    "tsup": "^7.2.0"
   }
 }
