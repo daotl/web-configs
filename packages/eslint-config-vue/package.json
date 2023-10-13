@@ -40,7 +40,6 @@
     "eslint-plugin-vue": "^9.17.0"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "typescript": "^5.2.2"
   }
 }

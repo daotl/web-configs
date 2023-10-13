@@ -7,15 +7,6 @@ This monorepo includes packages for:
 - `dprint.json` for dprint
 - Prettier config
 
-## Provided ESLint configs
-
-- `@daotl/eslint-config` for general JavaScript projects
-- `@daotl/eslint-config/browser` for JavaScript projects targeting browsers
-- `@daotl/eslint-config/typescript` for general TypeScript projects
-- `@daotl/eslint-config/browser-typescript` for JavaScript projects targeting browsers
-- `@daotl/eslint-config-vue` for Vue with JavaScript
-- `@daotl/eslint-config-vue/typescript` for Vue with TypeScript
-
 ## Installation
 
 `tsconfig.json`:
@@ -80,24 +71,24 @@ If you want to extend the default config (e.x., for adding `files.ignore` field)
 
 ### Using ESLint config
 
-Add the `extends` filed in your ESLint config file:
+`eslint.config.js`:
 
-```json
-{
-  "extends": "@daotl/eslint-config[/xxx]"
-}
+```js
+import config from '@daotl/eslint-config'
+
+export default [
+  ...config({
+    // typescript: true, // Will auto detect
+    // browser: true,
+    // vue: true, // Will auto detect
+  }),
+  {
+    // Extend with your config ...
+  }
+]
 ```
 
-Omit `/xxx` for general JavaScript projects or replace `xxx` with one of `browser`, `typescript` or `bowser-typescript`, see [Provided ESLint configs](#provided-eslint-configs).
-
-For Vue project, use:
-
-```json
-{
-  "extends": "@daotl/eslint-config-vue[/typescript]"
-}
-```
-
+See [@antfu/eslint-config](https://github.com/antfu/eslint-config#customization) for more options.
 
 ### Using dprint config without ESLint
 
