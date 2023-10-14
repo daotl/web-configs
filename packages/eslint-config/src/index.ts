@@ -1,4 +1,6 @@
-import antfu, { type ConfigItem } from '@antfu/eslint-config'
+// Can't import `antfu` with default import or `esbuild` will output problematic CJS import due to this issue:
+// https://github.com/evanw/esbuild/issues/2023
+import { antfu, type ConfigItem } from '@antfu/eslint-config'
 // @ts-expect-error: no types
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'

@@ -25,12 +25,12 @@ export default function typescript(
   )
 
   return [
-    // Theses also works for .vue, .mdx, etc.
+    // Don't set `parserOptions.project` for `*.md/*.ts` or we'll get:
+    //   error  Parsing error: ESLint was configured to run on `<tsconfigRootDir>/src/modules/README.md/0_0.ts` using `parserOptions.project`: <tsconfigRootDir>/tsconfig.json
+    //   However, that TSConfig does not include this file.
     {
       files,
-      plugins: {
-        tsdoc: pluginTsdoc,
-      },
+      ignores: [GLOB_MARKDOWN_CODE],
       languageOptions: {
         parser: parserTs,
         parserOptions: {
@@ -38,7 +38,15 @@ export default function typescript(
           extraFileExtensions: extraExtensions,
         },
       },
+    },
+    // Theses also works for .vue, .mdx, etc.
+    {
+      files,
+      plugins: {
+        tsdoc: pluginTsdoc,
+      },
       rules: {
+        // plugin:@typescript-eslint/recommended
         // `@antfu/eslint-config` already includes `@typescript-eslint/eslint-recommended`
         ...renameRules(
           // biome-ignore lint/style/noNonNullAssertion: ignore 3rd party
@@ -47,29 +55,21 @@ export default function typescript(
           'ts/',
         ),
 
-        /* Below from @antfu/eslint-config-ts/index.js */
-        // https://github.com/antfu/eslint-config/blob/d463449db4e1e77bc4acad5064554198309a2125/packages/typescript/index.js
-        'import/named': 'off',
-
         // TS
-        'ts/ban-ts-comment': [
+        // Sometimes using `type x = {}` is necessary
+        // Issue with interface: https://stackoverflow.com/questions/63617344/how-to-satisfy-the-constraint-of-recordstring-unknown-with-interface
+        // 'ts/consistent-type-definitions': ['error', 'interface'],
+        'ts/consistent-indexed-object-style': ['error', 'record'],
+        'ts/consistent-type-imports': [
           'error',
-          { 'ts-ignore': 'allow-with-description' },
+          { prefer: 'type-imports', disallowTypeAnnotations: false },
         ],
         'ts/member-delimiter-style': [
           'error',
           { multiline: { delimiter: 'none' } },
         ],
-        'ts/type-annotation-spacing': ['error', {}],
-        'ts/consistent-type-imports': [
-          'error',
-          { prefer: 'type-imports', disallowTypeAnnotations: false },
-        ],
-        // Sometimes using `type x = {}` is necessary
-        // Issue with interface: https://stackoverflow.com/questions/63617344/how-to-satisfy-the-constraint-of-recordstring-unknown-with-interface
-        // 'ts/consistent-type-definitions': ['error', 'interface'],
-        'ts/consistent-indexed-object-style': ['error', 'record'],
         'ts/prefer-ts-expect-error': 'error',
+        'ts/type-annotation-spacing': ['error', {}],
 
         // Override JS
         'no-useless-constructor': 'off',
@@ -113,8 +113,6 @@ export default function typescript(
             offsetTernaryExpressions: true,
           },
         ],
-        'no-unused-vars': 'off',
-        'ts/no-unused-vars': rules['no-unused-vars'],
         'no-redeclare': 'off',
         'ts/no-redeclare': 'error',
         'no-use-before-define': 'off',
@@ -153,34 +151,23 @@ export default function typescript(
         'ts/no-extra-parens': ['error', 'functions'],
         'no-dupe-class-members': 'off',
         'ts/no-dupe-class-members': 'error',
-        'no-loss-of-precision': 'off',
-        'ts/no-loss-of-precision': 'error',
         'lines-between-class-members': 'off',
         'ts/lines-between-class-members': [
           'error',
           'always',
           { exceptAfterSingleLine: true },
         ],
-        // The following rule overrides require a parser service, aka. require a `typescript.json` path.
-        // This needs to be done individually for each project, and it slows down linting significantly.
-        // 'no-throw-literal': 'off',
-        // 'ts/no-throw-literal': 'error',
-        // 'no-implied-eval': 'off',
-        // 'ts/no-implied-eval': 'error',
 
         // off
         // 'ts/naming-convention': 'off',
         'ts/explicit-function-return-type': 'off',
         // 'ts/explicit-member-accessibility': 'off',
-        // 'ts/no-explicit-any': 'off',
         // 'ts/parameter-properties': 'off',
         'ts/no-empty-interface': 'off',
         'ts/ban-ts-ignore': 'off',
         'ts/no-empty-function': 'off',
-        'ts/no-non-null-assertion': 'off',
+        // 'ts/no-non-null-assertion': 'off',
         // 'ts/explicit-module-boundary-types': 'off',
-        // 'ts/ban-types': 'off',
-        // 'ts/no-namespace': 'off',
 
         /* Above from @antfu/eslint-config-ts/index.js */
 
@@ -245,6 +232,7 @@ export default function typescript(
       files,
       ignores: ['**/*.mdx', GLOB_MARKDOWN_CODE],
       rules: {
+        // `plugin:@typescript-eslint/recommended-type-checked`
         ...renameRules(
           // biome-ignore lint/style/noNonNullAssertion: ignore 3rd party
           pluginTs.configs['recommended-type-checked'].rules!,
@@ -252,13 +240,27 @@ export default function typescript(
           'ts/',
         ),
 
+        // Override `plugin:@typescript-eslint/recommended-type-checked`
+        'ts/ban-ts-comment': [
+          'error',
+          { 'ts-ignore': 'allow-with-description' },
+        ],
+        // 'ts/ban-types': 'off',
+        // 'ts/no-explicit-any': 'off',
+        'no-loss-of-precision': 'off',
+        'ts/no-loss-of-precision': 'error',
+        // 'ts/no-namespace': 'off',
+        'no-unused-vars': 'off',
+        'ts/no-unused-vars': rules['no-unused-vars'],
+
+        // TS strict rules
+        'ts/prefer-return-this-type': 'error',
+        // Others
         'dot-notation': 'off',
         'ts/dot-notation': [
           'error',
           { allowIndexSignaturePropertyAccess: true },
         ],
-        // TS strict rules
-        'ts/prefer-return-this-type': 'error',
       },
     },
   ]

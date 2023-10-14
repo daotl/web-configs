@@ -92,21 +92,11 @@ See [@antfu/eslint-config](https://github.com/antfu/eslint-config#customization)
 
 ### Using dprint config without ESLint
 
-Add the `extends` filed in your `dprint.json` config file:
+Add the `extends` field in your `dprint.json` config file:
 
 ```json
 {
   "extends": ["./node_modules/@daotl/dprint-config/dist/dprint.json"]
-}
-```
-
-Omit `/xxx` for general JavaScript projects or replace `xxx` with one of `browser`, `typescript` or `bowser-typescript`, see [Provided ESLint configs](#provided-eslint-configs).
-
-For Vue project, use:
-
-```json
-{
-  "extends": "@daotl/eslint-config-vue[/typescript]"
 }
 ```
 

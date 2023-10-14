@@ -78,15 +78,4 @@ export default [
       'no-unused-vars': 'off',
     },
   },
-  // For `*.md/*.ts`, solve:
-  // error  Parsing error: ESLint was configured to run on `<tsconfigRootDir>/src/modules/README.md/0_0.ts` using `parserOptions.project`: <tsconfigRootDir>/tsconfig.json
-  // However, that TSConfig does not include this file.
-  {
-    files: [`${GLOB_MARKDOWN}/*.ts`],
-    languageOptions: {
-      parserOptions: {
-        project: undefined,
-      },
-    },
-  },
 ] satisfies ConfigItem[]
