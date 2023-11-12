@@ -11,7 +11,6 @@ import final from './final.js'
 import typescript from './typescript.js'
 
 export const rules = {
-  'arrow-parens': ['error', 'always'],
   curly: ['error', 'all'],
   'no-unused-vars': [
     // prefer unused-imports/no-unused-vars
