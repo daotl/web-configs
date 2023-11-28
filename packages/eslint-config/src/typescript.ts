@@ -64,10 +64,6 @@ export default function typescript(
           'error',
           { prefer: 'type-imports', disallowTypeAnnotations: false },
         ],
-        'ts/member-delimiter-style': [
-          'error',
-          { multiline: { delimiter: 'none' } },
-        ],
         'ts/prefer-ts-expect-error': 'error',
         'ts/type-annotation-spacing': ['error', {}],
 
