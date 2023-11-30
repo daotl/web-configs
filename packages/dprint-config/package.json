@@ -18,8 +18,8 @@
   ],
   "main": "dist/dprint.json",
   "scripts": {
-    "lint": "biome format . && biome check .",
-    "lint:fix": "biome format --write . && biome check --apply .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
     "prepublish": "node index.js"
   },
   "publishConfig": {

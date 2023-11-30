@@ -1,9 +1,12 @@
 {
-  "$schema": "./node_modules/biome/configuration_schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
+  },
+  "files": {
+    "ignore": ["dist"]
   },
   "linter": {
     "rules": {
@@ -208,7 +211,7 @@
     // "enabled": true,
     "formatWithErrors": true,
     "indentStyle": "space"
-    // "indentSize": 2,
+    // "indentWidth": 2,
     // "lineWidth": 80,
   },
   "javascript": {

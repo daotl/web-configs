@@ -36,8 +36,8 @@
     "build": "tsup src/index.ts --format esm,cjs --clean --dts",
     "stub": "tsup src/index.ts --format esm",
     "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
-    "lint": "biome format . && biome check .",
-    "lint:fix": "biome format --write . && biome check --apply .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix ."
   },

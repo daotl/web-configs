@@ -1,55 +1,10 @@
 {
-  "$schema": "./node_modules/biome/configuration_schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["./dist/biome.json"],
   "files": {
     "ignore": ["src/biome.json"]
   },
-  "linter": {
-    "rules": {
-      "recommended": true,
-      "a11y": {
-        "recommended": true
-      },
-      "complexity": {
-        "recommended": true,
-        "noUselessFragments": "error"
-      },
-      "correctness": {
-        "recommended": true,
-        "noUndeclaredVariables": "error",
-        "noUnusedVariables": "error"
-      },
-      "performance": {
-        "recommended": true
-      },
-      "security": {
-        "recommended": true
-      },
-      "style": {
-        "recommended": true,
-        "noShoutyConstants": "error",
-        "useBlockStatements": "error",
-        "useFragmentSyntax": "error",
-        "useShorthandArrayType": "error"
-      },
-      "suspicious": {
-        "recommended": true
-      }
-    }
-  },
-  "formatter": {
-    "formatWithErrors": true,
-    "indentStyle": "space"
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single",
-      "semicolons": "asNeeded"
-    }
-  },
   "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true,
     "root": "../.."
   }
 }

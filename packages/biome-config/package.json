@@ -1,7 +1,7 @@
 {
   "name": "@daotl/biome-config",
   "version": "0.0.1",
-  "packageManager": "pnpm@8.7.0",
+  "packageManager": "pnpm@8.11.0",
   "description": "Biome config for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
@@ -14,30 +14,26 @@
     "url": "https://github.com/daotl/web-configs/issues"
   },
   "keywords": [
-    "rome"
+    "biome"
   ],
   "main": "dist/biome.json",
-  "bin": {
-    "gen-biome-json": "./bin/gen.js"
-  },
   "scripts": {
-    "lint": "biome format . && biome check .",
-    "lint:fix": "biome format --write . && biome check --apply .",
-    "prepublish": "node gen.js",
-    "postinstall": "node bin/postinstall.js"
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "prepublish": "node gen.js"
   },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "@biomejs/biome": "^1.2.2"
+    "@biomejs/biome": "1.4.0"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
-    "json-stable-stringify": "^1.0.2"
+    "json-stable-stringify": "^1.1.0"
   },
   "devDependencies": {
-    "jsonc-parser": "^3.2.0",
-    "@biomejs/biome": "^1.2.2"
+    "@biomejs/biome": "1.4.0",
+    "jsonc-parser": "^3.2.0"
   }
 }

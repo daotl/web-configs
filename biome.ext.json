@@ -1,4 +1,0 @@
-{
-  "$schema": "./node_modules/biome/configuration_schema.json",
-  "files": { "ignore": [".vscode", "packages"] }
-}
