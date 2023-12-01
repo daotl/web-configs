@@ -21,7 +21,7 @@ export default function typescript(
   extraExtensions: string[] = [],
 ): ConfigItem[] {
   const files = [GLOB_TS, GLOB_TSX, '**/*.d.ts'].concat(
-    extraExtensions.map((ext) => `*${ext}`),
+    extraExtensions.map(ext => `*${ext}`),
   )
 
   return [

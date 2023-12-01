@@ -1,6 +1,10 @@
 {
-    "editor.defaultFormatter": "biomejs.biome",
+  "editor.defaultFormatter": "biomejs.biome",
 
-     // Enable the ESlint flat config support
-    "eslint.experimental.useFlatConfig": true,
+  // Enable the ESlint flat config support
+  "eslint.experimental.useFlatConfig": true,
+
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": true
+  }
 }

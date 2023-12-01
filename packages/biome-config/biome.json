@@ -1,9 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["./dist/biome.json"],
-  "files": {
-    "ignore": ["src/biome.json"]
-  },
   "vcs": {
     "root": "../.."
   }

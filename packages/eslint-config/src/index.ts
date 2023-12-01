@@ -81,7 +81,7 @@ export default function config(_cfg: Config = {}): ConfigItem[] {
   // From: https://github.com/antfu/eslint-config/blob/7c19e696baac8f3afcb23fd08bdd7b510ef05fbf/src/factory.ts#L48-L55
   const cfg = {
     // isInEditor: !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
-    vue: VuePackages.some((i) => isPackageExists(i)),
+    vue: VuePackages.some(i => isPackageExists(i)),
     typescript: isPackageExists('typescript'),
     // gitignore: true,
     // overrides: {},

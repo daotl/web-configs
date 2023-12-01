@@ -3,223 +3,176 @@
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": true,
   },
   "files": {
-    "ignore": ["dist"]
+    "ignore": ["dist"],
+  },
+  // "organizeImports": {
+  //   "enabled": true
+  // },
+  "formatter": {
+    // "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    // "indentWidth": 2,
+    // "lineWidth": 80,
+    // "ignore": []
+  },
+  "javascript": {
+    "parser": {
+      // Allows to support the unsafe/experimental parameter decorators.
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "quoteStyle": "single",
+      // "jsxQuoteStyle": "double"
+      // "quoteProperties": "asNeeded",
+      // "trailingComma": "all",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "asNeeded",
+      // "globals": ["$", "_", "externalVariable"],
+    },
+  },
+  "json": {
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": true,
+    },
   },
   "linter": {
     "rules": {
       "recommended": true,
+
       // Rules focused on preventing accessibility problems.
       "a11y": {
-        "recommended": true
+        "recommended": true,
       },
+
       // Rules that focus on inspecting complex code that could be simplified.
       "complexity": {
         "recommended": true,
-        // Disallow unnecessary fragments
-        // https://docs.rome.tools/lint/rules/nouselessfragments/
-        "noUselessFragments": "error"
+        // Disallow functions that exceed a given Cognitive Complexity score.
+        // https://biomejs.dev/linter/rules/no-excessive-cognitive-complexity
+        "noExcessiveCognitiveComplexity": {
+          "level": "warn",
+          // "options": {
+          //   "maxAllowedComplexity": 15
+          // }
+        },
+        // Disallow the use of void operators, which is not a familiar operator.
+        // https://biomejs.dev/linter/rules/no-void
+        // "noVoid": "error",
+        // Enforce the usage of a literal access to properties over computed property access.
+        // https://biomejs.dev/linter/rules/use-literal-keys
+        "useLiteralKeys": "off",
+        // Discard redundant terms from logical expressions.
+        // https://biomejs.dev/linter/rules/use-simplified-logic-expression
+        "useSimplifiedLogicExpression": "error",
       },
-      // Rules that detect incorrect or useless code.
+
+      // Rules that detect code that is guaranteed to be incorrect or useless.
       "correctness": {
         "recommended": true,
-        // Prevents the usage of variables that haven’t been declared inside the document
-        // https://docs.rome.tools/lint/rules/noundeclaredvariables/
+        // Disallow new operators with the Symbol object.
+        // https://biomejs.dev/linter/rules/no-new-symbol
+        "noNewSymbol": "error",
+        // Prevents the usage of variables that haven’t been declared inside the document.
+        // https://biomejs.dev/linter/rules/no-undeclared-variables
         "noUndeclaredVariables": "error",
         // Disallow unused variables.
-        // https://docs.rome.tools/lint/rules/nounusedvariables/
-        "noUnusedVariables": "error"
+        // There are two exceptions to this rule:
+        //   variables that starts with underscore, ex: let _something;
+        //   the React variable;
+        // https://biomejs.dev/linter/rules/no=unused-variables
+        "noUnusedVariables": "error",
+        // Enforce that all React hooks are being called from the Top Level component functions.
+        // https://biomejs.dev/linter/rules/use-hook-at-top-level
+        // "useHookAtTopLevel": "error"
       },
+
       // Rules catching ways your code could be written to run faster, or generally be more efficient.
       "performance": {
-        "recommended": true
+        "recommended": true,
       },
+
       // Rules that detect potential security flaws.
       "security": {
-        "recommended": true
+        "recommended": true,
       },
-      // Rules enforcing a consistent way of writing your code.
+
+      // Rules enforcing a consistent and idiomatic way of writing your code.
       "style": {
         "recommended": true,
         // Disallow implicit true values on JSX boolean attributes
-        // https://docs.rome.tools/lint/rules/noimplicitboolean/
+        // https://biomejs.dev/linter/rules/no-implicit-boolean
         // "noImplicitBoolean": "error",
-        // Disallow negation in the condition of an if statement if it has an else clause
-        // https://docs.rome.tools/lint/rules/nonegationelse/
+        // Disallow the use of TypeScript’s namespaces.
+        // https://biomejs.dev/linter/rules/no-namespace
+        "noNamespace": "error",
+        // Disallow negation in the condition of an if statement if it has an else clause.
+        // https://biomejs.dev/linter/rules/no-negation-else
         // "noNegationElse": "error",
+        // Disallow the use of parameter properties in class constructors.
+        // https://biomejs.dev/linter/rules/no-parameter-properties
+        "noParameterProperties": "error",
+        // This rule allows you to specify global variable names that you don’t want to use in your application.
+        // https://biomejs.dev/linter/rules/no-restricted-globals
+        // "noRestrictedGlobals": {
+        //   "level": "error",
+        //   "options": {
+        //     "deniedGlobals": ["$", "MooTools"]
+        //    }
+        // }
         // Disallow the use of constants which its value is the upper-case version of its name.
-        // https://docs.rome.tools/lint/rules/noshoutyconstants/
+        // https://biomejs.dev/linter/rules/no-shouty-constants
         "noShoutyConstants": "error",
         // Requires following curly brace conventions.
-        // https://docs.rome.tools/lint/rules/useblockstatements/
+        // https://biomejs.dev/linter/rules/use-block-statements
         "useBlockStatements": "error",
+        // Enforce using else if instead of nested if in else clauses.
+        // https://biomejs.dev/linter/rules/use-collapsed-else-if
+        "useCollapsedElseIf": "error",
         // This rule enforces the use of <>…</> over <Fragment>…</Fragment>.
-        // https://docs.rome.tools/lint/rules/usefragmentsyntax/
+        // https://biomejs.dev/linter/rules/use-fragment-syntax
         "useFragmentSyntax": "error",
+        // Enforce naming conventions for everything across a codebase.
+        // https://biomejs.dev/linter/rules/use-naming-convention
+        "useNamingConvention": {
+          "level": "error",
+          // "options": {
+          //   "strictCase": true,
+          //   "enumMemberCase": "PascalCase"
+          // }
+        },
         // When expressing array types, this rule promotes the usage of T[] shorthand instead of Array<T>.
-        // https://docs.rome.tools/lint/rules/useshorthandarraytype/
-        "useShorthandArrayType": "error"
+        // https://biomejs.dev/linter/rules/use-shorthand-array-type
+        "useShorthandArrayType": "error",
+        // Require assignment operator shorthand where possible.
+        // https://biomejs.dev/linter/rules/use-shorthand-assign
+        "useShorthandAssign": "error",
         // Enforces switch clauses have a single statement, emits a quick fix wrapping the statements in a block.
-        // https://docs.rome.tools/lint/rules/usesinglecasestatement/
-        // "useSingleCaseStatement": "error"
+        // https://biomejs.dev/linter/rules/use-single-case-statement
+        "useSingleCaseStatement": "error",
       },
+
       // Rules that detect code that is likely to be incorrect or useless.
       "suspicious": {
-        "recommended": true
-      }
-      // New rules that are still under development. Nursery rules require explicit opt-in via configuration because they may still have bugs or performance problems. Nursery rules get promoted to other groups once they become stable or may be removed. Rules that belong to this group are not subject to semantic version.
-      // TODO: Not supported yet
+        "recommended": true,
+        // Usually, the definition in the standard library is more precise than what people come up with or the used constant exceeds the maximum precision of the number type.
+        // https://biomejs.dev/linter/rules/no-approximative-numeric-constant
+        "noApproximativeNumericConstant": "error",
+        // Disallow the use of console.log
+        // https://biomejs.dev/linter/rules/no-console-log
+        "noConsoleLog": "error",
+        // Disallow shorthand assign when variable appears on both sides.
+        // https://biomejs.dev/linter/rules/no-misrefactored-shorthand-assign
+        "noMisrefactoredShorthandAssign": "warn",
+      },
+
+      // New rules that are still under development.
       // "nursery": {
-      //   // Disallow duplicate case labels.
-      //   // https://docs.rome.tools/lint/rules/noduplicatecase/
-      //   // "noDuplicateCase": "error",
-      //   // Disallow duplicate class members.
-      //   // https://docs.rome.tools/lint/rules/noduplicateclassmembers/
-      //   "noDuplicateClassMembers": "error",
-      //   // Prevents JSX properties to be assigned multiple times.
-      //   // https://docs.rome.tools/lint/rules/noduplicatejsxprops/
-      //   "noDuplicateJsxProps": "error",
-      //   // Prevents object literals having more than one property declaration for the same name.
-      //   // https://docs.rome.tools/lint/rules/noduplicateobjectkeys/
-      //   "noDuplicateObjectKeys": "error",
-      //   // Disallow unnecessary labels.
-      //   // https://docs.rome.tools/lint/rules/noextralabels/
-      //   "noExtraLabels": "error",
-      //   // Prevents the wrong usage of the non-null assertion operator (!) in TypeScript files.
-      //   // https://docs.rome.tools/lint/rules/noextranonnullassertion/
-      //   "noExtraNonNullAssertion": "error",
-      //   // https://docs.rome.tools/lint/rules/noextrasemicolons/
-      //   "noExtraSemicolons": "error",
-      //   // Disallow calling global object properties as functions
-      //   // https://docs.rome.tools/lint/rules/noglobalobjectcalls/
-      //   "noGlobalObjectCalls": "error",
-      //   // Check that the scope attribute is only used on th elements.
-      //   // https://docs.rome.tools/lint/rules/noheaderscope/
-      //   "noHeaderScope": "error",
-      //   // Prevents the incorrect use of super() inside classes. It also checks whether a call super() is missing from classes that extends other constructors.
-      //   // https://docs.rome.tools/lint/rules/noinvalidconstructorsuper/
-      //   "noInvalidConstructorSuper": "error",
-      //   // Disallow non-null assertions using the ! postfix operator.
-      //   // https://docs.rome.tools/lint/rules/nononnullassertion/
-      //   "noNonNullAssertion": "error",
-      //   // Enforce that interactive ARIA roles are not assigned to non-interactive HTML elements.
-      //   // https://docs.rome.tools/lint/rules/nononinteractiveelementtointeractiverole/
-      //   "noNoninteractiveElementToInteractiveRole": "error",
-      //   // Disallow literal numbers that lose precision
-      //   // https://docs.rome.tools/lint/rules/noprecisionloss/
-      //   "noPrecisionLoss": "error",
-      //   // Enforce img alt prop does not contain the word “image”, “picture”, or “photo”.
-      //   // https://docs.rome.tools/lint/rules/noredundantalt/
-      //   "noRedundantAlt": "error",
-      //   // Prevents from having redundant “use strict”.
-      //   // https://docs.rome.tools/lint/rules/noredundantusestrict/
-      //   "noRedundantUseStrict": "error",
-      //   // a = a
-      //   // https://docs.rome.tools/lint/rules/noselfassignment/
-      //   // "noSelfAssignment": "error",
-      //   // Disallow comparisons where both sides are exactly the same.
-      //   // https://docs.rome.tools/lint/rules/noselfcompare/
-      //   "noSelfCompare": "error",
-      //   // Disallow returning a value from a setter
-      //   // https://docs.rome.tools/lint/rules/nosetterreturn/
-      //   "noSetterReturn": "error",
-      //   // Disallow comparison of expressions modifying the string case with non-compliant value.
-      //   // https://docs.rome.tools/lint/rules/nostringcasemismatch/
-      //   "noStringCaseMismatch": "error",
-      //   // Disallow lexical declarations in switch clauses.
-      //   // https://docs.rome.tools/lint/rules/noswitchdeclarations/
-      //   // "noSwitchDeclarations": "error",
-      //   // Ensures the super() constructor is called exactly once on every code path in a class constructor before this is accessed if the class has a superclass
-      //   // https://docs.rome.tools/lint/rules/nounreachablesuper/
-      //   "noUnreachableSuper": "error",
-      //   // Disallow control flow statements in finally blocks.
-      //   // https://docs.rome.tools/lint/rules/nounsafefinally/
-      //   "noUnsafeFinally": "error",
-      //   // Disallow the use of optional chaining in contexts where the undefined value is not allowed.
-      //   // https://docs.rome.tools/lint/rules/nounsafeoptionalchaining/
-      //   // "noUnsafeOptionalChaining": "error",
-      //   // Disallow unused labels.
-      //   // https://docs.rome.tools/lint/rules/nounusedlabels/
-      //   "noUnusedLabels": "error",
-      //   // Disallow renaming import, export, and destructured assignments to the same name.
-      //   // https://docs.rome.tools/lint/rules/nouselessrename/
-      //   "noUselessRename": "error",
-      //   // Disallow useless case in switch statements.
-      //   // https://docs.rome.tools/lint/rules/nouselessswitchcase/
-      //   "noUselessSwitchCase": "error",
-      //   // Disallow the use of var
-      //   // https://docs.rome.tools/lint/rules/novar/
-      //   "noVar": "error",
-      //   // Disallow returning a value from a function with the return type ‘void’
-      //   // https://docs.rome.tools/lint/rules/novoidtypereturn/
-      //   "noVoidTypeReturn": "error",
-      //   // Disallow with statements in non-strict contexts.
-      //   // https://docs.rome.tools/lint/rules/nowith/
-      //   "noWith": "error",
-      //   // Enforce that ARIA state and property values are valid.
-      //   // https://docs.rome.tools/lint/rules/validariaattributes/
-      //   "useAriaPropTypes": "error",
-      //   // Enforce that elements with ARIA roles must have all required ARIA attributes for that role.
-      //   // https://docs.rome.tools/lint/rules/validariarole/
-      //   "useAriaPropsForRole": "error",
-      //   // Enforce camel case naming convention.
-      //   // https://docs.rome.tools/lint/rules/usecamelcase/
-      //   "useCamelCase": "error",
-      //   // Require const declarations for variables that are never reassigned after declared.
-      //   // https://docs.rome.tools/lint/rules/useconst/
-      //   "useConst": "error",
-      //   // Enforce default function parameters and optional parameters to be last.
-      //   // https://docs.rome.tools/lint/rules/usedefaultparameterlast/
-      //   "useDefaultParameterLast": "error",
-      //   // Enforce all dependencies are correctly specified.
-      //   // https://docs.rome.tools/lint/rules/usedependencies/
-      //   "useExhaustiveDependencies": "error",
-      //   // Disallow the use of Math.pow in favor of the ** operator.
-      //   // https://docs.rome.tools/lint/rules/useexponentiationoperator/
-      //   "useExponentiationOperator": "error",
-      //   // Enforces the usage of the attribute title for the element iframe
-      //   // https://docs.rome.tools/lint/rules/useiframetitle/
-      //   "useIframeTitle": "error",
-      //   // Require calls to isNaN() when checking for NaN.
-      //   // https://docs.rome.tools/lint/rules/useisnan/
-      //   "useIsNan": "error",
-      //   // Enforces that audio and video elements must have a track for captions.
-      //   // https://docs.rome.tools/lint/rules/usemediacaption/
-      //   "useMediaCaption": "error",
-      //   // Disallow parseInt() and Number.parseInt() in favor of binary, octal, and hexadecimal literals
-      //   // https://docs.rome.tools/lint/rules/usenumericliterals/
-      //   "useNumericLiterals": "error",
-      //   // Ensures that ARIA properties aria-* are all valid.
-      //   // https://docs.rome.tools/lint/rules/usevalidariaprops/
-      //   "useValidAriaProps": "error",
-      //   // Ensure that the attribute passed to the lang attribute is a correct ISO language and/or country.
-      //   // https://docs.rome.tools/lint/rules/usevalidlang/
-      //   "useValidLang": "error",
-      //   // Require generator functions to contain yield.
-      //   // https://docs.rome.tools/lint/rules/useyield/
-      //   "useYield": "error",
-      //   /* React */
-      //   // Enforce that all React hooks are being called from the Top Level component functions.
-      //   // https://docs.rome.tools/lint/rules/usehookattoplevel/
-      //   "useHookAtTopLevel": "error"
       // }
-    }
-  },
-  "formatter": {
-    // "enabled": true,
-    "formatWithErrors": true,
-    "indentStyle": "space"
-    // "indentWidth": 2,
-    // "lineWidth": 80,
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single",
-      // "quoteProperties": "asNeeded",
-      // "trailingComma": "all",
-      "semicolons": "asNeeded"
-    }
+    },
   }
 }

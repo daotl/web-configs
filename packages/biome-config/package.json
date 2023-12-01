@@ -1,6 +1,6 @@
 {
   "name": "@daotl/biome-config",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "packageManager": "pnpm@8.11.0",
   "description": "Biome config for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",

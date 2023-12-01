@@ -1,4 +1,11 @@
 {
   "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["../../node_modules/@daotl/biome-config/dist/biome.json"]
+  "extends": ["../../node_modules/@daotl/biome-config/dist/biome.json"],
+  "linter": {
+    "rules": {
+      "style": {
+        "useNamingConvention": "off"
+      }
+    }
+  }
 }
