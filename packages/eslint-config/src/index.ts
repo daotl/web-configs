@@ -1,6 +1,7 @@
 // Can't import `antfu` with default import or `esbuild` will output problematic CJS import due to this issue:
 // https://github.com/evanw/esbuild/issues/2023
-import { antfu, type Awaitable, type FlatConfigItem, type UserConfigItem } from '@antfu/eslint-config'
+import type { Awaitable, FlatConfigItem, UserConfigItem } from '@antfu/eslint-config'
+import { antfu } from '@antfu/eslint-config'
 // @ts-expect-error: no types
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
@@ -108,8 +109,8 @@ export default function config(
        * Supports Prettier and dprint
        * By default uses Prettier
        */
-      markdown: 'dprint'
-    },
+      markdown: 'dprint',
+    } as const,
     ..._cfg,
   }
   const browser = cfg.browser || cfg.vue
