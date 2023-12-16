@@ -80,16 +80,18 @@ If you want to extend the default config (e.x., for adding `files.ignore` field)
 ```js
 import config from '@daotl/eslint-config'
 
-export default [
-  ...config({
+export default config({
     // typescript: true, // Will auto detect
     // browser: true,
     // vue: true, // Will auto detect
-  }),
+  },
   {
     // Extend with your config ...
+  },
+  {
+    // More extensions ...
   }
-]
+)
 ```
 
 See [@antfu/eslint-config](https://github.com/antfu/eslint-config#customization) for more options.

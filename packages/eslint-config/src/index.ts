@@ -1,6 +1,6 @@
 // Can't import `antfu` with default import or `esbuild` will output problematic CJS import due to this issue:
 // https://github.com/evanw/esbuild/issues/2023
-import { type ConfigItem, antfu } from '@antfu/eslint-config'
+import { antfu, type Awaitable, type FlatConfigItem, type UserConfigItem } from '@antfu/eslint-config'
 // @ts-expect-error: no types
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
@@ -72,57 +72,55 @@ export const rules = {
   // ],
 
   'style/quote-props': ['error', 'as-needed'],
-} satisfies ConfigItem['rules']
+} satisfies FlatConfigItem['rules']
 
-// From: https://github.com/antfu/eslint-config/blob/7c19e696baac8f3afcb23fd08bdd7b510ef05fbf/src/factory.ts#L37C22-L37C22
+// From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L37C22-L37C22
 const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli']
 
-export default function config(_cfg: Config = {}): ConfigItem[] {
-  // From: https://github.com/antfu/eslint-config/blob/7c19e696baac8f3afcb23fd08bdd7b510ef05fbf/src/factory.ts#L48-L55
+export default function config(
+  _cfg: Config = {},
+  ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
+): Promise<UserConfigItem[]> {
+  // From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L55-L64
   const cfg = {
-    // isInEditor: !!((process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI),
-    vue: VuePackages.some(i => isPackageExists(i)),
-    typescript: isPackageExists('typescript'),
-    // gitignore: true,
-    // overrides: {},
     // componentExts: [],
+    // gitignore: enableGitignore = true,
+    // isInEditor = !!((process.
+    // react: enableReact = false,
+    typescript: isPackageExists('typescript'),
+    // unocss: enableUnoCSS = false,
+    vue: VuePackages.some(i => isPackageExists(i)),
+    stylistic: true,
     ..._cfg,
   }
   const browser = cfg.browser || cfg.vue
 
-  return [
-    ...antfu(cfg),
-
-    {
-      plugins: {
-        // eslint-disable-next-line ts/no-unsafe-assignment
-        'simple-import-sort': pluginSimpleImportSort,
-      },
-      languageOptions: {
-        parserOptions: {
-          sourceType: 'module',
-          ecmaFeatures: {
-            impliedStrict: true,
-          },
-        },
-        globals: {
-          ...(browser && {
-            ...globals.browser,
-            ...globals.worker,
-            ...globals.serviceworker,
-            document: 'readonly',
-            navigator: 'readonly',
-            window: 'readonly',
-          }),
-        },
-      },
-      settings: {
-        'import/internal-regex': '^~/',
-      },
-      rules,
+  return antfu(cfg, {
+    plugins: {
+      // eslint-disable-next-line ts/no-unsafe-assignment
+      'simple-import-sort': pluginSimpleImportSort,
     },
-
-    ...(cfg.typescript ? typescript() : []),
-    ...final,
-  ]
+    languageOptions: {
+      parserOptions: {
+        sourceType: 'module',
+        ecmaFeatures: {
+          impliedStrict: true,
+        },
+      },
+      globals: {
+        ...(browser && {
+          ...globals.browser,
+          ...globals.worker,
+          ...globals.serviceworker,
+          document: 'readonly',
+          navigator: 'readonly',
+          window: 'readonly',
+        }),
+      },
+    },
+    settings: {
+      'import/internal-regex': '^~/',
+    },
+    rules,
+  }, ...(cfg.typescript ? typescript() : []), ...final, ...userConfigs)
 }

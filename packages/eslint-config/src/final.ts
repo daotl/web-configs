@@ -1,7 +1,7 @@
 // import dprint from '@phaphoso/eslint-plugin-dprint'
 // import dprintConfig from '@daotl/dprint-config'
 import {
-  type ConfigItem,
+  type FlatConfigItem,
   GLOB_MARKDOWN,
   GLOB_MARKDOWN_CODE,
   GLOB_TESTS,
@@ -78,4 +78,4 @@ export default ([
       'no-unused-vars': 'off',
     },
   },
-] satisfies ConfigItem[])
+] satisfies FlatConfigItem[])

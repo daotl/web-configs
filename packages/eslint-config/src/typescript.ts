@@ -1,7 +1,7 @@
 /* eslint-disable ts/no-non-null-assertion */
 
 import {
-  type ConfigItem,
+  type FlatConfigItem,
   GLOB_MARKDOWN_CODE,
   GLOB_TS,
   GLOB_TSX,
@@ -19,7 +19,7 @@ import { rules } from './index.js'
  */
 export default function typescript(
   extraExtensions: string[] = [],
-): ConfigItem[] {
+): FlatConfigItem[] {
   const files = [GLOB_TS, GLOB_TSX, '**/*.d.ts'].concat(
     extraExtensions.map(ext => `*${ext}`),
   )
@@ -203,9 +203,9 @@ export default function typescript(
     {
       files,
       /* eslint-disable ts/no-unsafe-member-access, ts/no-unsafe-assignment */
-      ...pluginImport.configs.typescript,
+      ...pluginImport.configs!.typescript,
       settings: {
-        ...pluginImport.configs.typescript.settings,
+        ...pluginImport.configs!.typescript!.settings,
         /* eslint-enable ts/no-unsafe-member-access, ts/no-unsafe-assignment */
         // 'import/resolver': {
         //   node: {
