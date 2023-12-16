@@ -91,6 +91,25 @@ export default function config(
     // unocss: enableUnoCSS = false,
     vue: VuePackages.some(i => isPackageExists(i)),
     stylistic: true,
+    formatters: {
+      /**
+       * Format CSS, LESS, SCSS files, also the `<style>` blocks in Vue
+       * By default uses Prettier
+       */
+      // Prefer Stylelint
+      // css: true,
+      /**
+       * Format HTML files
+       * By default uses Prettier
+       */
+      html: true,
+      /**
+       * Format Markdown files
+       * Supports Prettier and dprint
+       * By default uses Prettier
+       */
+      markdown: 'dprint'
+    },
     ..._cfg,
   }
   const browser = cfg.browser || cfg.vue
