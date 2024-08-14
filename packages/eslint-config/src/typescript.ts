@@ -17,9 +17,7 @@ import { rules } from './index.js'
 /**
  * @param extraExtensions - ['.mdx', '.vue']
  */
-export default function typescript(
-  extraExtensions: string[] = [],
-): FlatConfigItem[] {
+export function typescript(extraExtensions: string[] = []): FlatConfigItem[] {
   const files = [GLOB_TS, GLOB_TSX, '**/*.d.ts'].concat(
     extraExtensions.map(ext => `*${ext}`),
   )
@@ -203,8 +201,10 @@ export default function typescript(
     {
       files,
       /* eslint-disable ts/no-unsafe-member-access, ts/no-unsafe-assignment */
+      // biome-ignore lint/style/noNonNullAssertion: `eslint-plugin-import` has no type
       ...pluginImport.configs!.typescript,
       settings: {
+        // biome-ignore lint/style/noNonNullAssertion:
         ...pluginImport.configs!.typescript!.settings,
         /* eslint-enable ts/no-unsafe-member-access, ts/no-unsafe-assignment */
         // 'import/resolver': {

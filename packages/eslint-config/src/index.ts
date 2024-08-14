@@ -1,6 +1,10 @@
 // Can't import `antfu` with default import or `esbuild` will output problematic CJS import due to this issue:
 // https://github.com/evanw/esbuild/issues/2023
-import type { Awaitable, FlatConfigItem, UserConfigItem } from '@antfu/eslint-config'
+import type {
+  Awaitable,
+  FlatConfigItem,
+  UserConfigItem,
+} from '@antfu/eslint-config'
 import { antfu } from '@antfu/eslint-config'
 // @ts-expect-error: no types
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
@@ -8,8 +12,8 @@ import globals from 'globals'
 import { isPackageExists } from 'local-pkg'
 
 import type { Config } from './config.js'
-import final from './final.js'
-import typescript from './typescript.js'
+import { final } from './final.js'
+import { typescript } from './typescript.js'
 
 export const rules = {
   curly: ['error', 'all'],
@@ -78,7 +82,7 @@ export const rules = {
 // From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L37C22-L37C22
 const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli']
 
-export default function config(
+export function config(
   _cfg: Config = {},
   ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
 ): Promise<UserConfigItem[]> {
@@ -115,32 +119,38 @@ export default function config(
   }
   const browser = cfg.browser || cfg.vue
 
-  return antfu(cfg, {
-    plugins: {
-      // eslint-disable-next-line ts/no-unsafe-assignment
-      'simple-import-sort': pluginSimpleImportSort,
-    },
-    languageOptions: {
-      parserOptions: {
-        sourceType: 'module',
-        ecmaFeatures: {
-          impliedStrict: true,
+  return antfu(
+    cfg,
+    {
+      plugins: {
+        // eslint-disable-next-line ts/no-unsafe-assignment
+        'simple-import-sort': pluginSimpleImportSort,
+      },
+      languageOptions: {
+        parserOptions: {
+          sourceType: 'module',
+          ecmaFeatures: {
+            impliedStrict: true,
+          },
+        },
+        globals: {
+          ...(browser && {
+            ...globals.browser,
+            ...globals.worker,
+            ...globals.serviceworker,
+            document: 'readonly',
+            navigator: 'readonly',
+            window: 'readonly',
+          }),
         },
       },
-      globals: {
-        ...(browser && {
-          ...globals.browser,
-          ...globals.worker,
-          ...globals.serviceworker,
-          document: 'readonly',
-          navigator: 'readonly',
-          window: 'readonly',
-        }),
+      settings: {
+        'import/internal-regex': '^~/',
       },
+      rules,
     },
-    settings: {
-      'import/internal-regex': '^~/',
-    },
-    rules,
-  }, ...(cfg.typescript ? typescript() : []), ...final, ...userConfigs)
+    ...(cfg.typescript ? typescript() : []),
+    ...final,
+    ...userConfigs,
+  )
 }

@@ -78,7 +78,7 @@ If you want to extend the default config (e.x., for adding `files.ignore` field)
 `eslint.config.js`:
 
 ```js
-import config from '@daotl/eslint-config'
+import { config } from '@daotl/eslint-config'
 
 export default config({
     // typescript: true, // Will auto detect

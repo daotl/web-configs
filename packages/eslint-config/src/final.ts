@@ -7,7 +7,7 @@ import {
   GLOB_TESTS,
 } from '@antfu/eslint-config'
 
-export default ([
+export const final = [
   // Not using `dprint` anymore as `@antfu/eslint-config` seems to be enough
   // dprint: https://github.com/rmobis/eslint-plugin-dprint#-usage
   // {
@@ -78,4 +78,4 @@ export default ([
       'no-unused-vars': 'off',
     },
   },
-] satisfies FlatConfigItem[])
+] satisfies FlatConfigItem[]
