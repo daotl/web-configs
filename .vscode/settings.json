@@ -5,6 +5,6 @@
   "eslint.experimental.useFlatConfig": true,
 
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": true
+    "source.organizeImports.biome": "explicit"
   }
 }

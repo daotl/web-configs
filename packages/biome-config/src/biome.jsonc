@@ -1,3 +1,4 @@
+// https://github.com/biomejs/biome/blob/cli/v1.8.3/packages/%40biomejs/biome/configuration_schema.json
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
@@ -16,31 +17,32 @@
     "formatWithErrors": true,
     "indentStyle": "space",
     // "indentWidth": 2,
+    // "lineEnding": "lf",
     // "lineWidth": 80,
-    // "ignore": []
+    // "attributePosition": "auto",
   },
   "javascript": {
     "parser": {
       // Allows to support the unsafe/experimental parameter decorators.
-      "unsafeParameterDecoratorsEnabled": true
+      "unsafeParameterDecoratorsEnabled": true,
     },
+    // "globals": ["$", "_", "externalVariable"],
+    // "jsxRuntime": "transparent",
     "formatter": {
+      // "enabled": true,
       "quoteStyle": "single",
       // "jsxQuoteStyle": "double"
       // "quoteProperties": "asNeeded",
-      // "trailingComma": "all",
+      // "trailingCommas": "all",
       "semicolons": "asNeeded",
       "arrowParentheses": "asNeeded",
-      // "globals": ["$", "_", "externalVariable"],
-    },
-  },
-  "json": {
-    "parser": {
-      "allowComments": true,
-      "allowTrailingCommas": true,
+      // "bracketSameLine": false,
+      // "bracketSpacing": true,
+      // "attributePosition": "auto",
     },
   },
   "linter": {
+    // "enabled": true,
     "rules": {
       "recommended": true,
 
@@ -74,18 +76,30 @@
       // Rules that detect code that is guaranteed to be incorrect or useless.
       "correctness": {
         "recommended": true,
+        // Disallow the use of Math.min and Math.max to clamp a value where the result itself is constant.
+        // https://biomejs.dev/linter/rules/no-constant-math-min-max-clamp
+        "noConstantMathMinMaxClamp": "error",
         // Disallow new operators with the Symbol object.
         // https://biomejs.dev/linter/rules/no-new-symbol
         "noNewSymbol": "error",
         // Prevents the usage of variables that haven’t been declared inside the document.
         // https://biomejs.dev/linter/rules/no-undeclared-variables
         "noUndeclaredVariables": "error",
+        // Disallow unused imports.
+        // https://biomejs.dev/linter/rules/no-unused-imports
+        "noUnusedImports": "error",
+        // Disallow unused private class members
+        // https://biomejs.dev/linter/rules/no-unused-private-class-members
+        "noUnusedPrivateClassMembers": "error",
         // Disallow unused variables.
         // There are two exceptions to this rule:
         //   variables that starts with underscore, ex: let _something;
         //   the React variable;
         // https://biomejs.dev/linter/rules/no=unused-variables
         "noUnusedVariables": "error",
+        // Disallow Array constructors.
+        // https://biomejs.dev/linter/rules/use-array-literals
+        "useArrayLiterals": "error",
         // Enforce that all React hooks are being called from the Top Level component functions.
         // https://biomejs.dev/linter/rules/use-hook-at-top-level
         // "useHookAtTopLevel": "error"
@@ -94,6 +108,12 @@
       // Rules catching ways your code could be written to run faster, or generally be more efficient.
       "performance": {
         "recommended": true,
+        // Disallow the use of barrel file.
+        // https://biomejs.dev/linter/rules/no-barrel-file
+        "noBarrelFile": "error",
+        // Avoid re-export all.
+        // https://biomejs.dev/linter/rules/no-re-export-all
+        "noReExportAll": "error",
       },
 
       // Rules that detect potential security flaws.
@@ -104,9 +124,12 @@
       // Rules enforcing a consistent and idiomatic way of writing your code.
       "style": {
         "recommended": true,
+        // Disallow default exports.
+        // https://biomejs.dev/linter/rules/no-default-export
+        "noDefaultExport": "error",
         // Disallow implicit true values on JSX boolean attributes
         // https://biomejs.dev/linter/rules/no-implicit-boolean
-        // "noImplicitBoolean": "error",
+        "noImplicitBoolean": "error",
         // Disallow the use of TypeScript’s namespaces.
         // https://biomejs.dev/linter/rules/no-namespace
         "noNamespace": "error",
@@ -133,6 +156,22 @@
         // Enforce using else if instead of nested if in else clauses.
         // https://biomejs.dev/linter/rules/use-collapsed-else-if
         "useCollapsedElseIf": "error",
+        // Require consistently using either T[] or Array<T>
+        // https://biomejs.dev/linter/rules/use-consistent-array-type
+        "useConsistentArrayType": "error",
+        // Enforce naming conventions for JavaScript and TypeScript filenames.
+        // https://biomejs.dev/linter/rules/use-filenaming-convention
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            // "strictCase": true,
+            "requireAscii": true, // This option will be turned on by default in Biome 2.0.
+            "filenameCases": ["kebab-case", "export"],
+          },
+        },
+        // This rule recommends a for-of loop when in a for loop, the index used to extract an item from the iterated array.
+        // https://biomejs.dev/linter/rules/use-for-of
+        "useForOf": "error",
         // This rule enforces the use of <>…</> over <Fragment>…</Fragment>.
         // https://biomejs.dev/linter/rules/use-fragment-syntax
         "useFragmentSyntax": "error",
@@ -145,6 +184,9 @@
           //   "enumMemberCase": "PascalCase"
           // }
         },
+        // Promotes the usage of node:assert /strict over node:assert .
+        // https://biomejs.dev/linter/rules/use-node-assert-strict
+        "useNodeAssertStrict": "error",
         // When expressing array types, this rule promotes the usage of T[] shorthand instead of Array<T>.
         // https://biomejs.dev/linter/rules/use-shorthand-array-type
         "useShorthandArrayType": "error",
@@ -159,20 +201,57 @@
       // Rules that detect code that is likely to be incorrect or useless.
       "suspicious": {
         "recommended": true,
-        // Usually, the definition in the standard library is more precise than what people come up with or the used constant exceeds the maximum precision of the number type.
-        // https://biomejs.dev/linter/rules/no-approximative-numeric-constant
-        "noApproximativeNumericConstant": "error",
         // Disallow the use of console.log
         // https://biomejs.dev/linter/rules/no-console-log
         "noConsoleLog": "error",
+        // Disallow empty block statements and static blocks.
+        // https://biomejs.dev/linter/rules/no-empty-block-statements
+        "noEmptyBlockStatements": "error",
         // Disallow shorthand assign when variable appears on both sides.
         // https://biomejs.dev/linter/rules/no-misrefactored-shorthand-assign
         "noMisrefactoredShorthandAssign": "warn",
+        // Disallow disabled tests.
+        // https://biomejs.dev/linter/rules/no-skipped-tests
+        "noSkippedTests": "warn",
+        // Ensure async functions utilize await.
+        // https://biomejs.dev/linter/rules/use-await
+        "useAwait": "error",
       },
 
       // New rules that are still under development.
       // "nursery": {
       // }
     },
-  }
+  },
+
+  // `extended` + `overrides` not working currently, need to copy the following config to projects
+  // "overrides": [
+  //   {
+  //     "include": ["*.jsonc"],
+  //     "json": {
+  //       "formatter": {
+  //         "trailingCommas": "all",
+  //       },
+  //     },
+  //   },
+  //   {
+  //     "include": [".vscode/*.json"],
+  //     "json": {
+  //       "parser": {
+  //         "allowComments": true,
+  //         "allowTrailingCommas": true,
+  //       },
+  //     },
+  //   },
+  //   {
+  //     "include": ["eslint.config.js"],
+  //     "linter": {
+  //       "rules": {
+  //         "style": {
+  //           "noDefaultExport": "off",
+  //         },
+  //       },
+  //     },
+  //   },
+  // ],
 }

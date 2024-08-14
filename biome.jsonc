@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["@daotl/biome-config"],
+  "vcs": {
+    "defaultBranch": "main",
+  },
+  "files": {
+    "ignore": ["packages/tsconfig/*.json", "packages/dprint/dprint.json"],
+  },
+  "overrides": [
+    {
+      "include": ["*.jsonc"],
+      "json": {
+        "formatter": {
+          "trailingCommas": "all",
+        },
+      },
+    },
+    {
+      "include": [".vscode/*.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true,
+        },
+      },
+    },
+    {
+      "include": ["eslint.config.js"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off",
+          },
+        },
+      },
+    },
+    {
+      "include": ["packages/eslint-config/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": "off",
+          },
+        },
+      },
+    },
+  ],
+}

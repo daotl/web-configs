@@ -13,13 +13,11 @@
   "bugs": {
     "url": "https://github.com/daotl/web-configs/issues"
   },
-  "keywords": [
-    "dprint"
-  ],
+  "keywords": ["dprint"],
   "main": "dist/dprint.json",
   "scripts": {
     "lint": "biome check .",
-    "lint:fix": "biome check --apply .",
+    "lint:fix": "biome check --write .",
     "prepublish": "node index.js"
   },
   "publishConfig": {

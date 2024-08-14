@@ -8,10 +8,10 @@
   "scripts": {
     "all": "pnpm m run",
     "lint": "biome check .",
-    "lint:fix": "biome check --apply ."
+    "lint:fix": "biome check --write ."
   },
   "devDependencies": {
-    "@biomejs/biome": "1.4.0",
+    "@biomejs/biome": "1.8.3",
     "@daotl/biome-config": "workspace:*",
     "tsup": "^7.2.0"
   }

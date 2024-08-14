@@ -14,13 +14,7 @@
   "bugs": {
     "url": "https://github.com/daotl/web-configs/issues"
   },
-  "keywords": [
-    "eslint",
-    "eslintconfig",
-    "typescript",
-    "browser",
-    "frontend"
-  ],
+  "keywords": ["eslint", "eslintconfig", "typescript", "browser", "frontend"],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -29,15 +23,13 @@
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --clean --dts",
     "stub": "tsup src/index.ts --format esm",
     "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
     "lint": "biome check .",
-    "lint:fix": "biome check --apply .",
+    "lint:fix": "biome check --write .",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
     "typecheck": "tsc --noEmit",

@@ -13,14 +13,7 @@
   "bugs": {
     "url": "https://github.com/daotl/web-configs/issues"
   },
-  "keywords": [
-    "tsconfig",
-    "typescript",
-    "node",
-    "browser",
-    "frontend",
-    "vue"
-  ],
+  "keywords": ["tsconfig", "typescript", "node", "browser", "frontend", "vue"],
   "main": "node.json",
   "publishConfig": {
     "access": "public"
