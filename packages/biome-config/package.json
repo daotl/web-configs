@@ -20,8 +20,8 @@
     ".": "./src/biome.jsonc"
   },
   "scripts": {
-    "lint": "biome check .",
-    "lint:fix": "biome check --fix .",
+    "lint": "biome check",
+    "lint:fix": "biome check --fix",
     "prepublish": "node gen.js"
   },
   "publishConfig": {

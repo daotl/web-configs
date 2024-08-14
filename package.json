@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "all": "pnpm m run",
-    "lint": "biome check .",
-    "lint:fix": "biome check --fix ."
+    "lint": "biome check",
+    "lint:fix": "biome check --fix"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",

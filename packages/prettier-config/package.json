@@ -16,8 +16,8 @@
   "keywords": ["prettier"],
   "main": "index.js",
   "scripts": {
-    "lint": "cd ../.. && biome check .",
-    "lint:fix": "cd ../.. && biome check --fix ."
+    "lint": "cd ../.. && biome check",
+    "lint:fix": "cd ../.. && biome check --fix"
   },
   "publishConfig": {
     "access": "public"
