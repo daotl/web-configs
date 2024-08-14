@@ -17,7 +17,7 @@
   "main": "dist/dprint.json",
   "scripts": {
     "lint": "cd ../.. && biome check .",
-    "lint:fix": "cd ../.. && biome check --write .",
+    "lint:fix": "cd ../.. && biome check --fix .",
     "prepublish": "node index.js"
   },
   "publishConfig": {

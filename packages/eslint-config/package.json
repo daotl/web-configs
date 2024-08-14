@@ -29,7 +29,7 @@
     "stub": "tsup src/index.ts --format esm",
     "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
     "lint": "cd ../.. && biome check .",
-    "lint:fix": "cd ../.. && biome check --write .",
+    "lint:fix": "cd ../.. && biome check --fix .",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
     "typecheck": "tsc --noEmit",
