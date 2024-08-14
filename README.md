@@ -14,7 +14,7 @@ This monorepo includes packages for:
 npm install -D @daotl/tsconfig
 ```
 
-Biome config (`biome.json`):
+Biome config (`biome.jsonc`):
 ```
 npm install -D @daotl/biome-config
 ```
@@ -53,23 +53,13 @@ Replace `xxx` with one of `node`, `browser` or `vue`.
 
 ### Using Biome config
 
-Create `biome.json` in the project root:
+Create `biome.jsonc` in the project root:
 
-```json
+```jsonc
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["./node_modules/@daotl/biome-config/dist/biome.json"],
+  "extends": ["@daotl/biome-config"],
   // add your overrides here...
-}
-```
-
-If you want to extend the default config (e.x., for adding `files.ignore` field), create a `biome.ext.json` in the project root like this before running the above step:
-
-```json
-{
-  "files": {
-    "ignore": ["dist"]
-  }
 }
 ```
 
