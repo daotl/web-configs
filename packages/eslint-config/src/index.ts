@@ -1,12 +1,16 @@
+/* eslint-disable ts/no-explicit-any */
+
 // Can't import `antfu` with default import or `esbuild` will output problematic CJS import due to this issue:
 // https://github.com/evanw/esbuild/issues/2023
 import type {
   Awaitable,
-  FlatConfigItem,
-  UserConfigItem,
+  ConfigNames,
+  TypedFlatConfigItem,
 } from '@antfu/eslint-config'
 import { antfu } from '@antfu/eslint-config'
-// @ts-expect-error: no types
+import merge from 'deepmerge'
+import type { Linter } from 'eslint'
+import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
 import { isPackageExists } from 'local-pkg'
@@ -77,53 +81,94 @@ export const rules = {
   // ],
 
   'style/quote-props': ['error', 'as-needed'],
-} satisfies FlatConfigItem['rules']
+} satisfies TypedFlatConfigItem['rules']
 
 // From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L37C22-L37C22
 const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli']
 
 export function config(
   _cfg: Config = {},
-  ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
-): Promise<UserConfigItem[]> {
-  // From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L55-L64
-  const cfg = {
+  ...userConfigs: Awaitable<
+    | TypedFlatConfigItem
+    | TypedFlatConfigItem[]
+    // biome-ignore lint/suspicious/noExplicitAny: ignore
+    | FlatConfigComposer<any, any>
+    | Linter.Config[]
+  >[]
+): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
+  // From: https://github.com/antfu/eslint-config/blob/d514bc461572480c62bf3b4f2795d8a44fcd712a/src/factory.ts#L84-L98
+  const defaults = {
+    // astro: enableAstro = false,
+    // autoRenamePlugins = true,
     // componentExts: [],
     // gitignore: enableGitignore = true,
-    // isInEditor = !!((process.
+    // isInEditor = isInEditorEnv(),
+    // jsx: enableJsx = true,
     // react: enableReact = false,
+    // regexp: enableRegexp = true,
+    // solid: enableSolid = false,
+    // svelte: enableSvelte = false,
     typescript: isPackageExists('typescript'),
     // unocss: enableUnoCSS = false,
     vue: VuePackages.some(i => isPackageExists(i)),
-    stylistic: true,
+    // https://github.com/antfu/eslint-config/blob/d514bc461572480c62bf3b4f2795d8a44fcd712a/src/types.ts#L53-L118
     formatters: {
       /**
-       * Format CSS, LESS, SCSS files, also the `<style>` blocks in Vue
-       * By default uses Prettier
+       * Enable formatting support for CSS, Less, Sass, and SCSS.
+       *
+       * Currently only support Prettier.
        */
-      // Prefer Stylelint
-      // css: true,
-      /**
-       * Format HTML files
-       * By default uses Prettier
-       */
-      html: true,
-      /**
-       * Format Markdown files
-       * Supports Prettier and dprint
-       * By default uses Prettier
-       */
+      css: 'prettier',
+      html: 'prettier',
+      xml: 'prettier',
       markdown: 'dprint',
-    } as const,
-    ..._cfg,
-  }
-  const browser = cfg.browser || cfg.vue
+      graphql: 'prettier',
+      /**
+       * Install the prettier plugin for handle Slidev markdown
+       *
+       * Only works when `markdown` is enabled with `prettier`.
+       */
+      // slidev?: boolean | {
+      //   files?: string[];
+      // };
+      /**
+       * Enable formatting support for Astro.
+       *
+       * Currently only support Prettier.
+       */
+      astro: _cfg.astro ? 'prettier' : false,
+    },
+    stylistic: {
+      overrides: {
+        'style/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+        'style/comma-dangle': ['error', 'always-multiline'],
+        'style/lines-between-class-members': [
+          'error',
+          'always',
+          { exceptAfterSingleLine: true },
+        ],
+        'style/no-extra-semi': 'error',
+        'style/object-curly-spacing': ['error', 'always'],
+        'style/space-before-function-paren': [
+          'error',
+          {
+            anonymous: 'always',
+            named: 'never',
+            asyncArrow: 'always',
+          },
+        ],
+        'style/space-infix-ops': ['error', { int32Hint: true }],
+      },
+    },
+  } satisfies Config
+  const cfg = merge(defaults, _cfg)
+  const browser =
+    cfg.browser || cfg.astro || cfg.react || cfg.solid || cfg.svelte || cfg.vue
 
   return antfu(
     cfg,
     {
       plugins: {
-        // eslint-disable-next-line ts/no-unsafe-assignment
         'simple-import-sort': pluginSimpleImportSort,
       },
       languageOptions: {
