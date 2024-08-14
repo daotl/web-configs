@@ -79,10 +79,7 @@
     "**/Dockerfile",
     "**/*.Dockerfile"
   ],
-  "excludes": [
-    "**/node_modules",
-    "**/*-lock.json"
-  ],
+  "excludes": ["**/node_modules", "**/*-lock.json"],
   "plugins": [
     // You may specify any urls or file paths here that you wish.
     "https://plugins.dprint.dev/typescript-0.83.0.wasm",
