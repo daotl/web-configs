@@ -5,6 +5,8 @@
 import type {
   Awaitable,
   ConfigNames,
+  OptionsOverrides,
+  StylisticConfig,
   TypedFlatConfigItem,
 } from '@antfu/eslint-config'
 import { antfu } from '@antfu/eslint-config'
@@ -18,6 +20,9 @@ import { isPackageExists } from 'local-pkg'
 import type { Config } from './config.js'
 import { final } from './final.js'
 import { typescript } from './typescript.js'
+
+// From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L37C22-L37C22
+const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli']
 
 export const rules = {
   curly: ['error', 'all'],
@@ -79,12 +84,29 @@ export const rules = {
   //     warnOnUnassignedImports: true,
   //   },
   // ],
-
-  'style/quote-props': ['error', 'as-needed'],
 } satisfies TypedFlatConfigItem['rules']
 
-// From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L37C22-L37C22
-const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli']
+const stylisticOverrides = {
+  'style/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+  'style/comma-dangle': ['error', 'always-multiline'],
+  'style/lines-between-class-members': [
+    'error',
+    'always',
+    { exceptAfterSingleLine: true },
+  ],
+  'style/no-extra-semi': 'error',
+  'style/object-curly-spacing': ['error', 'always'],
+  'style/quote-props': ['error', 'as-needed'],
+  'style/space-before-function-paren': [
+    'error',
+    {
+      anonymous: 'always',
+      named: 'never',
+      asyncArrow: 'always',
+    },
+  ],
+  'style/space-infix-ops': ['error', { int32Hint: true }],
+} satisfies Exclude<(StylisticConfig & OptionsOverrides)['overrides'], undefined>
 
 export function config(
   _cfg: Config = {},
@@ -111,6 +133,9 @@ export function config(
     typescript: isPackageExists('typescript'),
     // unocss: enableUnoCSS = false,
     vue: VuePackages.some(i => isPackageExists(i)),
+    stylistic: {
+      overrides: stylisticOverrides,
+    },
     // https://github.com/antfu/eslint-config/blob/d514bc461572480c62bf3b4f2795d8a44fcd712a/src/types.ts#L53-L118
     formatters: {
       /**
@@ -118,9 +143,10 @@ export function config(
        *
        * Currently only support Prettier.
        */
-      css: 'prettier',
+      // Prefer Stylelint
+      // css: 'prettier',
       html: 'prettier',
-      xml: 'prettier',
+      // xml: 'prettier',
       markdown: 'dprint',
       graphql: 'prettier',
       /**
@@ -138,29 +164,8 @@ export function config(
        */
       astro: _cfg.astro ? 'prettier' : false,
     },
-    stylistic: {
-      overrides: {
-        'style/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
-        'style/comma-dangle': ['error', 'always-multiline'],
-        'style/lines-between-class-members': [
-          'error',
-          'always',
-          { exceptAfterSingleLine: true },
-        ],
-        'style/no-extra-semi': 'error',
-        'style/object-curly-spacing': ['error', 'always'],
-        'style/space-before-function-paren': [
-          'error',
-          {
-            anonymous: 'always',
-            named: 'never',
-            asyncArrow: 'always',
-          },
-        ],
-        'style/space-infix-ops': ['error', { int32Hint: true }],
-      },
-    },
   } satisfies Config
+
   const cfg = merge(defaults, _cfg)
   const browser =
     cfg.browser || cfg.astro || cfg.react || cfg.solid || cfg.svelte || cfg.vue
