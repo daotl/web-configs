@@ -1,4 +1,4 @@
-// https://github.com/biomejs/biome/blob/cli/v1.8.3/packages/%40biomejs/biome/configuration_schema.json
+// https://github.com/biomejs/biome/blob/cli/v1.9.4/packages/%40biomejs/biome/configuration_schema.json
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
@@ -21,6 +21,14 @@
     // "lineWidth": 80,
     // "attributePosition": "auto",
   },
+  "css": {
+    "formatter": {
+      "enabled": false,
+    },
+    "linter": {
+      "enabled": false,
+    },
+  },
   "javascript": {
     "parser": {
       // Allows to support the unsafe/experimental parameter decorators.
@@ -29,7 +37,7 @@
     // "globals": ["$", "_", "externalVariable"],
     // "jsxRuntime": "transparent",
     "formatter": {
-      // "enabled": true,
+      // "enabled": true
       "quoteStyle": "single",
       // "jsxQuoteStyle": "double"
       // "quoteProperties": "asNeeded",
@@ -54,6 +62,9 @@
       // Rules that focus on inspecting complex code that could be simplified.
       "complexity": {
         "recommended": true,
+        // Use Date.now() to get the number of milliseconds since the Unix Epoch.
+        // https://biomejs.dev/linter/rules/use-date-now
+        "useDateNow": "error",
         // Disallow functions that exceed a given Cognitive Complexity score.
         // https://biomejs.dev/linter/rules/no-excessive-cognitive-complexity
         "noExcessiveCognitiveComplexity": {
@@ -71,6 +82,12 @@
         // Discard redundant terms from logical expressions.
         // https://biomejs.dev/linter/rules/use-simplified-logic-expression
         "useSimplifiedLogicExpression": "error",
+        // Disallow unnecessary concatenation of string or template literals.
+        // https://biomejs.dev/linter/rules/no-useless-string-concat
+        "noUselessStringConcat": "error",
+        // Disallow initializing variables to undefined.
+        // https://biomejs.dev/linter/rules/no-useless-undefined-initialization
+        "noUselessUndefinedInitialization": "error",
       },
 
       // Rules that detect code that is guaranteed to be incorrect or useless.
@@ -84,7 +101,16 @@
         "noNewSymbol": "error",
         // Prevents the usage of variables that haven’t been declared inside the document.
         // https://biomejs.dev/linter/rules/no-undeclared-variables
+        // Forbid the use of Node.js builtin modules.
+        // https://biomejs.dev/linter/rules/no-nodejs-modules
+        // "noNodejsModules": "error",
+        // Disallow the use of dependencies that aren’t specified in the package.json.
+        // https://biomejs.dev/linter/rules/no-undeclared-dependencies
+        // "noUndeclaredDependencies": "error",
         "noUndeclaredVariables": "error",
+        // Disallow unused function parameters.
+        // https://biomejs.dev/linter/rules/no-unused-function-parameters
+        "noUnusedFunctionParameters": "error",
         // Disallow unused imports.
         // https://biomejs.dev/linter/rules/no-unused-imports
         "noUnusedImports": "error",
@@ -103,6 +129,9 @@
         // Enforce that all React hooks are being called from the Top Level component functions.
         // https://biomejs.dev/linter/rules/use-hook-at-top-level
         // "useHookAtTopLevel": "error"
+        // Enforce file extensions for relative imports.
+        // https://biomejs.dev/linter/rules/use-import-extensions
+        "useImportExtensions": "error",
       },
 
       // Rules catching ways your code could be written to run faster, or generally be more efficient.
@@ -114,6 +143,9 @@
         // Avoid re-export all.
         // https://biomejs.dev/linter/rules/no-re-export-all
         "noReExportAll": "error",
+        // Require regex literals to be declared at the top level.
+        // https://biomejs.dev/linter/rules/use-top-level-regex
+        "useTopLevelRegex": "error",
       },
 
       // Rules that detect potential security flaws.
@@ -127,12 +159,18 @@
         // Disallow default exports.
         // https://biomejs.dev/linter/rules/no-default-export
         "noDefaultExport": "error",
+        // Disallow using a callback in asynchronous tests and hooks.
+        // https://biomejs.dev/linter/rules/no-done-callback
+        // "noDoneCallback": "error",
         // Disallow implicit true values on JSX boolean attributes
         // https://biomejs.dev/linter/rules/no-implicit-boolean
         "noImplicitBoolean": "error",
         // Disallow the use of TypeScript’s namespaces.
         // https://biomejs.dev/linter/rules/no-namespace
         "noNamespace": "error",
+        // Disallow the use of namespace imports.
+        // https://biomejs.dev/linter/rules/no-namespace-import
+        "noNamespaceImport": "error",
         // Disallow negation in the condition of an if statement if it has an else clause.
         // https://biomejs.dev/linter/rules/no-negation-else
         // "noNegationElse": "error",
@@ -150,6 +188,9 @@
         // Disallow the use of constants which its value is the upper-case version of its name.
         // https://biomejs.dev/linter/rules/no-shouty-constants
         "noShoutyConstants": "error",
+        // Disallow the use of yoda expressions.
+        // https://biomejs.dev/linter/rules/no-yoda-expression
+        "noYodaExpression": "error",
         // Requires following curly brace conventions.
         // https://biomejs.dev/linter/rules/use-block-statements
         "useBlockStatements": "error",
@@ -159,6 +200,15 @@
         // Require consistently using either T[] or Array<T>
         // https://biomejs.dev/linter/rules/use-consistent-array-type
         "useConsistentArrayType": "error",
+        // Enforce the use of new for all builtins, except String, Number and Boolean.
+        // https://biomejs.dev/linter/rules/use-consistent-builtin-instantiation
+        "useConsistentBuiltinInstantiation": "error",
+        // Require the default clause in switch statements.
+        // https://biomejs.dev/linter/rules/use-default-switch-clause
+        "useDefaultSwitchClause": "error",
+        // Enforce explicitly comparing the length, size, byteLength or byteOffset property of a value.
+        // https://biomejs.dev/linter/rules/use-explicit-length-check
+        "useExplicitLengthCheck": "error",
         // Enforce naming conventions for JavaScript and TypeScript filenames.
         // https://biomejs.dev/linter/rules/use-filenaming-convention
         "useFilenamingConvention": {
@@ -193,29 +243,47 @@
         // Require assignment operator shorthand where possible.
         // https://biomejs.dev/linter/rules/use-shorthand-assign
         "useShorthandAssign": "error",
-        // Enforces switch clauses have a single statement, emits a quick fix wrapping the statements in a block.
-        // https://biomejs.dev/linter/rules/use-single-case-statement
-        "useSingleCaseStatement": "error",
+        // Require new when throwing an error.
+        // https://biomejs.dev/linter/rules/use-throw-new-error
+        "useThrowNewError": "error",
+        // Disallow throwing non-Error values.
+        // https://biomejs.dev/linter/rules/use-throw-only-error
+        "useThrowOnlyError": "error",
       },
 
       // Rules that detect code that is likely to be incorrect or useless.
       "suspicious": {
         "recommended": true,
-        // Disallow the use of console.log
-        // https://biomejs.dev/linter/rules/no-console-log
-        "noConsoleLog": "error",
+        // Disallow the use of console.
+        // https://biomejs.dev/linter/rules/no-console
+        "noConsole": "error",
         // Disallow empty block statements and static blocks.
         // https://biomejs.dev/linter/rules/no-empty-block-statements
         "noEmptyBlockStatements": "error",
+        // Disallow variables from evolving into any type through reassignments.
+        // https://biomejs.dev/linter/rules/no-evolving-types
+        "noEvolvingTypes": "error",
+        // Checks that the assertion function, for example expect, is placed inside an it() function call.
+        // https://biomejs.dev/linter/rules/no-misplaced-assertion
+        "noMisplacedAssertion": "error",
         // Disallow shorthand assign when variable appears on both sides.
         // https://biomejs.dev/linter/rules/no-misrefactored-shorthand-assign
         "noMisrefactoredShorthandAssign": "warn",
+        // Prevents React-specific JSX properties from being used.
+        // https://biomejs.dev/linter/rules/no-react-specific-props
+        // "noReactSpecificProps": "error",
         // Disallow disabled tests.
         // https://biomejs.dev/linter/rules/no-skipped-tests
         "noSkippedTests": "warn",
         // Ensure async functions utilize await.
         // https://biomejs.dev/linter/rules/use-await
         "useAwait": "error",
+        // Enforce passing a message value when creating a built-in error.
+        // https://biomejs.dev/linter/rules/use-error-message
+        "useErrorMessage": "error",
+        // Enforce using the digits argument with Number#toFixed().
+        // https://biomejs.dev/linter/rules/use-number-to-fixed-digits-argument
+        "useNumberToFixedDigitsArgument": "error",
       },
 
       // New rules that are still under development.

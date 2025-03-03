@@ -1,8 +1,8 @@
 {
   "name": "@daotl/biome-config",
   "type": "module",
-  "version": "0.1.0",
-  "packageManager": "pnpm@9.7.0",
+  "version": "0.1.1",
+  "packageManager": "pnpm@10.5.2",
   "description": "Biome config for DAOT projects",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
@@ -27,13 +27,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@biomejs/biome": "1.8.3"
+    "@biomejs/biome": "1.9.4"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
-    "json-stable-stringify": "^1.1.1"
+    "json-stable-stringify": "^1.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3"
+    "@biomejs/biome": "1.9.4"
   }
 }
