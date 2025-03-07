@@ -13,7 +13,7 @@ import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import type { Config } from './config.js'
 
-import { antfu } from '@antfu/eslint-config'
+import { antfu, GLOB_ASTRO, GLOB_JSX, GLOB_SVELTE, GLOB_TSX, GLOB_VUE } from '@antfu/eslint-config'
 import merge from 'deepmerge'
 import globals from 'globals'
 import { isPackageExists } from 'local-pkg'
@@ -197,6 +197,12 @@ export function config(
       rules,
     },
     ...(cfg.typescript ? typescript() : []),
+    {
+      files: [GLOB_JSX, GLOB_TSX, GLOB_ASTRO, GLOB_SVELTE, GLOB_VUE],
+      rules: {
+        'unicorn/filename-case': 'off',
+      },
+    },
     ...final,
     ...userConfigs,
   )
