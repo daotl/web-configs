@@ -1,10 +1,10 @@
+import type { TypedFlatConfigItem } from '@antfu/eslint-config'
 // import dprint from '@phaphoso/eslint-plugin-dprint'
 // import dprintConfig from '@daotl/dprint-config'
 import {
   GLOB_MARKDOWN,
   GLOB_MARKDOWN_CODE,
   GLOB_TESTS,
-  type TypedFlatConfigItem,
 } from '@antfu/eslint-config'
 
 export const final = [

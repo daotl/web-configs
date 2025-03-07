@@ -1,10 +1,10 @@
 /* eslint-disable ts/no-non-null-assertion */
 
+import type { TypedFlatConfigItem } from '@antfu/eslint-config'
 import {
   GLOB_MARKDOWN_CODE,
   GLOB_TS,
   GLOB_TSX,
-  type TypedFlatConfigItem,
   renameRules,
 } from '@antfu/eslint-config'
 import pluginTs from '@typescript-eslint/eslint-plugin'
@@ -19,9 +19,7 @@ import { rules } from './index.js'
 export function typescript(
   extraExtensions: string[] = [],
 ): TypedFlatConfigItem[] {
-  const files = [GLOB_TS, GLOB_TSX, '**/*.d.ts'].concat(
-    extraExtensions.map(ext => `*${ext}`),
-  )
+  const files = [GLOB_TS, GLOB_TSX, '**/*.d.ts', ...extraExtensions.map(extension => `*${extension}`)]
 
   return [
     // Don't set `parserOptions.project` for `*.md/*.ts` or we'll get:

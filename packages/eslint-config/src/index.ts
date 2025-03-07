@@ -9,19 +9,18 @@ import type {
   StylisticConfig,
   TypedFlatConfigItem,
 } from '@antfu/eslint-config'
-import { antfu } from '@antfu/eslint-config'
-import merge from 'deepmerge'
 import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
-import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
+import type { Config } from './config.js'
+
+import { antfu } from '@antfu/eslint-config'
+import merge from 'deepmerge'
 import globals from 'globals'
 import { isPackageExists } from 'local-pkg'
-
-import type { Config } from './config.js'
 import { final } from './final.js'
 import { typescript } from './typescript.js'
 
-// From: https://github.com/antfu/eslint-config/blob/27b7fe476fd28dafbc5ec5674d4b383255f4bd8f/src/factory.ts#L37C22-L37C22
+// From: https://github.com/antfu/eslint-config/blob/4523340b1bad71d541758c53ff725de3dcc1b172/src/factory.ts#L50
 const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli']
 
 export const rules = {
@@ -52,12 +51,6 @@ export const rules = {
   //     ],
   //   },
   // ],
-  // Preferred "simple-import-sort" over "import/order"
-  // See: https://github.com/lydell/eslint-plugin-simple-import-sort#how-is-this-rule-different-from-importorder
-  'sort-imports': 'off',
-  'import/order': 'off',
-  'simple-import-sort/imports': 'error',
-  'simple-import-sort/exports': 'error',
   'import/first': 'error',
   'import/newline-after-import': ['error', { considerComments: false }],
   'import/no-duplicates': 'error',
@@ -84,6 +77,8 @@ export const rules = {
   //     warnOnUnassignedImports: true,
   //   },
   // ],
+
+  'unicorn/prevent-abbreviations': 'off',
 } satisfies TypedFlatConfigItem['rules']
 
 const stylisticOverrides = {
@@ -106,7 +101,10 @@ const stylisticOverrides = {
     },
   ],
   'style/space-infix-ops': ['error', { int32Hint: true }],
-} satisfies Exclude<(StylisticConfig & OptionsOverrides)['overrides'], undefined>
+} satisfies Exclude<
+  (StylisticConfig & OptionsOverrides)['overrides'],
+  undefined
+>
 
 export function config(
   _cfg: Config = {},
@@ -118,25 +116,26 @@ export function config(
     | Linter.Config[]
   >[]
 ): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
-  // From: https://github.com/antfu/eslint-config/blob/d514bc461572480c62bf3b4f2795d8a44fcd712a/src/factory.ts#L84-L98
+  // From: https://github.com/antfu/eslint-config/blob/4523340b1bad71d541758c53ff725de3dcc1b172/src/factory.ts#L85-L100
   const defaults = {
     // astro: enableAstro = false,
     // autoRenamePlugins = true,
     // componentExts: [],
     // gitignore: enableGitignore = true,
-    // isInEditor = isInEditorEnv(),
     // jsx: enableJsx = true,
+    // pnpmCatalogs: enablePnpmCatalogs = false, // TOD: smart detect
     // react: enableReact = false,
     // regexp: enableRegexp = true,
     // solid: enableSolid = false,
     // svelte: enableSvelte = false,
     typescript: isPackageExists('typescript'),
+    unicorn: { allRecommended: true },
     // unocss: enableUnoCSS = false,
-    vue: VuePackages.some(i => isPackageExists(i)),
+    vue: VuePackages.some(index => isPackageExists(index)),
     stylistic: {
       overrides: stylisticOverrides,
     },
-    // https://github.com/antfu/eslint-config/blob/d514bc461572480c62bf3b4f2795d8a44fcd712a/src/types.ts#L53-L118
+    // https://github.com/antfu/eslint-config/blob/4523340b1bad71d541758c53ff725de3dcc1b172/src/types.ts#L53-L118
     formatters: {
       /**
        * Enable formatting support for CSS, Less, Sass, and SCSS.
@@ -146,7 +145,8 @@ export function config(
       // Prefer Stylelint
       // css: 'prettier',
       html: 'prettier',
-      // xml: 'prettier',
+      xml: 'prettier',
+      svg: 'prettier',
       markdown: 'dprint',
       graphql: 'prettier',
       /**
@@ -167,15 +167,12 @@ export function config(
   } satisfies Config
 
   const cfg = merge(defaults, _cfg)
-  const browser =
-    cfg.browser || cfg.astro || cfg.react || cfg.solid || cfg.svelte || cfg.vue
+  const browser
+    = cfg.browser || cfg.astro || cfg.react || cfg.solid || cfg.svelte || cfg.vue
 
   return antfu(
     cfg,
     {
-      plugins: {
-        'simple-import-sort': pluginSimpleImportSort,
-      },
       languageOptions: {
         parserOptions: {
           sourceType: 'module',
