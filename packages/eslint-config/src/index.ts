@@ -142,8 +142,7 @@ export function config(
        *
        * Currently only support Prettier.
        */
-      // Prefer Stylelint
-      // css: 'prettier',
+      css: 'prettier',
       html: 'prettier',
       xml: 'prettier',
       svg: 'prettier',
