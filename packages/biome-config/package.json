@@ -14,7 +14,9 @@
   "bugs": {
     "url": "https://github.com/daotl/web-configs/issues"
   },
-  "keywords": ["biome"],
+  "keywords": [
+    "biome"
+  ],
   "main": "src/biome.json",
   "exports": {
     ".": "./src/biome.jsonc"
@@ -27,13 +29,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "catalog:"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
     "json-stable-stringify": "^1.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "catalog:"
   }
 }

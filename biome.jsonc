@@ -5,11 +5,15 @@
     "defaultBranch": "main",
   },
   "files": {
-    "ignore": ["packages/tsconfig/*.json", "packages/dprint/dprint.json"],
+    "includes": [
+      "**",
+      "!**/packages/tsconfig/**/*.json",
+      "!**/packages/dprint/dprint.json",
+    ],
   },
   "overrides": [
     {
-      "include": ["*.jsonc"],
+      "includes": ["**/*.jsonc"],
       "json": {
         "formatter": {
           "trailingCommas": "all",
@@ -17,7 +21,7 @@
       },
     },
     {
-      "include": [".vscode/*.json"],
+      "includes": ["**/.vscode/**/*.json"],
       "json": {
         "parser": {
           "allowComments": true,
@@ -26,7 +30,7 @@
       },
     },
     {
-      "include": ["eslint.config.js"],
+      "includes": ["**/eslint.config.js"],
       "linter": {
         "rules": {
           "style": {
@@ -36,7 +40,7 @@
       },
     },
     {
-      "include": ["packages/eslint-config/**"],
+      "includes": ["**/packages/eslint-config/**"],
       "linter": {
         "rules": {
           "style": {
@@ -46,4 +50,20 @@
       },
     },
   ],
+  "linter": {
+    "rules": {
+      "style": {
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+      },
+    },
+  },
 }
