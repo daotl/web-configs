@@ -9,14 +9,27 @@ import type {
   StylisticConfig,
   TypedFlatConfigItem,
 } from '@antfu/eslint-config'
+import {
+  antfu,
+  GLOB_ASTRO,
+  GLOB_JSON,
+  GLOB_JSON5,
+  GLOB_JSONC,
+  GLOB_JSX,
+  GLOB_MARKDOWN,
+  GLOB_SVELTE,
+  GLOB_TOML,
+  GLOB_TSX,
+  GLOB_VUE,
+  GLOB_XML,
+  GLOB_YAML,
+} from '@antfu/eslint-config'
+import merge from 'deepmerge'
 import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
-import type { Config } from './config.js'
-
-import { antfu, GLOB_ASTRO, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_JSX, GLOB_MARKDOWN, GLOB_SVELTE, GLOB_TOML, GLOB_TSX, GLOB_VUE, GLOB_XML, GLOB_YAML } from '@antfu/eslint-config'
-import merge from 'deepmerge'
 import globals from 'globals'
 import { isPackageExists } from 'local-pkg'
+import type { Config } from './config.js'
 import { final } from './final.js'
 import { typescript } from './typescript.js'
 
@@ -166,8 +179,8 @@ export function config(
   } satisfies Config
 
   const cfg = merge(defaults, _cfg)
-  const browser
-    = cfg.browser || cfg.astro || cfg.react || cfg.solid || cfg.svelte || cfg.vue
+  const browser =
+    cfg.browser || cfg.astro || cfg.react || cfg.solid || cfg.svelte || cfg.vue
 
   return antfu(
     cfg,
@@ -198,7 +211,21 @@ export function config(
     ...(cfg.typescript ? typescript() : []),
     {
       // root directory has files such as README.md, FUNDING.yml
-      files: ['./*', GLOB_MARKDOWN, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML, GLOB_TOML, GLOB_XML, GLOB_JSX, GLOB_TSX, GLOB_ASTRO, GLOB_SVELTE, GLOB_VUE],
+      files: [
+        './*',
+        GLOB_MARKDOWN,
+        GLOB_JSON,
+        GLOB_JSON5,
+        GLOB_JSONC,
+        GLOB_YAML,
+        GLOB_TOML,
+        GLOB_XML,
+        GLOB_JSX,
+        GLOB_TSX,
+        GLOB_ASTRO,
+        GLOB_SVELTE,
+        GLOB_VUE,
+      ],
       rules: {
         'unicorn/filename-case': 'off',
       },

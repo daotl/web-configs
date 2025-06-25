@@ -19,7 +19,12 @@ import { rules } from './index.js'
 export function typescript(
   extraExtensions: string[] = [],
 ): TypedFlatConfigItem[] {
-  const files = [GLOB_TS, GLOB_TSX, '**/*.d.ts', ...extraExtensions.map(extension => `*${extension}`)]
+  const files = [
+    GLOB_TS,
+    GLOB_TSX,
+    '**/*.d.ts',
+    ...extraExtensions.map(extension => `*${extension}`),
+  ]
 
   return [
     // Don't set `parserOptions.project` for `*.md/*.ts` or we'll get:
