@@ -16,9 +16,6 @@
       "!**/auto-imports.d.ts"
     ]
   },
-  // "organizeImports": {
-  //   "enabled": true
-  // },
   "formatter": {
     // "enabled": true,
     "formatWithErrors": true,
@@ -33,6 +30,8 @@
       "enabled": true
     }
   },
+  // TODO: Waiting support for Embedded language formatting (`<style>` in `*.vue`)
+  // https://github.com/biomejs/biome/issues/3334
   "css": {
     "formatter": {
       "enabled": false
@@ -71,9 +70,6 @@
       // Rules that focus on inspecting complex code that could be simplified.
       "complexity": {
         "recommended": true,
-        // Use Date.now() to get the number of milliseconds since the Unix Epoch.
-        // https://biomejs.dev/linter/rules/use-date-now
-        "useDateNow": "error",
         // Disallow functions that exceed a given Cognitive Complexity score.
         // https://biomejs.dev/linter/rules/no-excessive-cognitive-complexity
         "noExcessiveCognitiveComplexity": {
@@ -82,28 +78,28 @@
           //   "maxAllowedComplexity": 15
           // }
         },
-        // Disallow the use of void operators, which is not a familiar operator.
-        // https://biomejs.dev/linter/rules/no-void
-        // "noVoid": "error",
-        // Enforce the usage of a literal access to properties over computed property access.
-        // https://biomejs.dev/linter/rules/use-literal-keys
-        "useLiteralKeys": "off",
-        // Discard redundant terms from logical expressions.
-        // https://biomejs.dev/linter/rules/use-simplified-logic-expression
-        "useSimplifiedLogicExpression": "error",
+        // This rule enforces a maximum depth to nested describe() in test files.
+        // https://biomejs.dev/linter/rules/no-excessive-nested-test-suites
+        "noExcessiveNestedTestSuites": "error",
+        // Prefer for...of statement instead of Array.forEach.
+        // https://biomejs.dev/linter/rules/no-for-each
+        // "noForEach": "error",
         // Disallow unnecessary concatenation of string or template literals.
         // https://biomejs.dev/linter/rules/no-useless-string-concat
         "noUselessStringConcat": "error",
-        // Disallow initializing variables to undefined.
-        // https://biomejs.dev/linter/rules/no-useless-undefined-initialization
-        "noUselessUndefinedInitialization": "error"
+        // Disallow the use of void operators, which is not a familiar operator.
+        // https://biomejs.dev/linter/rules/no-void
+        // "noVoid": "error",
+        // Discard redundant terms from logical expressions.
+        // https://biomejs.dev/linter/rules/use-simplified-logic-expression
+        "useSimplifiedLogicExpression": "error",
+        // Enforce the use of while loops instead of for loops when the initializer and update expressions are not needed.
+        // https://biomejs.dev/linter/rules/use-while
+        "useWhile": "error"
       },
       // Rules that detect code that is guaranteed to be incorrect or useless.
       "correctness": {
         "recommended": true,
-        // Disallow the use of Math.min and Math.max to clamp a value where the result itself is constant.
-        // https://biomejs.dev/linter/rules/no-constant-math-min-max-clamp
-        "noConstantMathMinMaxClamp": "error",
         // Prevents the usage of variables that haven’t been declared inside the document.
         // https://biomejs.dev/linter/rules/no-undeclared-variables
         // Forbid the use of Node.js builtin modules.
@@ -116,21 +112,6 @@
         // https://biomejs.dev/linter/rules/no-undeclared-dependencies
         // "noUndeclaredDependencies": "error",
         "noUndeclaredVariables": "error",
-        // Disallow unused function parameters.
-        // https://biomejs.dev/linter/rules/no-unused-function-parameters
-        "noUnusedFunctionParameters": "error",
-        // Disallow unused imports.
-        // https://biomejs.dev/linter/rules/no-unused-imports
-        "noUnusedImports": "error",
-        // Disallow unused private class members
-        // https://biomejs.dev/linter/rules/no-unused-private-class-members
-        "noUnusedPrivateClassMembers": "error",
-        // Disallow unused variables.
-        // There are two exceptions to this rule:
-        //   variables that starts with underscore, ex: let _something;
-        //   the React variable;
-        // https://biomejs.dev/linter/rules/no=unused-variables
-        "noUnusedVariables": "error",
         // Enforce that all React hooks are being called from the Top Level component functions.
         // https://biomejs.dev/linter/rules/use-hook-at-top-level
         // "useHookAtTopLevel": "error"
@@ -337,12 +318,27 @@
         // Disallow the use of console.
         // https://biomejs.dev/linter/rules/no-console
         "noConsole": "error",
+        // Prevents importing next/document outside of pages/_document.jsx in Next.js projects.
+        // https://biomejs.dev/linter/rules/no-document-import-in-page
+        // "noDocumentImportInPage": "error",
+        // A describe block should not contain duplicate hooks.
+        // https://biomejs.dev/linter/rules/no-duplicate-test-hooks
+        "noDuplicateTestHooks": "error",
         // Disallow empty block statements and static blocks.
         // https://biomejs.dev/linter/rules/no-empty-block-statements
         "noEmptyBlockStatements": "error",
         // Disallow variables from evolving into any type through reassignments.
         // https://biomejs.dev/linter/rules/no-evolving-types
         "noEvolvingTypes": "error",
+        // Disallow using export or module.exports in files containing tests
+        // https://biomejs.dev/linter/rules/no-exports-in-test
+        "noExportsInTest": "error",
+        // Disallow focused tests.
+        // https://biomejs.dev/linter/rules/no-focused-tests
+        "noFocusedTests": "error",
+        // Prevent using the next/head module in pages/_document.js on Next.js projects.
+        // https://biomejs.dev/linter/rules/no-head-import-in-document
+        // "noHeadImportInDocument": "error",
         // Checks that the assertion function, for example expect, is placed inside an it() function call.
         // https://biomejs.dev/linter/rules/no-misplaced-assertion
         "noMisplacedAssertion": "error",
@@ -355,15 +351,24 @@
         // Disallow disabled tests.
         // https://biomejs.dev/linter/rules/no-skipped-tests
         "noSkippedTests": "warn",
+        // Disallow the use of var
+        // https://biomejs.dev/linter/rules/no-var
+        "noVar": "error",
         // Ensure async functions utilize await.
         // https://biomejs.dev/linter/rules/use-await
         "useAwait": "error",
         // Enforce passing a message value when creating a built-in error.
         // https://biomejs.dev/linter/rules/use-error-message
         "useErrorMessage": "error",
+        // Require for-in loops to include an if statement.
+        // https://biomejs.dev/linter/rules/use-guard-for-in
+        "useGuardForIn": "error",
         // Enforce using the digits argument with Number#toFixed().
         // https://biomejs.dev/linter/rules/use-number-to-fixed-digits-argument
-        "useNumberToFixedDigitsArgument": "error"
+        "useNumberToFixedDigitsArgument": "error",
+        // Enforce the use of the directive "use strict" in script files.
+        // https://biomejs.dev/linter/rules/use-strict-mode
+        "useStrictMode": "error"
       }
     }
   },
