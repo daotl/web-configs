@@ -30,18 +30,18 @@
         /* JS */
         // Provides a code action to sort the imports and exports in the file using a built-in or custom order.
         // https://biomejs.dev/assist/actions/organize-imports
-        // "organizeImports": true, // Recommended
+        // "organizeImports": "on", // Recommended
         // Enforce attribute sorting in JSX elements.
         // https://biomejs.dev/assist/actions/use-sorted-attributes
-        // "useSortedAttributes": true,
+        // "useSortedAttributes": "on",
         // Enforce ordering of a JS object properties.
         // https://biomejs.dev/assist/actions/use-sorted-keys
-        // "useSortedKeys": true
+        // "useSortedKeys": "on"
 
         /* CSS */
         // Enforce ordering of CSS properties and nested rules.
         // https://biomejs.dev/assist/actions/use-sorted-properties
-        "useSortedProperties": true
+        "useSortedProperties": "on"
       }
     }
   },
@@ -81,6 +81,13 @@
     }
   },
   "linter": {
+    "domains": {
+      "project": "all",
+      "test": "all"
+      // "react": "recommended",
+      // "next": "recommended",
+      // "solid": "recommended"
+    },
     "rules": {
       "recommended": true,
       // Rules focused on preventing accessibility problems.
