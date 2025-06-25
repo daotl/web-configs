@@ -17,7 +17,6 @@
     ]
   },
   "formatter": {
-    // "enabled": true,
     "formatWithErrors": true,
     "indentStyle": "space"
     // "indentWidth": 2,
@@ -25,15 +24,36 @@
     // "lineWidth": 80,
     // "attributePosition": "auto",
   },
-  "html": {
-    "formatter": {
-      "enabled": true
+  "assist": {
+    "actions": {
+      "source": {
+        /* JS */
+        // Provides a code action to sort the imports and exports in the file using a built-in or custom order.
+        // https://biomejs.dev/assist/actions/organize-imports
+        // "organizeImports": true, // Recommended
+        // Enforce attribute sorting in JSX elements.
+        // https://biomejs.dev/assist/actions/use-sorted-attributes
+        // "useSortedAttributes": true,
+        // Enforce ordering of a JS object properties.
+        // https://biomejs.dev/assist/actions/use-sorted-keys
+        // "useSortedKeys": true
+
+        /* CSS */
+        // Enforce ordering of CSS properties and nested rules.
+        // https://biomejs.dev/assist/actions/use-sorted-properties
+        "useSortedProperties": true
+      }
     }
   },
+  // "json": {},
+  // "html": {},
   // TODO: Waiting support for Embedded language formatting (`<style>` in `*.vue`)
   // https://github.com/biomejs/biome/issues/3334
   "css": {
     "formatter": {
+      "enabled": false
+    },
+    "assist": {
       "enabled": false
     },
     "linter": {
